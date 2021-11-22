@@ -47,8 +47,8 @@ I will also explore the question of bi-interpretability.
 \subsection{Language}
 The language $\mathcal{L}_\diamond$ is multi-modal and in fact contains three modal 
 operators, $\du$, $\dl$, and $\Diamond$. $\du \varphi$ should be read as: `by repeated 
-acts of set production, $\varphi$ can be made true'; that is, by repeatedly taking some things 
-and producing the set with them as its elements, $\varphi$ can be made true. 
+acts of collection, $\varphi$ can be made true'; that is, by repeatedly taking some things 
+and collecting them together into a set, $\varphi$ can be made true. 
 (We allow any number of repetitions, from $0$ into the transfinite.) 
 $\dl$ can be interpreted in one of two ways: either as `by repeated acts of enumeration, 
 $\varphi$ can be made true', where here by enumeration we mean the act of correlating 
@@ -173,7 +173,7 @@ As to the set-theoretic axioms, we begin with a discussion
 of the distinctive axioms for height potentialism, for which we will 
 follow the development of \O ystein Linnebo in CITE.
 Here the central axiom is 
-\begin{equation}
+\begin{equation}\label{hpot}
     \Box \forall X \du \exists x[Set(x, X)]
 \end{equation}
 where $Set(x, X)$ is an abbreviation for $\forall y[ y \in x \leftrightarrow Xy]$. This 
@@ -183,21 +183,61 @@ derivability of $\Box \exists X \neg \exists x[Set(x, X)]$ (Russell's paradox).
 
 This axiom by itself guarantees the possible existence of each hereditarily finite set, but 
 in the spirit of pursuing transfinite set theory in the potentialist system we will want to 
-push things further. The axioms 
+push things further. As a first step, consider the axiom 
 \begin{equation}\label{compn}
     \du \exists X \Box \forall x [ Xx \leftrightarrow Nat(x)]
 \end{equation}
+where here $Nat(x)$ can be any of your favorite definitions of natural number 
+(e.g. finite von Neumann ordinal.) 
+\eqref{compn} says that by repeated acts of collection one can eventually 
+produce all possible natural numbers,
+and given this a further application of \eqref{hpot} secures the possible 
+existence of an infinite set.
+
+\eqref{compn} is a natural analogue of the axiom of infinity in the potentialist setting. The 
+natural analogue of the powerset axiom would be 
 \begin{equation}\label{comps}
+    \du \exists X \Box \forall x [ Xx \leftrightarrow x \subseteq y]
+\end{equation}
+where $\subseteq$ is defined as usual and $y$ is an arbitrary set parameter. However this 
+axiom will be false on the intended interpretation, since given any infinite $y$ we will have 
+that it is always possible to introduce new subsets of $y$ in the form of enumerating functions /
+generic filters. But instead of giving up altogether on the infinitary mathematics that goes 
+along with powerset, we will instead adopt the `restriction' of the principle to the modality $\bu$.
+The idea will be that, given any arbitrary set $y$, by repeatedly introducing sets one will 
+eventually get all the subsets of it that one can ever get \emph{without using forcing}. The 
+axiom thus reads:
+\begin{equation}\label{comps2}
     \du \exists X \bu \forall x [ Xx \leftrightarrow x \subseteq y]
 \end{equation}
-assert that it is possible, by introducing enough sets, to eventually produce all possible natural
-numbers (in the case of \eqref{compn}), and to eventually produce all the subsets of any given set $y$
-that one can get \emph{without forcing/enumeration} (in the case of \eqref{comps}). \eqref{comps} is 
-weaker than \eqref{compn} in terms of its structure since $\bu$ is weaker than $\Box$, and the reason 
-for this should be clear on the intuitive readings of the modal operators: while we cannot add 
-natural numbers by forcing, we can in general add subsets of infinite sets in this way, so \eqref{comps}
-is the strongest we can consistently hope for in this setting. (Can we derive the stronger thing 
-from the weaker one??)
+ This is 
+a kind of local powerset axiom for `inner models'; the precise sense in which this is true will 
+be made apparent in more detail below.
+
+We will also adopt the following axiom, distinctive of width potentialism. In it, we let 
+$D(x, X)$ abbreviate the claim that $x$ is a partial order and $X$ contains all the dense subsets 
+in $x$; and $Fmeets(x, X)$ will abbreviate the claim that $x$ is a filter that 
+meets all the sets in $X$.
+\begin{equation}\label{wpot}
+    \Box \forall X, x [D(x, X) \rightarrow \dl \exists g[Fmeets(g, X)]]
+\end{equation}
+One can show, using the other axioms, that \eqref{wpot} implies the negation of \eqref{comps}.
+
+Finally, we adopt a version of the axiom of replacement (in fact collection). Say $\varphi$ is \emph{chaotically modalized}
+iff every existential quantifier is prefixed by one of $\du, \dl,$ or $\Diamond$, and similarly for 
+universal quantifiers and the boxes. Then 
+\[\Box \forall x \in a \Diamond \exists y \varphi (x, y) 
+\rightarrow \du \exists b \forall x \in a \exists y \in b \varphi(x, y)\]
+is an axiom for every chaotically modalzed $\varphi$. The intuition here, as will be borne out 
+below, is that chaotically modalized $\varphi$ are a broad and natural class of `rigid' formulas,
+that is formulas that satisfy $\Diamond \varphi \rightarrow \Box \varphi$, and hence the 
+relation $\varphi(x, y)$ is defined stably enough that collection is appropriate over given sets $a$.
+The fact the consequent begins with $\du$ reflects that replacement is a principle of height expansion.
+
+\section{Basic Facts}
+In this section we articulate some basic facts about the axiom system just presented, 
+along with some general results that will prove useful later on.
+
 
 
 
