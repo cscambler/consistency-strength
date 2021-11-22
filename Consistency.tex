@@ -54,16 +54,17 @@ $\dl$ can be interpreted in one of two ways: either as `by repeated acts of enum
 $\varphi$ can be made true', where here by enumeration we mean the act of correlating 
 some given things with the natural numbers; or alternatively `enumeration' 
 may be replaced by `forcing'. The results are equivalent in the sense demonstrated in 
-CITE. Finally, $\Diamond$ is the `most general' modality, and represents possibility by 
+CITE. $\Diamond$ is the `most general' modality, and represents possibility by 
 arbitrary iterations of either domain expansion technique. 
 
 $\mathcal{L}_\diamond$ is also a monadic second order language, 
 with standard, singular `objectual' variables $x$ 
 and second order `plural' variables $X$; these latter range over things taken many at 
 a time (e.g. the members of an orchestra) rather than individuals (e.g. the conductor). 
-Finally, we will of course use the membership symbol $\in$ and identity relation
+In addition, we will of course use the membership symbol $\in$ and identity relation
 $=$. Atomic formulas are of the form $x = y$, $X = Y$, $x \in y$, and $Xx$. Compound 
-formulas are formed from these in the usual way.
+formulas are formed from these in the usual way, and we assume all the usual definitions,
+e.g. of $\Box$ in terms of $\Diamond$ and $\neg$.
 \subsection{Logic}
 The logical (non-set-theoretic) axioms can reasonably naturally be separated 
 into those concerning the first-order part of the language, those that concern 
@@ -77,8 +78,8 @@ version, that is, with the universal instantiation axiom written in the form:
     \forall x [\forall y [ \varphi y] \rightarrow \varphi x]
 \end{equation}
 With regards the modal logic, we assume $\mathsf{S4.2}$ for each modal operator,
-which (given any standard axiom system) will imply the converse Barcan formula, which 
-we also assume. We also take necessitation to be part of the system; finally, in 
+which (given any standard axiom system) will imply the converse Barcan formula. 
+We also take necessitation to be part of the system; and, in 
 accordance with the idea that $\Diamond$ is the most general modal at issue, we take 
 each of the `weakening' principles
 \begin{equation}
@@ -87,8 +88,8 @@ each of the `weakening' principles
 \begin{equation}
     \dl \varphi \rightarrow \Diamond \varphi
 \end{equation}
-as further axioms. In each case the relevant $\Box$ is defined in the usual way. 
-Finally, it is worth briefly remarking that the standardly valid inference rule 
+as further axioms.
+The standardly valid inference rule 
 \begin{prooftree}
     \AxiomC{$\Phi_1 \rightarrow \Box (\Phi_2 \rightarrow ... \Box ( \Phi_n \rightarrow \Box \Psi) ... )$}
     \UnaryInfC{$\Phi_1 \rightarrow \Box (\Phi_2 \rightarrow ... \Box ( \Phi_n \rightarrow \Box \forall x \Psi) ... )$}
@@ -138,7 +139,8 @@ Given the inference rule mentioned above, the latter implies a version of the
 Barcan formula for $Xx$, and hence that pluralities do not `pick up' new components 
 from world to world. Overall, the effect is to ensure (speaking model-theoretically 
 for a moment) that $Xx$ holds at some possible world iff it holds at all 
-possible worlds. 
+possible worlds, and that some things are the same things as some others when and only
+when they are composed of the same individuals. 
 
 
 
