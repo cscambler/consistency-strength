@@ -13,7 +13,6 @@ University of Oxford}
 \newtheorem{Proposition}[Theorem]{Proposition}
 \newtheorem{Lemma}[Theorem]{Lemma}
 \newtheorem{Corollary}[Theorem]{Corollary}
-\usepackage{times}
 % These will be typeset in Roman
 \theoremstyle{definition}
 \newtheorem{Definition}[Theorem]{Definition}
@@ -21,18 +20,82 @@ University of Oxford}
 \newtheorem{Conjecture}[Theorem]{Conjecture}
 \newtheorem{Remark}[Theorem]{Remark}
 %
+\newcommand{\du}{\Diamond_\uparrow}
+\newcommand{\dl}{\Diamond_\leftarrow}
+\newcommand{\bu}{\Box_\uparrow}
+\newcommand{\bl}{\Box_\leftarrow}
+
 \begin{document} 
 \maketitle
 %\begin{abstract} \end{abstract}
 
 \section{Introduction}
-Potentialism in the foundations of mathematics is a nebulous collection of ideas
-with links in logic and metaphysics. All the various approaches to potentialism 
-are united by a common theme, namely that modal logic is somehow useful in studying 
-mathematical domains that have traditionally only been approached in the setting 
-of quantification theory. But the ways in which modal logic is applied,
-and the underlying motivations for its application, vary from instance to instance
-quite considerably.
+In CITE, I presented an axiom system for height and width potentialism combined. 
+Roughly speaking the axiom system is motivated by the idea of an iterative set 
+construction process in which two `acts' are possible at each stage -- 
+firstly, that of collecting some things 
+into a set, and secondly, that of enumerating some things in terms of the natural 
+numbers (or, equivalently, forcing). I proved the system consistent on the assumption 
+a Mahlo cardinal existed, and showed that the system interpreted ZFC under an `inner'
+modal translation, and that second order arithmetic was interpretable under a 
+more general modal translation. This article improves on the consistency result given
+there. I will show that in fact the theory is equi-consistent with second order 
+arithmetic extended with the $\Pi_1^1$ perfect set property, and hence also with ZFC.
+I will also explore the question of bi-interpretability.
 
+\section{The Axiom System}
+\subsection{Language}
+The language $\mathcal{L}_\diamond$ is multi-modal and in fact contains three modal 
+operators, $\du$, $\dl$, and $\Diamond$. $\du \varphi$ should be read as: `by repeated 
+acts of collection, $\varphi$ can be made true'; that is, by repeatedly taking some things 
+and producing the set with them as its elements, $\varphi$ can be made true. 
+(We allow any number of repetations, from $0$ into the transfinite.) 
+$\dl$ can be interpreted in one of two ways: either as `by repeated acts of enumeration, 
+$\varphi$ can be made true', where here by enumeration we mean the act of correlating 
+some given things with the natural numbers; or alternatively `enumeration' 
+may be replaced by `forcing'. The results are equivalent in the sense demonstrated in 
+CITE. Finally, $\Diamond$ is the `most general' modality, and represents possibility by 
+arbitrary iterations of either domain expansion technique. 
 
+$\mathcal{L}_\diamond$ is also a monadic second order language, 
+with standard, singular `objectual' variables $x$ 
+and second order `plural' variables $X$; these latter range over things taken many at 
+a time (e.g. the members of an orchestra) rather than individuals (e.g. the conductor). 
+Finally, we will of course use the membership symbol $\in$ and identity relation
+$=$. Atomic formulas are of the form $x = y$, $X = Y$, $x \in y$, and $Xx$. Compound 
+formulas are formed from these in the usual way.
+\subsection{Logic}
+The logical (non-set-theoretic) axioms can reasonably naturally be separated 
+into those concerning the first-order part of the language, those that concern 
+the modals, those that govern the second order variables, 
+and those that concern identity.
+
+For the first order part, we take the axioms to be any standard system of first
+order quantification logic, with universal instantiation weakened to its `free'
+version, that is, with the universal instantiation axiom written in the form: 
+\begin{equation}
+    \forall x [\forall y [ \varphi y] \rightarrow \varphi x]
+\end{equation}
+With regards the modal logic, we assume $\mathsf{S4.2}$ for each modal operator,
+which (given any standard axiom system) will imply the converse Barcan formula, which 
+we also assume. We also take necessitation to be part of the system; finally, in 
+accordance with the idea that $\Diamond$ is the most general modal at issue, we take 
+each of the `weakening' principles
+\begin{equation}
+    \du \varphi \rightarrow \Diamond \varphi
+\end{equation}
+\begin{equation}
+    \dl \varphi \rightarrow \Diamond \varphi
+\end{equation}
+as further axioms. In each case the relevant $\Box$ is defined in the usual way.
+
+As to the second order logic, we assume full comprehension \emph{in closed form},
+so all expressions of the form 
+\begin{equation}
+    \Box \forall \vec{z} \Box \forall \vec{Z} \exists X \forall x[Xx \leftrightarrow \Phi(x, z, Z)]
+\end{equation}
+are axioms.
+Here of course $X$ may not appear free in $\Phi$, but we assume all variables 
+other than 
+$x$ that are free in $\Phi$ occur in the lists $\vec{z}, \vec{Z}$.
 \end{document}
