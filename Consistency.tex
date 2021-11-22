@@ -35,11 +35,11 @@ Roughly speaking the axiom system is motivated by the idea of an iterative set
 construction process in which two `acts' are possible at each stage -- 
 firstly, that of collecting some things 
 into a set, and secondly, that of enumerating some things in terms of the natural 
-numbers (or, equivalently, forcing). I proved the system consistent on the assumption 
-a Mahlo cardinal existed, and showed that the system interpreted ZFC under an `inner'
+numbers (or, equivalently, forcing). I proved the system consistent relative 
+to ZFC + the existence of a Mahlo, showed that the system interpreted ZFC under a restricted
 modal translation, and that second order arithmetic was interpretable under a 
-more general modal translation. This article improves on the consistency result given
-there. I will show that in fact the theory is equi-consistent with second order 
+more general, `full' modal translation. This article improves on these results in various ways.
+I will show that in fact the modal theory in question is equi-consistent with second order 
 arithmetic extended with the $\Pi_1^1$ perfect set property, and hence also with ZFC.
 I will also explore the question of bi-interpretability.
 
@@ -47,20 +47,24 @@ I will also explore the question of bi-interpretability.
 \subsection{Language}
 The language $\mathcal{L}_\diamond$ is multi-modal and in fact contains three modal 
 operators, $\du$, $\dl$, and $\Diamond$. $\du \varphi$ should be read as: `by repeated 
-acts of collection, $\varphi$ can be made true'; that is, by repeatedly taking some things 
+acts of set production, $\varphi$ can be made true'; that is, by repeatedly taking some things 
 and producing the set with them as its elements, $\varphi$ can be made true. 
-(We allow any number of repetations, from $0$ into the transfinite.) 
+(We allow any number of repetitions, from $0$ into the transfinite.) 
 $\dl$ can be interpreted in one of two ways: either as `by repeated acts of enumeration, 
 $\varphi$ can be made true', where here by enumeration we mean the act of correlating 
 some given things with the natural numbers; or alternatively `enumeration' 
-may be replaced by `forcing'. The results are equivalent in the sense demonstrated in 
-CITE. $\Diamond$ is the `most general' modality, and represents possibility by 
-arbitrary iterations of either domain expansion technique. 
+may be replaced by `forcing', where this is understood as the act of 
+introducing a filter meeting all the given dense sets of some partial order.
+(The resulting interpretations are equivalent in the sense demonstrated in 
+CITE.) The remaining modal, $\Diamond$, is the `most general' modality, 
+and represents possibility by arbitrary iterations of either domain expansion technique. 
 
 $\mathcal{L}_\diamond$ is also a monadic second order language, 
 with standard, singular `objectual' variables $x$ 
 and second order `plural' variables $X$; these latter range over things taken many at 
-a time (e.g. the members of an orchestra) rather than individuals (e.g. the conductor). 
+a time rather than individuals; so for example the members of an orchestra and the string 
+section are each possible values of the monadic second order variables, while the conductor 
+and the first chair violinist would be possible values for the first order variables. 
 In addition, we will of course use the membership symbol $\in$ and identity relation
 $=$. Atomic formulas are of the form $x = y$, $X = Y$, $x \in y$, and $Xx$. Compound 
 formulas are formed from these in the usual way, and we assume all the usual definitions,
@@ -109,7 +113,7 @@ $x$ that are free in $\Phi$ occur in the lists $\vec{z}, \vec{Z}$. We also assum
 a version of the axiom of choice, to the effect that if $X$ comprises disjoint 
 non-empty sets then there is $Y$ containing exactly one element of 
 each component of $X$. (Formalizing this in our language is easy enough, using the 
-usual definitions of non-empty and disjoint in terms of $\in$ and $=$.)
+usual definitions of non-empty and disjoint in terms of $\in$.)
 
 Finally we turn to the axioms concerning identity, which also tend to involve 
 all the other components of the language. As usual, we assume reflexivity and 
@@ -129,11 +133,11 @@ We can enforce this conception axiomatically using the following principles.
 \begin{equation}
     \forall x [Xx \leftrightarrow Yx] \rightarrow X = Y
 \end{equation}
-\begin{equation}
+\begin{equation}\label{prig}
     \Diamond Xx \rightarrow \Box Xx
 \end{equation}
-\begin{equation}
-    \Diamond \exists Xx \wedge x = y \rightarrow \exists x Xx \wedge x = y
+\begin{equation}\label{pbf}
+    \Diamond \exists x [Xx \wedge x = y] \rightarrow \exists x [Xx \wedge x = y]
 \end{equation}
 Given the inference rule mentioned above, the latter implies a version of the 
 Barcan formula for $Xx$, and hence that pluralities do not `pick up' new components 
@@ -141,7 +145,59 @@ from world to world. Overall, the effect is to ensure (speaking model-theoretica
 for a moment) that $Xx$ holds at some possible world iff it holds at all 
 possible worlds, and that some things are the same things as some others when and only
 when they are composed of the same individuals. 
+\subsection{Set Theory}
+With the background logic in tow we can formalize the axiomatic system of height
+and width potentialism that will be the target of our investigations.
 
+The set-theoretic axioms can themselves be reasonably naturally divided into two categories.
+First, there are those that concern the identity conditions for sets. Second, there are those 
+that concern possible set existence, and that make assertions about the kinds of sets it is 
+possible to produce by iterating our various construction procedures.
+
+First, on the side of identity conditions. We would like sets to have the members they have as a matter of 
+necessity, so that (like plurals) they have exactly the members they have at any world in all worlds
+(to slip into model-theoretic talk again). This can be imposed by the following pair of axioms:
+\begin{equation}
+    \forall z[z \in x \leftrightarrow z \in y] \rightarrow x = y
+\end{equation}
+\begin{equation}\label{ecompl}
+    \exists X\Box\forall z[Xx \leftrightarrow z \in x]
+\end{equation}
+where $x$, in the latter, is an arbitrary set parameter. 
+Analogs of \eqref{prig} and \eqref{pbf} for $\in$ can be derived using \eqref{prig}, \eqref{pbf}
+and \eqref{ecompl}. As a final constraint of sorts on the identity conditions for sets, we 
+impose the standard axiom of foundation, which says that every non-empty set has a member with 
+which it shares no members. 
+
+As to the set-theoretic axioms, we begin with a discussion 
+of the distinctive axioms for height potentialism, for which we will 
+follow the development of \O ystein Linnebo in CITE.
+Here the central axiom is 
+\begin{equation}
+    \Box \forall X \du \exists x[Set(x, X)]
+\end{equation}
+where $Set(x, X)$ is an abbreviation for $\forall y[ y \in x \leftrightarrow Xy]$. This 
+axiom can intuitively be read as saying that any possible things are possibly the elements of a set;
+it leads to a form of indefinite extendibility of the universe of sets in light of the modal logical 
+derivability of $\Box \exists X \neg \exists x[Set(x, X)]$ (Russell's paradox).
+
+This axiom by itself guarantees the possible existence of each hereditarily finite set, but 
+in the spirit of pursuing transfinite set theory in the potentialist system we will want to 
+push things further. The axioms 
+\begin{equation}\label{compn}
+    \du \exists X \Box \forall x [ Xx \leftrightarrow Nat(x)]
+\end{equation}
+\begin{equation}\label{comps}
+    \du \exists X \bu \forall x [ Xx \leftrightarrow x \subseteq y]
+\end{equation}
+assert that it is possible, by introducing enough sets, to eventually produce all possible natural
+numbers (in the case of \eqref{compn}), and to eventually produce all the subsets of any given set $y$
+that one can get \emph{without forcing/enumeration} (in the case of \eqref{comps}). \eqref{comps} is 
+weaker than \eqref{compn} in terms of its structure since $\bu$ is weaker than $\Box$, and the reason 
+for this should be clear on the intuitive readings of the modal operators: while we cannot add 
+natural numbers by forcing, we can in general add subsets of infinite sets in this way, so \eqref{comps}
+is the strongest we can consistently hope for in this setting. (Can we derive the stronger thing 
+from the weaker one??)
 
 
 
