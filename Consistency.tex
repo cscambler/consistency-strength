@@ -1,5 +1,5 @@
 \documentclass{article}
-\usepackage{amsmath, amsthm, amssymb}
+\usepackage{amsmath, amsthm, amssymb, bussproofs}
 %
 \title{On the Consistency Strength of Axioms for Height and Width Potentialism}
 %
@@ -87,7 +87,14 @@ each of the `weakening' principles
 \begin{equation}
     \dl \varphi \rightarrow \Diamond \varphi
 \end{equation}
-as further axioms. In each case the relevant $\Box$ is defined in the usual way.
+as further axioms. In each case the relevant $\Box$ is defined in the usual way. 
+Finally, it is worth briefly remarking that the standardly valid inference rule 
+\begin{prooftree}
+    \AxiomC{$\Phi_1 \rightarrow \Box (\Phi_2 \rightarrow ... \Box ( \Phi_n \rightarrow \Box \Psi) ... )$}
+    \UnaryInfC{$\Phi_1 \rightarrow \Box (\Phi_2 \rightarrow ... \Box ( \Phi_n \rightarrow \Box \forall x \Psi) ... )$}
+\end{prooftree}
+
+will also be assumed.
 
 As to the second order logic, we assume full comprehension \emph{in closed form},
 so all expressions of the form 
@@ -97,5 +104,45 @@ so all expressions of the form
 are axioms.
 Here of course $X$ may not appear free in $\Phi$, but we assume all variables 
 other than 
-$x$ that are free in $\Phi$ occur in the lists $\vec{z}, \vec{Z}$.
+$x$ that are free in $\Phi$ occur in the lists $\vec{z}, \vec{Z}$. We also assume 
+a version of the axiom of choice, to the effect that if $X$ comprises disjoint 
+non-empty sets then there is $Y$ containing exactly one element of 
+each component of $X$. (Formalizing this in our language is easy enough, using the 
+usual definitions of non-empty and disjoint in terms of $\in$ and $=$.)
+
+Finally we turn to the axioms concerning identity, which also tend to involve 
+all the other components of the language. As usual, we assume reflexivity and 
+Leibniz law for first and second order identity; and as usual we are able to 
+derive the necessity of identity from these in the form 
+$\forall x \forall y [ x = y \rightarrow \Box x = y]$, analogously for $X$ and $Y$.\footnote{
+    Note however that this implies nothing about inexistent values of variables,
+    which may be contingently identical given our axioms up to now. That is, 
+    $x = y \wedge \Diamond x \not = y$ is consistent.
+} However, since our modal logic is not symmetric, we must add the necessity of 
+distinctness ($\forall x \forall y [x \not = y \rightarrow \Box [x \not = y]]$) 
+`by hand'. 
+
+Our conception of identity for `plural' variables $X$ is in addition \emph{strongly
+extensional}, meaning that plurals comprise the same things at all possible worlds. 
+We can enforce this conception axiomatically using the following principles.
+\begin{equation}
+    \forall x [Xx \leftrightarrow Yx] \rightarrow X = Y
+\end{equation}
+\begin{equation}
+    \Diamond Xx \rightarrow \Box Xx
+\end{equation}
+\begin{equation}
+    \Diamond \exists Xx \wedge x = y \rightarrow \exists x Xx \wedge x = y
+\end{equation}
+Given the inference rule mentioned above, the latter implies a version of the 
+Barcan formula for $Xx$, and hence that pluralities do not `pick up' new components 
+from world to world. Overall, the effect is to ensure (speaking model-theoretically 
+for a moment) that $Xx$ holds at some possible world iff it holds at all 
+possible worlds. 
+
+
+
+
+
+
 \end{document}
