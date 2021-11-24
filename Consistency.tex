@@ -254,11 +254,42 @@ corresponding $\varphi$ has the form... .
 
 Some relevant facts about the correlated theory.
 
-It interprets ZFC, indeed it proves that $ZFC^L[r]$ for every real $r$.
+It interprets ZFC, indeed it proves that $ZFC^{L[r]}$ for every real $r$.
 
 \dots
 
 \subsection{An interpretation of $\mathsf{M}$ in $\mathsf{T}$}
+ Let $M \vDash SOA + \Pi_1^1 PSP$.
+
+$t : \mathcal{L}_1 \times M \times \mathbb{R}^M \to \mathcal{L}_\in, (\varphi, T, r) \mapsto \psi(T, r)$
+\begin{itemize}
+    \item assign plural variables odd numbered variables $t(X)$.
+    \item Membership = id, commutes with propositional connectives 
+    \item $t(Xx)(T, r) := x \in t(X)$
+    \item $t(\forall x \varphi)(T, r) := \forall x \in T [t(\varphi)(T, r)]$
+    \item $t(\forall X \varphi)(T, r) := \forall x \subseteq T [x \in L[r] \rightarrow t(\varphi)(T, r)]$
+    \item $t(\bu \varphi)(T, r) := \forall S \supseteq T [Tran(S) \wedge S \in L[r] \rightarrow t(\varphi)(S, r)]$
+    \item $t(\bl \varphi)(T, r) := \forall s[ r \in L[s] \rightarrow \forall S[ S \supseteq T \wedge rank(S) = rank(T) \wedge S \in L[s] \rightarrow t(\varphi)(S, s)]]$
+    \item $t(\Box \varphi)(T, r) := \forall S, s[S \supseteq T \wedge Tran(S) \wedge r \in L[s] \rightarrow t(\varphi)(S, s) ]$
+\end{itemize}
+
+
+\begin{Theorem}
+  $\mathsf{M} \vdash \varphi$ implies $\mathsf{T} \vdash \forall T,r[ t(\varphi)(T, r)]$  
+\end{Theorem}
+\begin{proof}
+    Induction on the complexity of proofs. Axioms. Consider for example 
+    Free instantiation: $\forall x[\forall y \varphi y \rightarrow \varphi x]$.
+    Suppose $T$ and $r$ given; this translates to $\forall x \in T [ \forall y \in T t(\varphi y)(T, r) \rightarrow t(\varphi x) (T, r)]$.
+    But this is trivial. Note that unfree instantiation fails since we might have counterexamples 
+    outside $T$.
+
+    The plural rigidity axioms are completely trivial. For plural comprehension 
+    we can use separation in $L[r]$; note that this only works because we restrict ourselves 
+    to parameters in $L[r]$ (i.e. closed form). Without this it fails.
+
+\end{proof}
+
 
 \subsection{An interpretation of $\mathsf{T}$ in $\mathsf{M}$}
 
