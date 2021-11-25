@@ -300,12 +300,41 @@ $t : \mathcal{L}_1 \times M \times \mathbb{R}^M \to \mathcal{L}_\in, (\varphi, T
     we can just extend it to a larger transitive set still in $L[r]$ that contains $X$ as a member.
 
     Infinity is easy. As to power, this follows from the fact that $L[r]$ satisfies power in $M$.
+
+    The trickiest part is chaotically modalized replacement. This is still pretty 
+    straightforward though because we have straightforward translations for each modality 
+    and can just appeal to replacement in $M$.
     
 
 \end{proof}
 
 
 \subsection{An interpretation of $\mathsf{T}$ in $\mathsf{M}$}
+For the converse, it is easy to show $SOA^\diamond$. 
+For $\Pi_1^1 PSP^\diamond$, we prove the $\Diamond$-translation of the 
+assertion that only countably many reals are constructible from $L[r]$.
+Using a modification of a result of Solovay (to avoid powerset),
+this implies over SOA that $\Pi_1^1 PSP$ holds in $r$. Hence the result 
+follows by the mirroring theorem.
+
+\subsection{Bi-interpretation}
+We have
+\begin{Theorem}
+    $T \vdash t(\varphi^\diamond)(\emptyset, 0) \leftrightarrow \varphi$
+\end{Theorem}
+\begin{proof}
+    Induction on complexity. The basis cases are immediate. So consider $\varphi$ of 
+    the form $\forall x \psi$. By IH we have $T \vdash t(\psi^\diamond)(\emptyset, 0) \leftrightarrow \psi$.
+    So suppose that for every transitive $X$ and every $x$ in $X$ we have  $t(\psi^\diamond)(\emptyset, 0)$
+    and hence $\psi$. Then since every set is an element of a transitive set we have our result. 
+    Actually isn't that it for first order formulas?
+\end{proof}
+\begin{Theorem}
+    $\mathsf{M} \vdash t((\varphi)(\emptyset, 0))^\diamond \leftrightarrow \varphi$
+\end{Theorem}
+\begin{proof}
+    More complicated?
+\end{proof}
 
 
 \end{document}
