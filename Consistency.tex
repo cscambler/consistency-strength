@@ -134,10 +134,10 @@ We can enforce this conception axiomatically using the following principles.
     \forall x [Xx \leftrightarrow Yx] \rightarrow X = Y
 \end{equation}
 \begin{equation}\label{prig}
-    \Diamond Xx \rightarrow \Box Xx
+    \Box \forall X, x [\Diamond Xx \rightarrow \Box Xx]
 \end{equation}
 \begin{equation}\label{pbf}
-    \Diamond \exists x [Xx \wedge x = y] \rightarrow \exists x [Xx \wedge x = y]
+    \Box \forall X[\Diamond \exists x [Xx \wedge x = y] \rightarrow \exists x [Xx \wedge x = y]]
 \end{equation}
 Given the inference rule mentioned above, the latter implies a version of the 
 Barcan formula for $Xx$, and hence that pluralities do not `pick up' new components 
@@ -284,9 +284,23 @@ $t : \mathcal{L}_1 \times M \times \mathbb{R}^M \to \mathcal{L}_\in, (\varphi, T
     But this is trivial. Note that unfree instantiation fails since we might have counterexamples 
     outside $T$.
 
-    The plural rigidity axioms are completely trivial. For plural comprehension 
-    we can use separation in $L[r]$; note that this only works because we restrict ourselves 
-    to parameters in $L[r]$ (i.e. closed form). Without this it fails.
+    The plural rigidity axioms are completely trivial. As for \eqref{pbf},
+    suppose you have a transitive set $T$ with $X$ a subsete of $T$ and $x$ an element, 
+    and $x \in X$. Then in any transitive extension $S$ of $T$, we still have $x$ in $S$ and $x \in X$.
+    For plural comprehension 
+    we can use separation in $L[r]$. Suppose that $T$ is a transitive set and 
+    $\varphi(x, z, Z)$ is a formula with parameters in $T$ from $L[r]$. Then the subset
+    $X \subset T$ given by $x \in X$ iff $\varphi(x, z, Z)$ is in $L[r]$ too, and so 
+    the translation of plural comprehension holds. note that this only works because we restrict ourselves 
+    to parameters in $L[r]$ (i.e. closed form). Without this it fails; if we have parameters 
+    out of $L[r]$, there are subsets of $T$ that aren't in $L[r]$.
+
+    The first non-trivial axiom next is \eqref{hpot}. This goes through because 
+    if we have any transitive set $T$ and subset $X$ of $T$ in the $L[r]$ of the relevant real parameter,
+    we can just extend it to a larger transitive set still in $L[r]$ that contains $X$ as a member.
+
+    Infinity is easy. As to power, this follows from the fact that $L[r]$ satisfies power in $M$.
+    
 
 \end{proof}
 
