@@ -331,10 +331,15 @@ We have
     Actually isn't that it for first order formulas?
 \end{proof}
 \begin{Theorem}
-    $\mathsf{M} \vdash t((\varphi)(\emptyset, 0))^\diamond \leftrightarrow \varphi$
+    $\mathsf{M} \vdash Tran(X) \wedge \mathbb{R}(r) \rightarrow t((\varphi)(X, r))^\diamond \leftrightarrow \varphi$
 \end{Theorem}
 \begin{proof}
-    More complicated? Yeh, a lot more complicated. But still plausible.
+    Assume $Tran(X)$ and $\mathbb{R}(r)$, and set $\varphi := \du \psi$. The left side is then 
+    \[\Diamond \exists T [Tran(T) \wedge T \in L \wedge (t(\psi(T, 0)))^\diamond]\]
+    by induction hypothesis, this is equivalent to 
+    \[\Diamond \exists T [Tran(T) \wedge T \in L \wedge \psi]\]
+    so we must show that $M$ proves $\du \psi$ iff it proves it is possible that 
+    there is a transitive set in $L$... wait I'm sure you're missing some stuff here.
 \end{proof}
 
 
