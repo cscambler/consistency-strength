@@ -103,7 +103,7 @@ will also be assumed.
 
 As to the second order logic, we assume full comprehension \emph{in closed form},
 so all expressions of the form 
-\begin{equation}
+\begin{equation}\label{pcomp}
     \Box \forall \vec{z} \Box \forall \vec{Z} \exists X \forall x[Xx \leftrightarrow \Phi(x, z, Z)]
 \end{equation}
 are axioms.
@@ -263,19 +263,20 @@ It interprets ZFC, indeed it proves that $ZFC^{L[r]}$ for every real $r$.
 
 $t : \mathcal{L}_1 \times M \times \mathbb{R}^M \to \mathcal{L}_\in, (\varphi, T, r) \mapsto \psi(T, r)$
 \begin{itemize}
-    \item assign plural variables odd numbered variables $t(X)$.
+    \item assign plural variables odd numbered variables $t(X)$, and singular variables even 
+            numbered variables $t(x)$.
     \item Membership = id, commutes with propositional connectives 
-    \item $t(Xx)(T, r) := x \in t(X)$
+    \item $t(Xx)(T, r) := t(x) \in t(X)$
     \item $t(\forall x \varphi)(T, r) := \forall x \in T [t(\varphi)(T, r)]$
     \item $t(\forall X \varphi)(T, r) := \forall x \subseteq T [x \in L[r] \rightarrow t(\varphi)(T, r)]$
     \item $t(\bu \varphi)(T, r) := \forall S \supseteq T [Tran(S) \wedge S \in L[r] \rightarrow t(\varphi)(S, r)]$
     \item $t(\bl \varphi)(T, r) := \forall s[ r \in L[s] \rightarrow \forall S[ S \supseteq T \wedge rank(S) = rank(T) \wedge S \in L[s] \rightarrow t(\varphi)(S, s)]]$
-    \item $t(\Box \varphi)(T, r) := \forall S, s[S \supseteq T \wedge Tran(S) \wedge r \in L[s] \rightarrow t(\varphi)(S, s) ]$
+    \item $t(\Box \varphi)(T, r) := \forall s, S[r \in L[s] \wedge T \subseteq Tran(S) \in L[s]  \rightarrow t(\varphi)(S, s) ]$
 \end{itemize}
 
 
 \begin{Theorem}
-  $\mathsf{M} \vdash \varphi$ implies $\mathsf{T} \vdash \forall T,r[ t(\varphi)(T, r)]$  
+  $\mathsf{M} \vdash \varphi$ implies $\mathsf{T} \vdash \forall r, T [r \in \mathbb{R} \wedge T \in L[r] \wedge Tran(T) \rightarrow t(\varphi)(T, r)]$  
 \end{Theorem}
 \begin{proof}
     Induction on the complexity of proofs. Axioms. Consider for example 
@@ -284,26 +285,46 @@ $t : \mathcal{L}_1 \times M \times \mathbb{R}^M \to \mathcal{L}_\in, (\varphi, T
     But this is trivial. Note that unfree instantiation fails since we might have counterexamples 
     outside $T$.
 
-    The plural rigidity axioms are completely trivial. As for \eqref{pbf},
-    suppose you have a transitive set $T$ with $X$ a subsete of $T$ and $x$ an element, 
-    and $x \in X$. Then in any transitive extension $S$ of $T$, we still have $x$ in $S$ and $x \in X$.
+    The plural rigidity axioms are tedious but routine. As an example, consider \eqref{pbf}.
+    By way of interpreting the outer $\Box$, let $s \in L[s]$ and $T\subseteq S \in L[s]$. 
+    Then for the plural quantifier we assume $t(X) \subseteq S$, and for the next $\Diamond$ 
+    we take a transitive extension $S'$ of $S$ in $L[s']$ ($s \in L[s']$). 
+    We get as a hypothesis that there exists $t(x) \in S'$ with $t(x) \in t(X)$. 
+    But since $t(X) \subseteq S$ we must already have had $t(x) \in S$, 
+    and clearly $t(Xx)(S, s)$, since this just amounts 
+    to the given $t(x) \in t(X)$, as required.
+
     For plural comprehension 
-    we can use separation in $L[r]$. Suppose that $T$ is a transitive set and 
-    $\varphi(x, z, Z)$ is a formula with parameters in $T$ from $L[r]$. Then the subset
-    $X \subset T$ given by $x \in X$ iff $\varphi(x, z, Z)$ is in $L[r]$ too, and so 
-    the translation of plural comprehension holds. note that this only works because we restrict ourselves 
-    to parameters in $L[r]$ (i.e. closed form). Without this it fails; if we have parameters 
-    out of $L[r]$, there are subsets of $T$ that aren't in $L[r]$.
+    we can use separation in $L[r]$. Let $\Phi(x, z, Z)$ be a formula with the exhibited 
+    free variables. It is readily seen 
+    (applying the clauses of the translation to \eqref{pcomp}) 
+    to suffice to show that 
+    in any transitive extension $S$ of $T$ contained in some $L[s]$ ($r \in L[s]$) 
+    containing $t(z)$ and $t(Z)$, the set $\{x \in S : \Phi(x, t(z), t(Z))\}$ is a member of $L[s]$. 
+    But this follows immediately from the definition of $L[s]$.
+    (Note that this only works because we took \eqref{pcomp} in closed form, with quantifiers 
+    bounded and necessitated. This has the effect of restricting us to cases where the parameters
+    are only allowed to come from $S$ and hence in $L[s]$; if this restriction is lifted, it is 
+    easy to find counterexamples to comprehension under the translation. For example, if $S$ contains 
+    all reals in $L[s]$, the instance for $\Phi := x \in s'$ for any real $s'$ not in $L[s]$ will do.) 
 
-    The first non-trivial axiom next is \eqref{hpot}. This goes through because 
-    if we have any transitive set $T$ and subset $X$ of $T$ in the $L[r]$ of the relevant real parameter,
-    we can just extend it to a larger transitive set still in $L[r]$ that contains $X$ as a member.
+    On to the set-theoretic axioms. First, \eqref{hpot}. Given any transitive $S \in L[s]$, and any 
+    subset $X$ of $S$ also in $L[s]$, the translation follows by considering the transitive set 
+    $S \cup \{X\} \in L[s]$. For \eqref{compn} one can use the set of natural numbers itself as the 
+    relevant transitive set, which is an element of any $L[s]$. 
+    As to power, given $S \in L[s]$ of the relevant kind and any set $x \in S$, we can use the 
+    fact that ZFC hold in $L[s]$ to guarantee that $\mathcal{P}(S)^L[s]$ is in $L[s]$, and hence 
+    the transitive set $S \cup \mathcal{P}(S)^L[s]$ will do the trick.
 
-    Infinity is easy. As to power, this follows from the fact that $L[r]$ satisfies power in $M$.
-
-    The trickiest part is chaotically modalized replacement. This is still pretty 
-    straightforward though because we have straightforward translations for each modality 
-    and can just appeal to replacement in $M$.
+    The trickiest part is chaotically modalized replacement. Let $\varphi$ be chaotically modalized. 
+    Then let $S$ and $L[s]$ have the usual features and suppose $a \in s$ has has the property that, 
+    for every $x$ in $a$, there is a transitive extension $S \subseteq S_x \in L[s_x]$ wherein 
+    $t(\varphi x, y)(S_x, s_x)$ holds for some $y$. Now in our model of course $a$ is countable and 
+    hence the reals $s_x$ for each $x$ can be coded as a single real $s'$. Moreover, the union of 
+    the $S_x$s is a set (by replacement) and in fact belongs to $L[s']$. 
+    Take an extension of this union. We must show that it meets the requirements. This boils 
+    down to showing that $t(\varphi(x, y))(S', s')$. This is actually maybe not so clear. I think 
+    it is probably OK. To show it you need to establish some kind of absoluteness result.
     
 
 \end{proof}
