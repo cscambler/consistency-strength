@@ -311,11 +311,47 @@ $t : \mathcal{L}_1 \times M \times \mathbb{R}^M \to \mathcal{L}_\in, (\varphi, T
 
 \subsection{An interpretation of $\mathsf{T}$ in $\mathsf{M}$}
 For the converse, it is easy to show $SOA^\diamond$. 
-For $\Pi_1^1 PSP^\diamond$, we prove the $\Diamond$-translation of the 
-assertion that only countably many reals are constructible from $L[r]$.
-Using a modification of a result of Solovay (to avoid powerset),
-this implies over SOA that $\Pi_1^1 PSP$ holds in $r$. Hence the result 
-follows by the mirroring theorem.
+It remains to show $\Pi^1_1 PSP^\diamond$. 
+
+Work in $\mathsf{M}$, and let $r$ be an arbitrary real. It suffices to show
+$\Pi_1^1[r]$-$PSP^\diamond$. 
+
+We will use the following lemma, which is a slight modification of a theorem of Solovay.
+\begin{Lemma}[SOA]\label{sol}
+    If there are only countably many reals constructible from $r$, then the $\Pi_1^1[r] PSP$ holds.
+\end{Lemma}
+The proof is a minor modification of Solovay's argument. It uses the fact that in SOA one can show 
+that any $\Pi_1^1$ set admits a decomposition into $ORD$-many Borel sets (Solovay used $\aleph_1$ 
+in place of $ORD$, but the proof works just fine without this assumption). 
+
+Using Lemma \eqref{sol} and the mirroring theorem, it is sufficient to show the diamond-translation 
+of the hypothesis to get our result. That is: for any real $r$, it is possible that 
+there is a function on the natural numbers such that, 
+necessarily, if $s$ is a real constructible from $r$, then $s$ is in the range of $f$.
+
+To prove this, first observe that by the $\du$-translation of ZFC, we can show that for any real $r$
+\begin{equation}
+    \du \exists x, y[\mathbb{R}^L[r]^\du(x) \wedge x \in y]
+\end{equation}
+here, $\mathbb{R}^L[r]^\du$ is the $\du$-translation of the first order formula asserting that $x$ 
+is the set of reals constructible from $L[r]$. The point of $y$ is to get a set that can act as a 
+bound of the quantifiers in the relevant formula. The reason for this is so that we can apply lemma 
+ADD to get 
+\begin{equation}
+    \du \exists x, y[\mathbb{R}^L[r](x) \wedge x \in y]
+\end{equation}
+by dropping all the modal operators, and then applying the same lemma `in reverse' we can infer
+\begin{equation}
+    \Diamond \exists x[\mathbb{R}^L[r](x)^\Diamond]
+\end{equation}
+that is, the $\Diamond$ translation of the assertion that it is possible that all possible 
+reals constructible from $r$ exist. But now since we also have $V = HC^\diamond$, it follows that 
+\begin{equation}
+    \Diamond \exists x[\mathbb{R}^L[r](x)^\Diamond \wedge \exists f : \mathbb{N} \twoheadrightarrow x]
+\end{equation}
+which is just the $\Diamond$-translation of the claim that there are only countably many 
+reals constructible from $r$. Hence, by an application of mirroring, we conclude $\Pi_1^1[r]$-$PSP$.
+The result follows.
 
 \subsection{Bi-interpretation}
 We have
