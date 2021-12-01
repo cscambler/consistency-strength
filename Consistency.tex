@@ -223,16 +223,9 @@ meets all the sets in $X$.
 \end{equation}
 One can show, using the other axioms, that \eqref{wpot} implies the negation of \eqref{comps}.
 
-Finally, we adopt a version of the axiom of replacement (in fact collection). Say $\varphi$ is \emph{chaotically modalized}
-iff every existential quantifier is prefixed by one of $\du, \dl,$ or $\Diamond$, and similarly for 
-universal quantifiers and the boxes. Then 
-\[\Box \forall x \in a \Diamond \exists y \varphi (x, y) 
-\rightarrow \du \exists b \forall x \in a \exists y \in b \varphi(x, y)\]
-is an axiom for every chaotically modalzed $\varphi$. The intuition here, as will be borne out 
-below, is that chaotically modalized $\varphi$ are a broad and natural class of `rigid' formulas,
-that is formulas that satisfy $\Diamond \varphi \rightarrow \Box \varphi$, and hence the 
-relation $\varphi(x, y)$ is defined stably enough that collection is appropriate over given sets $a$.
-The fact the consequent begins with $\du$ reflects that replacement is a principle of height expansion.
+Finally, we adopt certain instances of the replacement axiom (really the 
+collection principle.) To be precise, we adopt all instances of the $\Diamond$ and $\du$ translations 
+of replacement.
 
 \section{Basic Facts}
 In this section we articulate some basic facts about the axiom system just presented, 
@@ -316,15 +309,8 @@ $t : \mathcal{L}_1 \times M \times \mathbb{R}^M \to \mathcal{L}_\in, (\varphi, T
     fact that ZFC hold in $L[s]$ to guarantee that $\mathcal{P}(S)^L[s]$ is in $L[s]$, and hence 
     the transitive set $S \cup \mathcal{P}(S)^L[s]$ will do the trick.
 
-    The trickiest part is chaotically modalized replacement. Let $\varphi$ be chaotically modalized. 
-    Then let $S$ and $L[s]$ have the usual features and suppose $a \in s$ has has the property that, 
-    for every $x$ in $a$, there is a transitive extension $S \subseteq S_x \in L[s_x]$ wherein 
-    $t(\varphi x, y)(S_x, s_x)$ holds for some $y$. Now in our model of course $a$ is countable and 
-    hence the reals $s_x$ for each $x$ can be coded as a single real $s'$. Moreover, the union of 
-    the $S_x$s is a set (by replacement) and in fact belongs to $L[s']$. 
-    Take an extension of this union. We must show that it meets the requirements. This boils 
-    down to showing that $t(\varphi(x, y))(S', s')$. This is actually maybe not so clear. I think 
-    it is probably OK. To show it you need to establish some kind of absoluteness result.
+    As for replacement, the $\du$ translation follows from the fact that $M$ proves replacement for 
+    each $L[r]$, and the $\Diamond$ translation follows from the same for the model at large.
     
 
 \end{proof}
@@ -374,30 +360,17 @@ which is just the $\Diamond$-translation of the claim that there are only counta
 reals constructible from $r$. Hence, by an application of mirroring, we conclude $\Pi_1^1[r]$-$PSP$.
 The result follows.
 
-\subsection{Bi-interpretation}
+\subsection{Bi-interpretation?}
 We have
 \begin{Theorem}
-    $T \vdash t(\varphi^\diamond)(\emptyset, 0) \leftrightarrow \varphi$
+    $T \vdash \mathbb{R}(r) \wedge Tran(T) \wedge T \in L[r] \rightarrow t(\varphi^\diamond)(T, r) \leftrightarrow \varphi$
 \end{Theorem}
-\begin{proof}
-    Induction on complexity. The basis cases are immediate. So consider $\varphi$ of 
-    the form $\forall x \psi$. By IH we have $T \vdash t(\psi^\diamond)(\emptyset, 0) \leftrightarrow \psi$.
-    So suppose that for every transitive $X$ and every $x$ in $X$ we have  $t(\psi^\diamond)(\emptyset, 0)$
-    and hence $\psi$. Then since every set is an element of a transitive set we have our result.
-    The converse is equally easy. 
-    Actually isn't that it for first order formulas?
-\end{proof}
-\begin{Theorem}
-    $\mathsf{M} \vdash Tran(X) \wedge \mathbb{R}(r) \rightarrow t((\varphi)(X, r))^\diamond \leftrightarrow \varphi$
-\end{Theorem}
-\begin{proof}
-    Assume $Tran(X)$ and $\mathbb{R}(r)$, and set $\varphi := \du \psi$. The left side is then 
-    \[\Diamond \exists T [Tran(T) \wedge T \in L \wedge (t(\psi(T, 0)))^\diamond]\]
-    by induction hypothesis, this is equivalent to 
-    \[\Diamond \exists T [Tran(T) \wedge T \in L \wedge \psi]\]
-    so we must show that $M$ proves $\du \psi$ iff it proves it is possible that 
-    there is a transitive set in $L$... wait I'm sure you're missing some stuff here.
-\end{proof}
+which is a routine induction on complexity. Things with the converse are slightly less clear. We would like
+to show
+\begin{Conjecture}
+    $\mathsf{M} \vdash \mathbb{R}(r) \wedge Tran(T) \wedge T \in L[r] \rightarrow t((\varphi)(T, r))^\diamond \leftrightarrow \varphi$
+\end{Conjecture}
+but the restrictions to $L[r]$ imposed in the inner translation make for difficulties.
 
 
 \end{document}
