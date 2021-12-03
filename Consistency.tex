@@ -224,13 +224,61 @@ meets all the sets in $X$.
 One can show, using the other axioms, that \eqref{wpot} implies the negation of \eqref{comps}.
 
 Finally, we adopt certain instances of the replacement axiom (really the 
-collection principle.) To be precise, we adopt all instances of the $\Diamond$ and $\du$ translations 
-of replacement.
+collection principle.) To state the relevant instances, we first need a definition.
+
+\begin{Definition}[$\circ$-translation]
+    Let $\blacksquare$ be a modal operator, let $\blacklozenge$ be its dual, and let 
+    $\varphi$ be a formula in the first order language of set theory. 
+    Then the $\blacksquare$-translation of $\varphi$, written $\varphi^\blacklozenge$, 
+    is the result of prepending each universal quantifier in $\varphi$ with $\blacksquare$,
+    and each existential quantifier in $\varphi$ with a $\blacklozenge$.
+\end{Definition}
+
+The relevant instance of replacement, then, are all the $\du$ and $\diamond$-translations 
+of first-order instances of replacement. In effect, we are asserting that replacement 
+is valid both with respect the upwards modality alone, and with repsect the modality 
+that combines height and width potentialism.
 
 \section{Basic Facts}
 In this section we articulate some basic facts about the axiom system just presented, 
 along with some general results that will prove useful later on.
 
+\begin{Lemma}[Mirroring]
+    Let $\blacksquare$ be any modal operator in $\mathcal{L}$, and let $\Gamma 
+    \cup {\phi}$ be a set of formulas in the first order language of set theory. Then
+    $\Gamma \vdash \phi$ in first order logic if and only if 
+    $\Gamma^\blacklozenge \vdash_\mathsf{M} \phi^\blacklozenge$.
+\end{Lemma}
+
+\begin{Lemma}[Bounded Modal Absoluteness]\label{BMA}
+    Let $\blacksquare$ be any modal operator in $\mathcal{L}$, and let $\phi$ be 
+    a formula in the first order language of set theory
+    with only bounded quantifiers. Then
+    $\mathsf{M} \vdash \phi \leftrightarrow \phi^\blacklozenge$.
+\end{Lemma}
+\begin{proof}
+    An induction on the complexity of $\phi$. See Lemma 12.2 of Linnebo.
+\end{proof}
+
+\begin{Theorem}
+    $\mathsf{M}$ interprets ZFC under the $\du$-translation.
+\end{Theorem}
+
+\begin{Theorem}
+    $\mathsf{M}$ interprets ZFC$^-$ under the $\Diamond$-translation.
+\end{Theorem}
+
+\begin{Theorem}
+    $\mathsf{M}$ proves every set is hereditarily countable under the 
+    $\Diamond$ translation.
+\end{Theorem}
+
+\begin{Corollary}
+    $\mathsf{M}$ interprets second order arithmetic under the $\Diamond$ translation.
+\end{Corollary}
+\begin{proof}
+    $ZFC^- + V = HC$ is definitionally equivalent to SOA. See Krapf, Simpson.
+\end{proof}
 
 \section{The Results}
 \subsection{The Correlated Theory}
@@ -338,14 +386,15 @@ necessarily, if $s$ is a real constructible from $r$, then $s$ is in the range o
 
 To prove this, first observe that by the $\du$-translation of ZFC, we can show that for any real $r$
 \begin{equation}
-    \du \exists x, y[\mathbb{R}^L[r]^\du(x) \wedge x \in y]
+    \du \exists y [\exists x \in y[\mathbb{R}^L[r](x)^{\du}]]
 \end{equation}
-here, $\mathbb{R}^L[r]^\du$ is the $\du$-translation of the first order formula asserting that $x$ 
+here, $\mathbb{R}^L[r](x)^\du$ is the $\du$-translation of the first order formula asserting that $x$ 
 is the set of reals constructible from $L[r]$. The point of $y$ is to get a set that can act as a 
-bound of the quantifiers in the relevant formula. The reason for this is so that we can apply lemma 
-ADD to get 
+bound of the quantifiers in the relevant formula.
+Such a bound clearly can be found, e.g. $L[r]_{\omega_1 + 1^{L[r]}}$. The reason for this is so that we can apply lemma 
+\ref{BMA} to get 
 \begin{equation}
-    \du \exists x, y[\mathbb{R}^L[r](x) \wedge x \in y]
+    \du \exists y[ \exists x \in y[\mathbb{R}^L[r](x) ]]
 \end{equation}
 by dropping all the modal operators, and then applying the same lemma `in reverse' we can infer
 \begin{equation}
