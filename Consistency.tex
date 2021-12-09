@@ -158,12 +158,11 @@ First, on the side of identity conditions. We would like sets to have the member
 necessity, so that (like plurals) they have exactly the members they have at any world in all worlds
 (to slip into model-theoretic talk again). This can be imposed by the following pair of axioms:
 \begin{equation}
-    \forall z[z \in x \leftrightarrow z \in y] \rightarrow x = y
+   \Box \forall x \Box \forall y[\forall z[z \in x \leftrightarrow z \in y] \rightarrow x = y]
 \end{equation}
 \begin{equation}\label{ecompl}
-    \exists X\Box\forall z[Xx \leftrightarrow z \in x]
-\end{equation}
-where $x$, in the latter, is an arbitrary set parameter. 
+    \Box \forall x\exists X\Box\forall z[Xx \leftrightarrow z \in x].
+\end{equation} 
 Analogs of \eqref{prig} and \eqref{pbf} for $\in$ can be derived using \eqref{prig}, \eqref{pbf}
 and \eqref{ecompl}. As a final constraint of sorts on the identity conditions for sets, we 
 impose the standard axiom of foundation, which says that every non-empty set has a member with 
@@ -187,22 +186,23 @@ push things further. As a first step, consider the axiom
 \begin{equation}\label{compn}
     \du \exists X \Box \forall x [ Xx \leftrightarrow Nat(x)]
 \end{equation}
-where here $Nat(x)$ can be any of your favorite definitions of natural number 
-(e.g. finite von Neumann ordinal.) 
+where here $Nat(x)$ can be any of your favorite non-recursive definitions of natural number 
+(e.g. finite von Neumann ordinal).\footnote{One could also 
+use a recursive definition, but it makes the exposition slightly more complicated.} 
 \eqref{compn} says that by repeated acts of collection one can eventually 
 produce all possible natural numbers,
 and given this a further application of \eqref{hpot} secures the possible 
 existence of an infinite set.
 
 \eqref{compn} is a natural analogue of the axiom of infinity in the potentialist setting. The 
-natural analogue of the powerset axiom would be 
+natural analogue of the powerset axiom would be:
 \begin{equation}\label{comps}
-    \du \exists X \Box \forall x [ Xx \leftrightarrow x \subseteq y]
+    \Box \forall y \du \exists X \Box \forall x [ Xx \leftrightarrow x \subseteq y]
 \end{equation}
-where $\subseteq$ is defined as usual and $y$ is an arbitrary set parameter. However this 
-axiom will be false on the intended interpretation, since given any infinite $y$ we will have 
-that it is always possible to introduce new subsets of $y$ in the form of enumerating functions /
-generic filters. But instead of giving up altogether on the infinitary mathematics that goes 
+However this 
+axiom will be false on the intended interpretation, since even just setting $y = \omega$ we will have 
+that it is always possible to introduce new subsets of $y$ in the form of enumerating functions for sets /
+generic filters for partial orders on sequences of naturals. But instead of giving up altogether on the infinitary mathematics that goes 
 along with powerset, we will instead adopt the `restriction' of the principle to the modality $\bu$.
 The idea will be that, given any arbitrary set $y$, by repeatedly introducing sets one will 
 eventually get all the subsets of it that one can ever get \emph{without using forcing}. The 
@@ -241,7 +241,7 @@ that combines height and width potentialism.
 
 \section{Basic Facts}
 In this section we articulate some basic facts about the axiom system just presented, 
-along with some general results that will prove useful later on.
+along with some general results that will prove useful later on. 
 
 \begin{Lemma}[Mirroring]
     Let $\blacksquare$ be any modal operator in $\mathcal{L}$, and let $\Gamma 
@@ -249,6 +249,9 @@ along with some general results that will prove useful later on.
     $\Gamma \vdash \phi$ in first order logic if and only if 
     $\Gamma^\blacklozenge \vdash_\mathsf{M} \phi^\blacklozenge$.
 \end{Lemma}
+\begin{proof}
+    See cite.
+\end{proof}
 
 \begin{Lemma}[Bounded Modal Absoluteness]\label{BMA}
     Let $\blacksquare$ be any modal operator in $\mathcal{L}$, and let $\phi$ be 
@@ -263,17 +266,30 @@ along with some general results that will prove useful later on.
 \begin{Theorem}
     $\mathsf{M}$ interprets ZFC under the $\du$-translation.
 \end{Theorem}
+\begin{proof}
+    As with cite, this is a straightforward modification of 
+    Linnebo's argument from cite. It is sufficient to prove the $\du$ 
+    translations of axioms of ZFC. For example, for the powerset 
+    axiom, use \eqref{comps2} and \eqref{hpot}.
+\end{proof}
 
 \begin{Theorem}
     $\mathsf{M}$ interprets ZFC$^-$ under the $\Diamond$-translation.
 \end{Theorem}
-
+\begin{proof}
+    Essentially the same as the previous. 
+\end{proof}
+Note that we can't interpret power in the previous theorem because we don't 
+have \eqref{comps}, only \eqref{comps2}, in $\mathsf{M}$. Indeed, more
+can be said:
 \begin{Theorem}
     $\mathsf{M}$ proves every set is hereditarily countable under the 
     $\Diamond$ translation.
 \end{Theorem}
-
-\begin{Corollary}
+\begin{proof}
+    See cite.
+\end{proof}
+\begin{Corollary}\label{soa}
     $\mathsf{M}$ interprets second order arithmetic under the $\Diamond$ translation.
 \end{Corollary}
 \begin{proof}
@@ -354,8 +370,8 @@ $t : \mathcal{L}_1 \times M \times \mathbb{R}^M \to \mathcal{L}_\in, (\varphi, T
     $S \cup \{X\} \in L[s]$. For \eqref{compn} one can use the set of natural numbers itself as the 
     relevant transitive set, which is an element of any $L[s]$. 
     As to power, given $S \in L[s]$ of the relevant kind and any set $x \in S$, we can use the 
-    fact that ZFC hold in $L[s]$ to guarantee that $\mathcal{P}(S)^L[s]$ is in $L[s]$, and hence 
-    the transitive set $S \cup \mathcal{P}(S)^L[s]$ will do the trick.
+    fact that ZFC hold in $L[s]$ to guarantee that $\mathcal{P}(S)^{L[s]}$ is in $L[s]$, and hence 
+    the transitive set $S \cup \mathcal{P}(S)^{L[s]}$ will do the trick.
 
     As for replacement, the $\du$ translation follows from the fact that $M$ proves replacement for 
     each $L[r]$, and the $\Diamond$ translation follows from the same for the model at large.
@@ -379,17 +395,17 @@ The proof is a minor modification of Solovay's argument. It uses the fact that i
 that any $\Pi_1^1$ set admits a decomposition into $ORD$-many Borel sets (Solovay used $\aleph_1$ 
 in place of $ORD$, but the proof works just fine without this assumption). 
 
-Using Lemma \eqref{sol} and the mirroring theorem, it is sufficient to show the diamond-translation 
+Using Lemma \ref{sol} and the mirroring theorem, it is sufficient to show the $\diamond$-translation 
 of the hypothesis to get our result. That is: for any real $r$, it is possible that 
 there is a function on the natural numbers such that, 
 necessarily, if $s$ is a real constructible from $r$, then $s$ is in the range of $f$.
 
 To prove this, first observe that by the $\du$-translation of ZFC, we can show that for any real $r$
 \begin{equation}
-    \du \exists y [\exists x \in y[\mathbb{R}^L[r](x)^{\du}]]
+    \du \exists y [\exists x \in y[\mathbb{R}^{L[r]}(x)^{\du}]]
 \end{equation}
-here, $\mathbb{R}^L[r](x)^\du$ is the $\du$-translation of the first order formula asserting that $x$ 
-is the set of reals constructible from $L[r]$. The point of $y$ is to get a set that can act as a 
+here, $\mathbb{R}^{L[r]}(x)^\du$ is the $\du$-translation of the first order formula asserting that $x$ 
+is the set of reals constructible from $r$. The point of $y$ is to get a set that can act as a 
 bound of the quantifiers in the relevant formula.
 Such a bound clearly can be found, e.g. $L[r]_{\omega_1 + 1^{L[r]}}$. The reason for this is so that we can apply lemma 
 \ref{BMA} to get 
