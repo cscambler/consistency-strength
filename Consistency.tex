@@ -226,7 +226,7 @@ One can show, using the other axioms, that \eqref{wpot} implies the negation of 
 Finally, we adopt certain instances of the replacement axiom (really the 
 collection principle.) To state the relevant instances, we first need a definition.
 
-\begin{Definition}[$\circ$-translation]
+\begin{Definition}[$\blacklozenge$-translation]
     Let $\blacksquare$ be a modal operator, let $\blacklozenge$ be its dual, and let 
     $\varphi$ be a formula in the first order language of set theory. 
     Then the $\blacksquare$-translation of $\varphi$, written $\varphi^\blacklozenge$, 
@@ -298,22 +298,58 @@ can be said:
 
 \section{The Results}
 \subsection{The Correlated Theory}
-The correlated first order set theory will be 
-$T = \mathsf{ZFC}^- + \mathsf{V = HC} + \Pi^1_1 PSP$. 
+The first order theory with which we will show $\mathsf{M}$ is (at least) 
+mutually interpretable is the theory of second order arithmetic together with the 
+perfect set property for all $\mathbf{\Pi}_1^1$ classes of reals. 
+Here, a class of reals is $\mathbf{\Pi}_1^1$ if there is a second order parameter 
+(real) $R$ and a $\Pi_1^1$ formula $\Phi$ in the language of second order arithmetic
+that defines the class $R$; and such a class $R$ has the perfect set property iff 
+it is either countable or has a perfect subclass, that is, a subclass that is closed 
+in the standard topology on $\mathbb{R}$ and contains no isolated points. 
 
-Define perfect set property: $X \subseteq \omega^\omega$ is perfect iff it is 
-the set of paths through a perfect tree on $\omega \times \omega$. Note that 
-$X \subseteq \omega^\omega$ means, in this context, that we have a formula 
-$\varphi$ with the property that $\varphi(f) \rightarrow f$ is a function from 
-$\omega$ to $\omega$. Such an $X$ is said to be $\Pi^1_1$ (other complexities)
- (in a parameter $r$) iff the 
-corresponding $\varphi$ has the form... .
+The development of these notions (e.g. the topology on $\mathbb{R}$) \emph{can} 
+be done in SOA, and the study of perfet set properties and their consequences 
+can similarly; see Simpson, cite. But it makes life slightly easier to proceed through 
+a definitionally equivalent theory that is just first-order. We can do so 
+by using the following modification of standard set theory: take ordinary $\mathsf{ZFC}$,
+with replacement formulated as collection; remove the powerset axiom and replace it 
+with an axiom saying that every set is (hereditarily) countable. The result is 
+definitionally equivalent to second order arithmetic since sets in set theory 
+can be coded as well-founded trees in SOA. One can now define a \emph{real} to be a 
+function from $\omega$ to $\omega$, and a definable class of reals to be $\mathbf{\Pi}_1^1$
+if there is a formula in normal form with a single unbounded quantifier at the front
+that defines it. In this setting one defines the notion of perfection of a class 
+in terms of trees. A closed set always has a natural representation as the class of 
+paths through a tree on $\omega \times \omega$; such a closed set is perfect when 
+the resulting tree is such that any of its elements has two incompatible extensions.
+See citations.
 
-Some relevant facts about the correlated theory.
+Let $\mathsf{T}$ then be the theory of ZFC without power together with the assertion 
+that all sets are (hereditarily) countable, and that the schema asserting the $\Pi_1^1$ 
+perfect set property holds. We are interested in $\mathsf{T}$ because while on the one hand 
+it proves all sets are countable (and hence that any set sized partial order 
+admits a generic filter), nevetheless it interprets ZFC in lots of inner models, and 
+more exactly, we have that $\mathsf{T}$ proves ZFC is true in $L[r]$ for every 
+real number $r$. For a detailed proof, see Krapf cite. 
 
-It interprets ZFC, indeed it proves that $ZFC^{L[r]}$ for every real $r$.
+These two properties suggest hopes of correlating $\mathsf{T}$ with $\mathsf{M}$ proof-theoretically.
+Intuitively, an arbitrary possible world in $\mathsf{M}$ is a transitive set, 
+representing all the sets we've built up to whatever point we are it in construction,
+and a real $r$ representing all the subsets of $\omega$ we can `see' at the corresponding 
+point. 
+We can give a parameterized interpretation of formulas in the modal language 
+by first order formulas in the language of set theory: 
+we interpret $\du \phi$ at parameters $T, r$ as meaning: 
+there is a transitive extension of $T$ \emph{contained in $L[r]$} in which 
+the translation of $\phi$ holds; and $\Diamond \phi$ as simply there is a transitive 
+extension of $T$ in which the translation of $\phi$ holds. The two properties 
+cited of $\mathsf{T}$ might then lead us to hope this will do the job: We can always 
+climb $L[r]$ to get a model of ZFC, but we can also always move to a `wider' universe 
+where anything in $L[r]$ turns out to be countable. And it turns out that 
+a converse inteprertation is possible as well, by combining a technique of Linnebo's 
+and a theorem of Solovay. 
 
-\dots
+So much for the intuitions. On to the proofs.
 
 \subsection{An interpretation of $\mathsf{M}$ in $\mathsf{T}$}
  Let $M \vDash SOA + \Pi_1^1 PSP$.
@@ -381,7 +417,7 @@ $t : \mathcal{L}_1 \times M \times \mathbb{R}^M \to \mathcal{L}_\in, (\varphi, T
 
 
 \subsection{An interpretation of $\mathsf{T}$ in $\mathsf{M}$}
-For the converse, it is easy to show $SOA^\diamond$. 
+For the converse, we already have lemma \ref{soa}. 
 It remains to show $\Pi^1_1 PSP^\diamond$. 
 
 Work in $\mathsf{M}$, and let $r$ be an arbitrary real. It suffices to show
@@ -391,9 +427,10 @@ We will use the following lemma, which is a slight modification of a theorem of 
 \begin{Lemma}[SOA]\label{sol}
     If there are only countably many reals constructible from $r$, then the $\Pi_1^1[r] PSP$ holds.
 \end{Lemma}
-The proof is a minor modification of Solovay's argument. It uses the fact that in SOA one can show 
-that any $\Pi_1^1$ set admits a decomposition into $ORD$-many Borel sets (Solovay used $\aleph_1$ 
-in place of $ORD$, but the proof works just fine without this assumption). 
+The proof is a minor modification of Solovay's argument.\footnote{The modification is that 
+here we must use the fact that in SOA one can show 
+that any $\Pi_1^1$ set admits a decomposition into $Ord$-many Borel sets; Solovay used $\aleph_1$ 
+in place of $Ord$, but the proof works just fine without assuming $\aleph_1$ exists.} 
 
 Using Lemma \ref{sol} and the mirroring theorem, it is sufficient to show the $\diamond$-translation 
 of the hypothesis to get our result. That is: for any real $r$, it is possible that 
@@ -419,7 +456,7 @@ by dropping all the modal operators, and then applying the same lemma `in revers
 that is, the $\Diamond$ translation of the assertion that it is possible that all possible 
 reals constructible from $r$ exist. But now since we also have $V = HC^\diamond$, it follows that 
 \begin{equation}
-    \Diamond \exists x[\mathbb{R}^L[r](x)^\Diamond \wedge \exists f : \mathbb{N} \twoheadrightarrow x]
+    (\exists x[\mathbb{R}^L[r](x) \wedge \exists f : \mathbb{N} \twoheadrightarrow x])^\Diamond
 \end{equation}
 which is just the $\Diamond$-translation of the claim that there are only countably many 
 reals constructible from $r$. Hence, by an application of mirroring, we conclude $\Pi_1^1[r]$-$PSP$.
