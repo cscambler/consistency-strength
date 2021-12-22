@@ -282,7 +282,7 @@ along with some general results that will prove useful later on.
 Note that we can't interpret power in the previous theorem because we don't 
 have \eqref{comps}, only \eqref{comps2}, in $\mathsf{M}$. Indeed, more
 can be said:
-\begin{Theorem}
+\begin{Theorem}\label{hcount}
     $\mathsf{M}$ proves every set is hereditarily countable under the 
     $\Diamond$ translation.
 \end{Theorem}
@@ -417,51 +417,90 @@ $t : \mathcal{L}_1 \times M \times \mathbb{R}^M \to \mathcal{L}_\in, (\varphi, T
 
 
 \subsection{An interpretation of $\mathsf{T}$ in $\mathsf{M}$}
-For the converse, we already have lemma \ref{soa}. 
-It remains to show $\Pi^1_1 PSP^\diamond$. 
+For the converse, we already have lemma \ref{soa}; 
+it remains to show $\mathbf{\Pi^1_1}$-$PSP^\diamond$. 
 
 Work in $\mathsf{M}$, and let $r$ be an arbitrary real. It suffices to show
 $\Pi_1^1[r]$-$PSP^\diamond$. 
 
 We will use the following lemma, which is a slight modification of a theorem of Solovay.
 \begin{Lemma}[SOA]\label{sol}
-    If there are only countably many reals constructible from $r$, then the $\Pi_1^1[r] PSP$ holds.
+    If there are only countably many reals constructible from $r$, then the $\Pi_1^1[r]$-$PSP$ holds.
 \end{Lemma}
 The proof is a minor modification of Solovay's argument.\footnote{The modification is that 
 here we must use the fact that in SOA one can show 
 that any $\Pi_1^1$ set admits a decomposition into $Ord$-many Borel sets; Solovay used $\aleph_1$ 
 in place of $Ord$, but the proof works just fine without assuming $\aleph_1$ exists.} 
 
-Using Lemma \ref{sol} and the mirroring theorem, it is sufficient to show the $\diamond$-translation 
-of the hypothesis to get our result. That is: for any real $r$, it is possible that 
-there is a function on the natural numbers such that, 
-necessarily, if $s$ is a real constructible from $r$, then $s$ is in the range of $f$.
+Using Lemma \ref{sol} and the mirroring theorem, to establish 
+the desired conclusion it is sufficient to show the $\diamond$-translation 
+of the hypothesis of Lemma \ref{sol}. That is: assuming given an arbitrary real $r$, 
+we must show that is possible to produce a function on the natural numbers such that, 
+necessarily, if $s$ is a real constructible from $r$, 
+then $s$ is in the range of $f$.
 
-To prove this, first observe that by the $\du$-translation of ZFC, we can show that for any real $r$
-\begin{equation}
-    \du \exists y [\exists x \in y[\mathbb{R}^{L[r]}(x)^{\du}]]
+The strategy for doing so is simple: we first show that, given any real $r$, 
+it is possible to produce the set of all possible reals constructible from $r$ in 
+$M$ (in the sense of the modality $\Diamond$). We then invoke Lemma \ref{hcont}, which 
+says that all sets are countable in $\mathsf{M}$ (with respect the $\Diamond$ translation)
+to get the result.
+
+In more detail,
+we first observe that by the $\du$-translation of ZFC, 
+we the $\du$ translation of the assertion that for any real $r$, the 
+set of reals constructible from $r$ exists, namely:
+\begin{equation}\label{dutrans1}
+    \du \exists x [\mathbb{R}^{L[r]}(x)^{\du}]]
 \end{equation}
-here, $\mathbb{R}^{L[r]}(x)^\du$ is the $\du$-translation of the first order formula asserting that $x$ 
-is the set of reals constructible from $r$. The point of $y$ is to get a set that can act as a 
-bound of the quantifiers in the relevant formula.
-Such a bound clearly can be found, e.g. $L[r]_{\omega_1 + 1^{L[r]}}$. The reason for this is so that we can apply lemma 
-\ref{BMA} to get 
-\begin{equation}
-    \du \exists y[ \exists x \in y[\mathbb{R}^L[r](x) ]]
+Where in \eqref{dutrans1} $\mathbb{R}^{L[r]}(x)^\du$ is the $\du$-translation of the first order 
+formula asserting that $x$ 
+is the set of reals constructible from $r$. The problem now is to derive from this 
+that 
+\begin{equation}\label{dtrans1}
+    \Diamond \exists x [\mathbb{R}^{L[r]}(x)^{\Diamond}]]
 \end{equation}
-by dropping all the modal operators, and then applying the same lemma `in reverse' we can infer
+since it is only with respect $\Diamond$, and not $\du$, that we have \eqref{hcount}.
+
+To move from \eqref{dutrans1} to \eqref{dtrans1} we aim to use the absoluteness 
+lemma \ref{BMA}. But to apply lemma \ref{BMA} we need a bounded formula, while the 
+first order formula corresponding to \eqref{dutrans1} features unbounded quantifiers, 
+both the obvious existential and (in standard formulations) an unbounded universal 
+in the formula $\mathbb{R}$. However we can solve this issue by finding a bound 
+on all the quantifiers in the relevant expression.
+
+Such a bound clearly can be found, since for example 
+in standard ZFC one can prove that $x$ is the set of constructible reals from $r$ 
+is equivalent to the same assertion with quantifiers restricted to
+$L[r]_{\omega_1 + 1^{L[r]}}$ (no new sets of naturals are formed from then on). 
+Thus using the mirroring theorem we can show
 \begin{equation}
-    \Diamond \exists x[\mathbb{R}^L[r](x)^\Diamond]
+    \du \exists y[ \du \exists x \in y[\mathbb{R}^{L[r]}(x)^{\du} ]]
+\end{equation}
+and then apply \ref{BMA} to get 
+\begin{equation}
+    \du \exists y[ \exists x \in y[\mathbb{R}^{L[r]}(x) ]]
+\end{equation}
+by dropping all the modal operators, and then applying the same lemma `in reverse' 
+(this time with $\Diamond$ rather than $\du$) we can infer
+\begin{equation}
+    \Diamond \exists y[ \Diamond \exists x \in y[\mathbb{R}^{L[r]}(x)^\Diamond ]]
+\end{equation}
+\begin{equation}
+    \Diamond \exists x[\mathbb{R}^{L[r]}(x)^\Diamond]
 \end{equation}
 that is, the $\Diamond$ translation of the assertion that it is possible that all possible 
-reals constructible from $r$ exist. But now since we also have $V = HC^\diamond$, it follows that 
+reals constructible from $r$ exist. But now since we also have lemma \ref{hcount}, it follows that 
 \begin{equation}
-    (\exists x[\mathbb{R}^L[r](x) \wedge \exists f : \mathbb{N} \twoheadrightarrow x])^\Diamond
+    (\exists x[\mathbb{R}^{L[r]}(x) \wedge \exists f : \mathbb{N} \twoheadrightarrow x])^\Diamond
 \end{equation}
 which is just the $\Diamond$-translation of the claim that there are only countably many 
 reals constructible from $r$. Hence, by an application of mirroring, we conclude $\Pi_1^1[r]$-$PSP$.
 The result follows.
 
+OK so the above is bollocks. But what you can do (?) is prove that 
+\[\Diamond \exists x[ L[r](x) \wedge x = y] \rightarrow \du \exists x [L[r](x) \wedge x = y]\]
+or another better way to put it
+\[ \Box \forall \alpha, x, y [ L[r]_\alpha (x) ^\Diamond \wedge L[r]_\alpha (y)^{\du} \rightarrow x = y] \]
 \subsection{Bi-interpretation?}
 We have
 \begin{Theorem}
