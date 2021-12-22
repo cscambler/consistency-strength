@@ -501,6 +501,11 @@ OK so the above is bollocks. But what you can do (?) is prove that
 \[\Diamond \exists x[ L[r](x) \wedge x = y] \rightarrow \du \exists x [L[r](x) \wedge x = y]\]
 or another better way to put it
 \[ \Box \forall \alpha, x, y [ L[r]_\alpha (x) ^\Diamond \wedge L[r]_\alpha (y)^{\du} \rightarrow x = y] \]
+For the latter we can do an induction. The idea is to use lemma \ref{BMA}
+to get that $\Diamond$-definability with parameters over a set $x$ is the same 
+as $\du$-definability with parameters over a set $x$ (is the same as $\dl$-definability over a set $x$).
+The point is that membership in a given set is fixed so since everything is bound 
+to $x$ the modal operators don't matter.
 \subsection{Bi-interpretation?}
 We have
 \begin{Theorem}
