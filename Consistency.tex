@@ -45,7 +45,7 @@ I will also explore the question of bi-interpretability.
 
 \section{The Axiom System}
 \subsection{Language}
-The language $\mathcal{L}_\diamond$ is multi-modal and in fact contains three modal 
+The language $\mathcal{L}_\Diamond$ is multi-modal and in fact contains three modal 
 operators, $\du$, $\dl$, and $\Diamond$. $\du \varphi$ should be read as: `by repeated 
 acts of collection, $\varphi$ can be made true'; that is, by repeatedly taking some things 
 and collecting them together into a set, $\varphi$ can be made true. 
@@ -59,7 +59,7 @@ introducing a filter meeting all the given dense sets of some partial order.
 CITE.) The remaining modal, $\Diamond$, is the `most general' modality, 
 and represents possibility by arbitrary iterations of either domain expansion technique. 
 
-$\mathcal{L}_\diamond$ is also a monadic second order language, 
+$\mathcal{L}_\Diamond$ is also a monadic second order language, 
 with standard, singular `objectual' variables $x$ 
 and second order `plural' variables $X$; these latter range over things taken many at 
 a time rather than individuals; so for example the members of an orchestra and the string 
@@ -99,7 +99,7 @@ The standardly valid inference rule
     \UnaryInfC{$\Phi_1 \rightarrow \Box (\Phi_2 \rightarrow ... \Box ( \Phi_n \rightarrow \Box \forall x \Psi) ... )$}
 \end{prooftree}
 
-will also be assumed.
+will also be assumed. 
 
 As to the second order logic, we assume full comprehension \emph{in closed form},
 so all expressions of the form 
@@ -234,7 +234,7 @@ collection principle.) To state the relevant instances, we first need a definiti
     and each existential quantifier in $\varphi$ with a $\blacklozenge$.
 \end{Definition}
 
-The relevant instance of replacement, then, are all the $\du$ and $\diamond$-translations 
+The relevant instance of replacement, then, are all the $\du$ and $\Diamond$-translations 
 of first-order instances of replacement. In effect, we are asserting that replacement 
 is valid both with respect the upwards modality alone, and with repsect the modality 
 that combines height and width potentialism.
@@ -261,6 +261,35 @@ along with some general results that will prove useful later on.
 \end{Lemma}
 \begin{proof}
     An induction on the complexity of $\phi$. See Lemma 12.2 of Linnebo.
+\end{proof}
+\begin{Lemma}[$\Delta_1^T$ Absoluteness]\label{DA}
+    Let $\phi$ be a formula that is provably $\Delta_1$ over $ZFC$ without 
+    powerset. Then we have: 
+    \[\mathsf{M} \vdash \phi^{\Diamond} \leftrightarrow \phi^{\du}\]
+\end{Lemma}
+\begin{proof}
+    Temporarily let $T$ be the theory in question.
+    Note that $T^\Diamond$ and $T^{\du}$ are each contained in $\mathsf{M}$.
+    It follows from our assumption that there are $\Delta_0$ formulas $\psi, \theta$
+    for which
+    \[\mathsf{M} \vdash \phi^\Diamond \leftrightarrow 
+    \Box \forall x \psi^\Diamond \leftrightarrow 
+    \Diamond \exists x \theta^\Diamond \] 
+    and similarly
+    \[\mathsf{M} \vdash \phi^{\du} \leftrightarrow 
+    \bu \forall x \psi^{\du} \leftrightarrow 
+    \du \exists x \theta^{\du} \] 
+    by the previous lemma, these are each equivalent to 
+    \[\mathsf{M} \vdash \phi^\Diamond \leftrightarrow 
+    \Box \forall x \psi \leftrightarrow 
+    \Diamond \exists x \theta \] 
+    \[\mathsf{M} \vdash \phi^{\du} \leftrightarrow 
+    \bu \forall x \psi \leftrightarrow 
+    \du \exists x \theta \] 
+    respectively. But weakening implies that 
+    $\du \exists x \theta \rightarrow \Diamond \exists x \theta$
+    and similarly that $\Box \forall x \psi \rightarrow \bu \forall x \psi$.
+    The result follows.
 \end{proof}
 
 \begin{Theorem}
@@ -418,10 +447,10 @@ $t : \mathcal{L}_1 \times M \times \mathbb{R}^M \to \mathcal{L}_\in, (\varphi, T
 
 \subsection{An interpretation of $\mathsf{T}$ in $\mathsf{M}$}
 For the converse, we already have lemma \ref{soa}; 
-it remains to show $\mathbf{\Pi^1_1}$-$PSP^\diamond$. 
+it remains to show $\mathbf{\Pi^1_1}$-$PSP^\Diamond$. 
 
 Work in $\mathsf{M}$, and let $r$ be an arbitrary real. It suffices to show
-$\Pi_1^1[r]$-$PSP^\diamond$. 
+$\Pi_1^1[r]$-$PSP^\Diamond$. 
 
 We will use the following lemma, which is a slight modification of a theorem of Solovay.
 \begin{Lemma}[SOA]\label{sol}
@@ -433,7 +462,7 @@ that any $\Pi_1^1$ set admits a decomposition into $Ord$-many Borel sets; Solova
 in place of $Ord$, but the proof works just fine without assuming $\aleph_1$ exists.} 
 
 Using Lemma \ref{sol} and the mirroring theorem, to establish 
-the desired conclusion it is sufficient to show the $\diamond$-translation 
+the desired conclusion it is sufficient to show the $\Diamond$-translation 
 of the hypothesis of Lemma \ref{sol}. That is: assuming given an arbitrary real $r$, 
 we must show that is possible to produce a function on the natural numbers such that, 
 necessarily, if $s$ is a real constructible from $r$, 
@@ -441,7 +470,7 @@ then $s$ is in the range of $f$.
 
 The strategy for doing so is simple: we first show that, given any real $r$, 
 it is possible to produce the set of all possible reals constructible from $r$ in 
-$M$ (in the sense of the modality $\Diamond$). We then invoke Lemma \ref{hcont}, which 
+$M$ (in the sense of the modality $\Diamond$). We then invoke Lemma \ref{hcount}, which 
 says that all sets are countable in $\mathsf{M}$ (with respect the $\Diamond$ translation)
 to get the result.
 
@@ -449,47 +478,32 @@ In more detail,
 we first observe that by the $\du$-translation of ZFC, 
 we the $\du$ translation of the assertion that for any real $r$, the 
 set of reals constructible from $r$ exists, namely:
-\begin{equation}\label{dutrans1}
-    \du \exists x [\mathbb{R}^{L[r]}(x)^{\du}]]
+\begin{equation}\label{dutrans}
+    \du \exists x [\mathbb{R}^{L[r]}(x)^{\du}]
 \end{equation}
-Where in \eqref{dutrans1} $\mathbb{R}^{L[r]}(x)^\du$ is the $\du$-translation of the first order 
+Where in \eqref{dutrans} $\mathbb{R}^{L[r]}(x)^{\du}$ is the $\du$-translation of the first order 
 formula asserting that $x$ 
 is the set of reals constructible from $r$. The problem now is to derive from this 
 that 
-\begin{equation}\label{dtrans1}
-    \Diamond \exists x [\mathbb{R}^{L[r]}(x)^{\Diamond}]]
+\begin{equation}\label{dtrans}
+    \Diamond \exists x [\mathbb{R}^{L[r]}(x)^{\Diamond}]
 \end{equation}
-since it is only with respect $\Diamond$, and not $\du$, that we have \eqref{hcount}.
+since it is only with respect $\Diamond$, and not $\du$, that we have Theorem \ref{hcount}.
 
-To move from \eqref{dutrans1} to \eqref{dtrans1} we aim to use the absoluteness 
-lemma \ref{BMA}. But to apply lemma \ref{BMA} we need a bounded formula, while the 
-first order formula corresponding to \eqref{dutrans1} features unbounded quantifiers, 
-both the obvious existential and (in standard formulations) an unbounded universal 
-in the formula $\mathbb{R}$. However we can solve this issue by finding a bound 
-on all the quantifiers in the relevant expression.
+To move from \eqref{dutrans} to \eqref{dtrans} we use the absoluteness 
+lemma \ref{DA}. The formula asserting that $x$ is $L[r]_\alpha$ is $\Delta_1$ 
+(in parameter $r$) 
+over ZFC without power. Thus, for any $x$, $\alpha$, $r$, 
+\begin{equation}\label{butt}\mathsf{M} \vdash (x = L[r]_\alpha)^\Diamond \leftrightarrow
+(x = L[r]_\alpha)^{\du}.\end{equation}
+Now, any real in $L[r]$ of course features in $L[r]_{\omega_1}$.
+So suppose $x = \mathbb{R}^{L[r]}$ according to $\du$ but not $\Diamond$. Then we must 
+be able to find $y$ such that $(y \in L[r]_{\omega_1})^\Diamond$ but not $(y \in L[r]_{\omega_1})^{\du}$. 
+But this, with \eqref{butt}, yields a contradiction.
+We may thus infer \eqref{dtrans} from \eqref{dutrans}, since in fact the very same witness 
+will suffice.
 
-Such a bound clearly can be found, since for example 
-in standard ZFC one can prove that $x$ is the set of constructible reals from $r$ 
-is equivalent to the same assertion with quantifiers restricted to
-$L[r]_{\omega_1 + 1^{L[r]}}$ (no new sets of naturals are formed from then on). 
-Thus using the mirroring theorem we can show
-\begin{equation}
-    \du \exists y[ \du \exists x \in y[\mathbb{R}^{L[r]}(x)^{\du} ]]
-\end{equation}
-and then apply \ref{BMA} to get 
-\begin{equation}
-    \du \exists y[ \exists x \in y[\mathbb{R}^{L[r]}(x) ]]
-\end{equation}
-by dropping all the modal operators, and then applying the same lemma `in reverse' 
-(this time with $\Diamond$ rather than $\du$) we can infer
-\begin{equation}
-    \Diamond \exists y[ \Diamond \exists x \in y[\mathbb{R}^{L[r]}(x)^\Diamond ]]
-\end{equation}
-\begin{equation}
-    \Diamond \exists x[\mathbb{R}^{L[r]}(x)^\Diamond]
-\end{equation}
-that is, the $\Diamond$ translation of the assertion that it is possible that all possible 
-reals constructible from $r$ exist. But now since we also have lemma \ref{hcount}, it follows that 
+But now since we also have Theorem \ref{hcount}, it follows that 
 \begin{equation}
     (\exists x[\mathbb{R}^{L[r]}(x) \wedge \exists f : \mathbb{N} \twoheadrightarrow x])^\Diamond
 \end{equation}
@@ -497,33 +511,16 @@ which is just the $\Diamond$-translation of the claim that there are only counta
 reals constructible from $r$. Hence, by an application of mirroring, we conclude $\Pi_1^1[r]$-$PSP$.
 The result follows.
 
-OK so the above is bollocks. But what you can do (?) is prove that 
-\[\Diamond \exists x[ L[r](x) \wedge x = y] \rightarrow \du \exists x [L[r](x) \wedge x = y]\]
-or another better way to put it
-\[ \Box \forall \alpha, x, y [ L[r]_\alpha (x) ^\Diamond \wedge L[r]_\alpha (y)^{\du} \rightarrow x = y] \]
-For the latter we can do an induction. The idea is to use lemma \ref{BMA}
-to get that $\Diamond$-definability with parameters over a set $x$ is the same 
-as $\du$-definability with parameters over a set $x$ (is the same as $\dl$-definability over a set $x$).
-The point is that membership in a given set is fixed so since everything is bound 
-to $x$ the modal operators don't matter.
 
-Better. One can prove that if ZFC without powerset proves that a formula is 
-$\Delta^1_1$, then $\mathsf{M}$ proves $\phi^\Diamond$ if and only if $\phi^{\du}$.
-So then we can prove that being the $\omega_1$ of $L[r]$ is absolute between the two modalities.
-For if $x$ is $< \omega_1$ of $L[r]$ according to $\Diamond$, then we can 
-find an $L[r]_\alpha$ in the sense of $\Diamond$ that has a bijection betwen $x$ and $\omega$.
-But being the $L[r]_\alpha$ according to $\Diamond$ is the same as being the $L[r]_\alpha$ 
-according to $\du$. So there is an $L[r]_\alpha$ according to $\du$ which contains such 
-a bijection.
 \subsection{Bi-interpretation?}
 We have
 \begin{Theorem}
-    $T \vdash \mathbb{R}(r) \wedge Tran(T) \wedge T \in L[r] \rightarrow t(\varphi^\diamond)(T, r) \leftrightarrow \varphi$
+    $T \vdash \mathbb{R}(r) \wedge Tran(T) \wedge T \in L[r] \rightarrow t(\varphi^\Diamond)(T, r) \leftrightarrow \varphi$
 \end{Theorem}
 which is a routine induction on complexity. Things with the converse are slightly less clear. We would like
 to show
 \begin{Conjecture}
-    $\mathsf{M} \vdash \mathbb{R}(r) \wedge Tran(T) \wedge T \in L[r] \rightarrow t((\varphi)(T, r))^\diamond \leftrightarrow \varphi$
+    $\mathsf{M} \vdash \mathbb{R}(r) \wedge Tran(T) \wedge T \in L[r] \rightarrow t((\varphi)(T, r))^\Diamond \leftrightarrow \varphi$
 \end{Conjecture}
 but the restrictions to $L[r]$ imposed in the inner translation make for difficulties.
 
