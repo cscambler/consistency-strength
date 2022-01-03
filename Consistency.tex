@@ -492,16 +492,34 @@ since it is only with respect $\Diamond$, and not $\du$, that we have Theorem \r
 
 To move from \eqref{dutrans} to \eqref{dtrans} we use the absoluteness 
 lemma \ref{DA}. The formula asserting that $x$ is $L[r]_\alpha$ is $\Delta_1$ 
-(in parameter $r$) 
+(in parameters $r$, $\alpha$) 
 over ZFC without power. Thus, for any $x$, $\alpha$, $r$, 
 \begin{equation}\label{butt}\mathsf{M} \vdash (x = L[r]_\alpha)^\Diamond \leftrightarrow
 (x = L[r]_\alpha)^{\du}.\end{equation}
-Now, any real in $L[r]$ of course features in $L[r]_{\omega_1}$.
-So suppose $x = \mathbb{R}^{L[r]}$ according to $\du$ but not $\Diamond$. Then we must 
-be able to find $y$ such that $(y \in L[r]_{\omega_1^{L[r]}})^\Diamond$ but not $(y \in L[r]_{\omega_1}^{L[r]})^{\du}$. 
-But this, with \eqref{butt}, yields a contradiction.
-We may thus infer \eqref{dtrans} from \eqref{dutrans}, since in fact the very same witness 
-will suffice.
+Note also that for any ordinal $\alpha$, $\Diamond \exists x[ x = \alpha]$ if and only if 
+$\du \exists x[x = \alpha]$ (prove).
+It is easy enough to see that $\mathbb{R}^{L[r]}$ exists is equivalent to $\omega_1^{L[r]}$
+exists, relative to either modality. 
+We show that $\omega_1^{L[r]} \text{ exists}^{\du}$ is equivalent to 
+$\omega_1^{L[r]} \text{ exists }^\Diamond$, 
+in contrast of course to the real $\omega_1$.
+
+We know $\omega_1^{L[r]} \text{ exists}^{\du}$. That means it is vertically 
+possible that there is an ordinal in $L[r]$ such that it is vertically necessary 
+that no function in $L[r]$ is a bijection between that ordinal and $\omega$.
+Suppose that same ordinal is not the $\omega_1$ of $L[r]$ in the sense of $\Diamond$.
+Then it is generally possible that there is a function in $L[r]_\alpha$ for some 
+$\alpha$ that \emph{is} a bijection between that ordinal and $\omega$. Since
+it is vertically possible that $\alpha$ exists, and 
+$L[r]_\alpha^\Diamond = L[r]_\alpha^{\du}$, we must have the $\du$-translation 
+of $f$ exists and belongs to $L[r]_\alpha$. And of course being a bijection between 
+the ordinal and $\omega$ is $\Delta_0$ and so absolute. Hence the ordinal in question
+was not $\omega_1^L[r]$ in the sense of $\du$.
+
+We may thus infer \eqref{dtrans} from \eqref{dutrans}: since it is vertically possible 
+$\omega_1^L[r]$ exists, it is also generally possible, and the general possibility of 
+$L[r]$ exists implies the general possibility of the reals of $L[r]$ existing 
+by standard set theory and mirroring. 
 
 But now since we also have Theorem \ref{hcount}, it follows that 
 \begin{equation}
