@@ -30,6 +30,9 @@ University of Oxford}
 %\begin{abstract} \end{abstract}
 
 \section{Introduction}
+ADD CONVENTION FOR TRANSITIVE SETS AND REALS 
+DISCUSS THE S5 CASE
+
 In CITE, I presented an axiom system for height and width potentialism combined. 
 Roughly speaking the axiom system is motivated by the idea of an iterative set 
 construction process in which two `acts' are possible at each stage -- 
@@ -504,17 +507,18 @@ We show that $\omega_1^{L[r]} \text{ exists}^{\du}$ is equivalent to
 $\omega_1^{L[r]} \text{ exists }^\Diamond$, 
 in contrast of course to the real $\omega_1$.
 
-We know $\omega_1^{L[r]} \text{ exists}^{\du}$. That means it is vertically 
-possible that there is an ordinal in $L[r]$ such that it is vertically necessary 
-that no function in $L[r]$ is a bijection between that ordinal and $\omega$.
-Suppose that same ordinal is not the $\omega_1$ of $L[r]$ in the sense of $\Diamond$.
-Then it is generally possible that there is a function in $L[r]_\alpha$ for some 
-$\alpha$ that \emph{is} a bijection between that ordinal and $\omega$. Since
-it is vertically possible that $\alpha$ exists, and 
-$L[r]_\alpha^\Diamond = L[r]_\alpha^{\du}$, we must have the $\du$-translation 
-of $f$ exists and belongs to $L[r]_\alpha$. And of course being a bijection between 
-the ordinal and $\omega$ is $\Delta_0$ and so absolute. Hence the ordinal in question
-was not $\omega_1^L[r]$ in the sense of $\du$.
+For the non-trivial direction, suppose $\omega_1^{L[r]} \text{ exists}^{\du}$. 
+This is equivalent to there being \emph{$L[r]$-uncountable ordinals relative to $\du$}, in the sense that
+\[\du \exists \alpha \in L[r]^{\du} \bu \forall f \in L[r]^{\du}[\neg(f : \alpha \twoheadrightarrow \mathbb{N})].\]
+So assume the latter and instantiate such an $\alpha$ (using the rule on p $N$). 
+By absoluteness, $(\alpha \in L[r])^\Diamond$. Suppose $\alpha$ is not
+$L[r]$-uncountable relative to $\Diamond$, i.e. 
+$\Diamond \exists f \in L[r]^\Diamond[f : \alpha \twoheadrightarrow \mathbb{N}]$
+This implies 
+$\Diamond \exists \beta, f \in L[r]_\beta^\Diamond[f : \alpha \twoheadrightarrow \mathbb{N}]$. 
+But then using absoluteness and the fact that $\du \beta \text{ exists}$ we may infer
+\[\du \exists \beta, f \in L[r]_\beta^{\du}[f : \alpha \twoheadrightarrow \mathbb{N}]\]
+contradicting our assumption that $\alpha$ \emph{is $L[r]$-uncountable}$^{\du}$.
 
 We may thus infer \eqref{dtrans} from \eqref{dutrans}: since it is vertically possible 
 $\omega_1^L[r]$ exists, it is also generally possible, and the general possibility of 
