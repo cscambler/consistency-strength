@@ -233,7 +233,8 @@ collection principle.) To state the relevant instances, we first need a definiti
     Let $\blacksquare$ be a modal operator, let $\blacklozenge$ be its dual, and let 
     $\varphi$ be a formula in the first order language of set theory. 
     Then the $\blacksquare$-translation of $\varphi$, written $\varphi^\blacklozenge$, 
-    is the result of prepending each universal quantifier in $\varphi$ with $\blacksquare$,
+    is the result of prepending each atomic formula with a $\blacklozenge$, 
+    each universal quantifier in $\varphi$ with $\blacksquare$,
     and each existential quantifier in $\varphi$ with a $\blacklozenge$.
 \end{Definition}
 
@@ -390,8 +391,9 @@ $t : \mathcal{L}_1 \times M \times \mathbb{R}^M \to \mathcal{L}_\in, (\varphi, T
 \begin{itemize}
     \item assign plural variables odd numbered variables $t(X)$, and singular variables even 
             numbered variables $t(x)$.
-    \item Membership = id, commutes with propositional connectives 
-    \item $t(Xx)(T, r) := t(x) \in t(X)$
+    \item $t(x \in y) := t(x) \in t(y) \wedge t(y) \subseteq T$
+    \item commutes with propositional connectives 
+    \item $t(Xx)(T, r) := t(x) \in t(X) \wedge t(X) \subseteq T$
     \item $t(\forall x \varphi)(T, r) := \forall x \in T [t(\varphi)(T, r)]$
     \item $t(\forall X \varphi)(T, r) := \forall x \subseteq T [x \in L[r] \rightarrow t(\varphi)(T, r)]$
     \item $t(\bu \varphi)(T, r) := \forall S \supseteq T [Tran(S) \wedge S \in L[r] \rightarrow t(\varphi)(S, r)]$
@@ -537,14 +539,59 @@ The result follows.
 \subsection{Bi-interpretation?}
 We have
 \begin{Theorem}
-    $T \vdash \mathbb{R}(r) \wedge Tran(T) \wedge T \in L[r] \rightarrow t(\varphi^\Diamond)(T, r) \leftrightarrow \varphi$
+    $T \vdash t(\varphi^\Diamond)(T, r) \leftrightarrow \varphi$
 \end{Theorem}
-which is a routine induction on complexity. Things with the converse are slightly less clear. We would like
-to show
-\begin{Conjecture}
-    $\mathsf{M} \vdash \mathbb{R}(r) \wedge Tran(T) \wedge T \in L[r] \rightarrow t((\varphi)(T, r))^\Diamond \leftrightarrow \varphi$
-\end{Conjecture}
-but the restrictions to $L[r]$ imposed in the inner translation make for difficulties.
+which is a routine induction on complexity.
 
+The converse is, in various ways, more involved. 
+
+One way is that we need to account for the changes in variables induced by $t$. 
+To that end, if $\varphi$ is a formula in $\mathcal{L}_1$, let 
+$\varphi^*$ be the result of uniformly substituting $t(x)$ for $x$. 
+One can prove that $\varphi^*$ is a theorem iff $\varphi$ is a theorem. 
+
+Let $\mathsf{M}^+$ be $\mathsf{M}$ together with the axioms 
+\begin{equation}
+    Xx \leftrightarrow t(x) \in t(X)
+\end{equation}
+and let $Univ(T)$ mean that $T$ (not necessarily transitive) is universal, 
+i.e. $\forall x Tx$. 
+
+Then we have:
+\begin{Theorem}
+    $\mathsf{M}^+ \vdash Univ(T) \rightarrow t((\varphi)(T, r))^\Diamond \leftrightarrow \varphi^*$
+\end{Theorem}
+\begin{proof}
+    An induction on complexity. The base cases are easy, e.g. assuming $Univ(T)$ we have
+    we have $\Diamond t(x) \in t(y) \wedge y \in T$ 
+    being equivalent to $t(x) \in t(y)$ which just is $x \in y^*$.
+    For the quantifiers ... 
+    For the modal operators, consider first $\varphi := \bu \psi$. The claim then unpacks to
+    \[ \Box \forall S [T \subseteq S \in L[r] \rightarrow t(\psi)(S)^\Diamond] \leftrightarrow \bu \psi
+    \]
+    under the assumption $Univ(T)$. Going from right to left, assume the antecdent. 
+    By weakening (of two kinds)  
+    we get  
+    \[ \bu \forall S [T \subseteq S \in L[r] \wedge Univ(S) \rightarrow t(\psi)(S, r)^\Diamond]
+    \]
+    by the IH, this  entails
+    \[ \bu \forall S [T \subseteq S \in L[r] \wedge Univ(S) \rightarrow \psi] 
+    \]
+    but since the quantification is now vacuous this in turn reduces to 
+    \[ \bu  \psi 
+    \]
+    securing the result. 
+
+    For the converse, suppose $\bu \psi$, but $\Diamond \exists S \in L[r] \wedge T \subset S \wedge \neg t(\psi)^\diamond$.
+    By similar reasoning this implies $\du \exists S \in L[r] \wedge T \subset S \wedge \neg t(\psi)^\diamond$.
+    Now since any possible extension of the universe is possibly universal (axiom?), we 
+    can invoke the IH to get $\du \exists S \in L[r] \wedge T \subset S \wedge \neg \psi$.
+    Here again the quantifiers drop out and we get $\du \neg \psi$. But this is a contradiction.
+
+    Take now $\phi := \dl \psi$. We need
+    \[ \Box \forall s, S[r \in L[s] \wedge S \in L[s] \wedge T \subseteq S \wedge rank(T) = rank(S) \rightarrow t(\psi)(S)^\Diamond] \leftrightarrow \bu \psi
+    \]
+    on assumption $Univ(T)$. This one is a bit tricker!
+\end{proof}
 
 \end{document}
