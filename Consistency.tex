@@ -565,7 +565,9 @@ Then we have:
     An induction on complexity. The base cases are easy, e.g. assuming $Univ(T)$ we have
     we have $\Diamond t(x) \in t(y) \wedge y \in T$ 
     being equivalent to $t(x) \in t(y)$ which just is $x \in y^*$.
+    
     For the quantifiers ... 
+    
     For the modal operators, consider first $\varphi := \bu \psi$. The claim then unpacks to
     \[ \Box \forall S [T \subseteq S \in L[r] \rightarrow t(\psi)(S)^\Diamond] \leftrightarrow \bu \psi
     \]
@@ -583,7 +585,7 @@ Then we have:
     securing the result. 
 
     For the converse, suppose $\bu \psi$, but $\Diamond \exists S \in L[r] \wedge T \subset S \wedge \neg t(\psi)^\diamond$.
-    By similar reasoning this implies $\du \exists S \in L[r] \wedge T \subset S \wedge \neg t(\psi)^\diamond$.
+    By absoluteness style reasoning (check!) this implies $\du \exists S \in L[r] \wedge T \subset S \wedge \neg t(\psi)^\diamond$.
     Now since any possible extension of the universe is possibly universal (axiom?), we 
     can invoke the IH to get $\du \exists S \in L[r] \wedge T \subset S \wedge \neg \psi$.
     Here again the quantifiers drop out and we get $\du \neg \psi$. But this is a contradiction.
@@ -591,7 +593,8 @@ Then we have:
     Take now $\phi := \dl \psi$. We need
     \[ \Box \forall s, S[r \in L[s] \wedge S \in L[s] \wedge T \subseteq S \wedge rank(T) = rank(S) \rightarrow t(\psi)(S)^\Diamond] \leftrightarrow \bu \psi
     \]
-    on assumption $Univ(T)$. This one is a bit tricker!
+    on assumption $Univ(T)$. Left to right is the same idea. 
+    For right to left I think we can again use the same idea!
 \end{proof}
 
 \end{document}
