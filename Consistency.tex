@@ -537,15 +537,26 @@ The result follows.
 
 
 \subsection{Bi-interpretation?}
-In order to establish bi-interpretability, we must first modify the $\blacklozenge$ 
-translation slightly. This is because the first order variables from $\mathcal{L}_1$ 
-get shifted up, and the second order variables interspersed among them; hence 
-in the inverse translation we must shift back and reinterpret. So we set 
-$y_{2n} \in y_{2k}^\Diamond$ to be $x_n \in x_k$;
-$y_{2n} \in y_{2k+1}^\Diamond$ to be $X_k x_n$; 
-$y_{2n +1} \in y_{2k +1}$ to be ???.
+In order to establish bi-interpretability, we have to be a little bit devious.
+This is to account for the shifting behavior of variables in the translation, 
+and the fact that some variables intuitively `represent' plurals  in the first order language.
 
-Then we have...
+To accommodate this, first we redefine the formulae of $\mathcal{L}_1$ so 
+that $x \in y$ is only well formed if $x$ and $y$ both have even indices, 
+or $x$ is even and $y$ is odd. It is easy that, up to change in variables, theoremhood 
+in $\mathsf{M}$ is the same between the two languages. On the one hand if somethin is a theorem in the
+modified language it is a theorem in the old one. On the other, if it is a theorem in the old one,
+then the result of relettering any odd variables that come on the left of a membership symbol 
+by the variable indexed by the next available even is a theorem of the new system, and the old 
+system proves them equivalent.
+
+We then modify the $\blacklozenge$ 
+translation by setting: 
+
+\[(y_{2n} \in y_{2k})^\Diamond:= x_n \in x_k \]
+\[ y_{2n} \in y_{2k+1}^\Diamond := X_k x_n \]
+
+Under these definitions, we can now prove:
 \begin{Theorem}
     $T \vdash t(\varphi^\Diamond)(T, r) \leftrightarrow \varphi$
 \end{Theorem}
