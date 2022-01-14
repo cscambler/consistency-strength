@@ -585,13 +585,21 @@ Then we have:
     securing the result. 
 
     For the converse, suppose $\bu \psi$, but $\Diamond \exists S \in L[r] \wedge T \subset S \wedge \neg t(\psi)^\diamond$.
-    By absoluteness style reasoning (check!) this implies $\du \exists S \in L[r] \wedge T \subset S \wedge \neg t(\psi)^\diamond$.
+    By absoluteness style reasoning\footnote{
+        This does work and it is quite similar to an argument above. Perhaps a general lemma?
+        The idea is this. Suppose it is genearlly possible some $x$ in $L[r]$ has some 
+        absolute property (i.e. $\Diamond \varphi \rightarrow \Box \varphi$). 
+        Then it is generally possible it is in some $L[r]_\alpha$. It is vertically possible 
+        this $\alpha$ exists and hence that the $L[r]_\alpha$ exists (by absoulteness). 
+        Since the property is absolute, it still has it there. So it is vertically possible 
+        some $x$ in $L[r]^{\du}$ has the property. 
+    } this implies $\du \exists S \in L[r] \wedge T \subset S \wedge \neg t(\psi)^\diamond$.
     Now since any possible extension of the universe is possibly universal (axiom?), we 
     can invoke the IH to get $\du \exists S \in L[r] \wedge T \subset S \wedge \neg \psi$.
     Here again the quantifiers drop out and we get $\du \neg \psi$. But this is a contradiction.
 
     Take now $\phi := \dl \psi$. We need
-    \[ \Box \forall s, S[r \in L[s] \wedge S \in L[s] \wedge T \subseteq S \wedge rank(T) = rank(S) \rightarrow t(\psi)(S)^\Diamond] \leftrightarrow \bu \psi
+    \[ \Box \forall s, S[r \in L[s] \wedge S \in L[s] \wedge T \subseteq S \wedge rank(T) = rank(S) \rightarrow t(\psi)(S)^\Diamond] \leftrightarrow \bl \psi
     \]
     on assumption $Univ(T)$. Left to right is the same idea. 
     For right to left I think we can again use the same idea!
