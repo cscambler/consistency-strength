@@ -537,7 +537,15 @@ The result follows.
 
 
 \subsection{Bi-interpretation?}
-We have
+In order to establish bi-interpretability, we must first modify the $\blacklozenge$ 
+translation slightly. This is because the first order variables from $\mathcal{L}_1$ 
+get shifted up, and the second order variables interspersed among them; hence 
+in the inverse translation we must shift back and reinterpret. So we set 
+$y_{2n} \in y_{2k}^\Diamond$ to be $x_n \in x_k$;
+$y_{2n} \in y_{2k+1}^\Diamond$ to be $X_k x_n$; and all other combinations of odd-even 
+to be $\top$ (they won't come up, I think??)
+
+Then we have...
 \begin{Theorem}
     $T \vdash t(\varphi^\Diamond)(T, r) \leftrightarrow \varphi$
 \end{Theorem}
