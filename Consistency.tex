@@ -542,14 +542,18 @@ translation slightly. This is because the first order variables from $\mathcal{L
 get shifted up, and the second order variables interspersed among them; hence 
 in the inverse translation we must shift back and reinterpret. So we set 
 $y_{2n} \in y_{2k}^\Diamond$ to be $x_n \in x_k$;
-$y_{2n} \in y_{2k+1}^\Diamond$ to be $X_k x_n$; and all other combinations of odd-even 
-to be the identity.
+$y_{2n} \in y_{2k+1}^\Diamond$ to be $X_k x_n$; 
+$y_{2n +1} \in y_{2k +1}$ to be ???.
 
 Then we have...
 \begin{Theorem}
     $T \vdash t(\varphi^\Diamond)(T, r) \leftrightarrow \varphi$
 \end{Theorem}
 which is a routine induction on complexity.
+
+Check the base. If $\varphi$ is $y_k \in y_n$, what happens?
+
+Well, if $k = 2j$ and $n = 2i$, the diamond takes it 
 
 The converse is, in various ways, more involved. 
 
