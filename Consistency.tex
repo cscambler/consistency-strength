@@ -389,20 +389,21 @@ The idea behind our interpretation is to assign formulas in the modal
 language $\mathcal{L}_1$ formulas with two free variables in the non-modal langauge 
 $\mathcal{L}_\in$. Intuitively, the variables correspond to parameters specifying 
 the first order and plural domain of a possible world. Formally, they will correspond 
-to a transitive set and a real respectively.
+to a transitive set and a real respectively. To help keep this interpretation clear, 
+I will use $T$ and $r$ for the free variables (straying to $S, s$ when necessary).
 
 Things are slightly complicated by the fact that we have to handle plural variables in 
-$\mathcal{L}_1$ and don't have any in $\mathcal{L}_\in$. To handle this, we 
-start by assigning a translation 
+$\mathcal{L}_1$ and don't have any in $\mathcal{L}_\in$. 
 
-$t : \mathcal{L}_1 \times M \times \mathbb{R}^M \to \mathcal{L}_\in, (\varphi, T, r) \mapsto \psi(T, r)$
+Accordingly, let $t$ assign each singular variable in $\mathcal{L}_1$ the corresponding 
+even-numbered variable in $\mathcal{L}_\in$, and each plural variable in $\mathcal{L}_1$ 
+the corresponding odd-numbered variable in $\mathcal{L}_\in$. We then set:
+
 \begin{itemize}
-    \item assign plural variables odd numbered variables $t(X)$, and singular variables even 
-            numbered variables $t(x)$.
-    \item $t(x \in y) := t(x) \in t(y) \wedge t(y) \subseteq T$
-    \item commutes with propositional connectives 
-    \item $t(Xx)(T, r) := t(x) \in t(X) \wedge t(X) \subseteq T$
-    \item $t(\forall x \varphi)(T, r) := \forall x \in T [t(\varphi)(T, r)]$
+
+    \item $t(x \in y) := t(x) \in t(y)$
+    \item $t(Xx)(T, r) := t(x) \in t(X)$
+    \item $t(\varphi \wedge \psi)(T, r) = t(\varphi)(T, r) \wedge t(\psi)(T, r)$    \item $t(\forall x \varphi)(T, r) := \forall x \in T [t(\varphi)(T, r)]$
     \item $t(\forall X \varphi)(T, r) := \forall x \subseteq T [x \in L[r] \rightarrow t(\varphi)(T, r)]$
     \item $t(\bu \varphi)(T, r) := \forall S \supseteq T [Tran(S) \wedge S \in L[r] \rightarrow t(\varphi)(S, r)]$
     \item $t(\bl \varphi)(T, r) := \forall s[ r \in L[s] \rightarrow \forall S[ S \supseteq T \wedge rank(S) = rank(T) \wedge S \in L[s] \rightarrow t(\varphi)(S, s)]]$
