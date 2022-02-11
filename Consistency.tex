@@ -134,7 +134,7 @@ Our conception of identity for `plural' variables $X$ is in addition \emph{stron
 extensional}, meaning that plurals comprise the same things at all possible worlds. 
 We can enforce this conception axiomatically using the following principles.
 \begin{equation}
-    \forall x [Xx \leftrightarrow Yx] \rightarrow X = Y
+    \forall X \forall Y[\forall x [Xx \leftrightarrow Yx] \rightarrow X = Y]
 \end{equation}
 \begin{equation}\label{prig}
     \Box \forall X, x [\Diamond Xx \rightarrow \Box Xx]
@@ -405,10 +405,16 @@ the corresponding odd-numbered variable in $\mathcal{L}_\in$. We then set:
     \item $t(Xx)(T, r) := t(x) \in t(X)$
     \item $t(\varphi \wedge \psi)(T, r) = t(\varphi)(T, r) \wedge t(\psi)(T, r)$    \item $t(\forall x \varphi)(T, r) := \forall x \in T [t(\varphi)(T, r)]$
     \item $t(\forall X \varphi)(T, r) := \forall x \subseteq T [x \in L[r] \rightarrow t(\varphi)(T, r)]$
-    \item $t(\bu \varphi)(T, r) := \forall S \supseteq T [Tran(S) \wedge S \in L[r] \rightarrow t(\varphi)(S, r)]$
-    \item $t(\bl \varphi)(T, r) := \forall s[ r \in L[s] \rightarrow \forall S[ S \supseteq T \wedge rank(S) = rank(T) \wedge S \in L[s] \rightarrow t(\varphi)(S, s)]]$
-    \item $t(\Box \varphi)(T, r) := \forall s, S[r \in L[s] \wedge T \subseteq Tran(S) \in L[s]  \rightarrow t(\varphi)(S, s) ]$
+    \item $t(\bu \varphi)(T, r) := \forall S \supseteq T [ S \in L[r] \rightarrow t(\varphi)(S, r)]$
+    \item $t(\bl \varphi)(T, r) := $
+    
+    $\forall s, S[ r \in L[s] \wedge S \supseteq T \wedge rank(S) = rank(T) \wedge S \in L[s] \rightarrow t(\varphi)(S, s)]$
+    \item $t(\Box \varphi)(T, r) := \forall s, S[r \in L[s] \wedge T \subseteq S \in L[s]  \rightarrow t(\varphi)(S, s) ]$
 \end{itemize}
+
+in these, $S$ and $T$ are taken to range over transitive sets. (We could have 
+added conditions saying these were transitive, but it adds to the already considerable 
+clutter.)
 
 
 \begin{Theorem}
@@ -444,7 +450,8 @@ the corresponding odd-numbered variable in $\mathcal{L}_\in$. We then set:
     easy to find counterexamples to comprehension under the translation. For example, if $S$ contains 
     all reals in $L[s]$, the instance for $\Phi := x \in s'$ for any real $s'$ not in $L[s]$ will do.) 
 
-    On to the set-theoretic axioms. First, \eqref{hpot}. Given any transitive $S \in L[s]$, and any 
+    On to the set-theoretic axioms. Extensionality, rigidty, and foundation are straightforward,
+    and left to the reader. For \eqref{hpot}: Given any transitive $S \in L[s]$, and any 
     subset $X$ of $S$ also in $L[s]$, the translation follows by considering the transitive set 
     $S \cup \{X\} \in L[s]$. For \eqref{compn} one can use the set of natural numbers itself as the 
     relevant transitive set, which is an element of any $L[s]$. 
@@ -510,31 +517,32 @@ lemma \ref{DA}. The formula asserting that $x$ is $L[r]_\alpha$ is $\Delta_1$
 over ZFC without power. Thus, for any $x$, $\alpha$, $r$, 
 \begin{equation}\label{butt}\mathsf{M} \vdash (x = L[r]_\alpha)^\Diamond \leftrightarrow
 (x = L[r]_\alpha)^{\du}.\end{equation}
-Note also that for any ordinal $\alpha$, $\Diamond \exists x[ x = \alpha]$ if and only if 
-$\du \exists x[x = \alpha]$ (prove).
-It is easy enough to see that $\mathbb{R}^{L[r]}$ exists is equivalent to $\omega_1^{L[r]}$
+A simple induction shows that for any ordinal $\alpha$, $\Diamond \exists x[ x = \alpha]$ if and only if 
+$\du \exists x[x = \alpha]$.
+Moreover, standard set-theoretic reasoning (together with mirroring) 
+implies that $\mathbb{R}^{L[r]}$ exists is equivalent to $\omega_1^{L[r]}$
 exists, relative to either modality. 
-We show that $\omega_1^{L[r]} \text{ exists}^{\du}$ is equivalent to 
-$\omega_1^{L[r]} \text{ exists }^\Diamond$, 
+We show that $(\omega_1^{L[r]} \text{ exists})^{\du}$ is equivalent to 
+$(\omega_1^{L[r]} \text{ exists })^\Diamond$, 
 in contrast of course to the real $\omega_1$.
 
 For the non-trivial direction, suppose $\omega_1^{L[r]} \text{ exists}^{\du}$. 
 This is equivalent to there being \emph{$L[r]$-uncountable ordinals relative to $\du$}, in the sense that
 \[\du \exists \alpha \in L[r]^{\du} \bu \forall f \in L[r]^{\du}[\neg(f : \alpha \twoheadrightarrow \mathbb{N})].\]
 So assume the latter and instantiate such an $\alpha$ (using the rule on p $N$). 
-By absoluteness, $(\alpha \in L[r])^\Diamond$. Suppose $\alpha$ is not
+By lemma \ref{DA}, $(\alpha \in L[r])^\Diamond$. Suppose $\alpha$ is not
 $L[r]$-uncountable relative to $\Diamond$, i.e. 
 $\Diamond \exists f \in L[r]^\Diamond[f : \alpha \twoheadrightarrow \mathbb{N}]$
 This implies 
 $\Diamond \exists \beta, f \in L[r]_\beta^\Diamond[f : \alpha \twoheadrightarrow \mathbb{N}]$. 
-But then using absoluteness and the fact that $\du \beta \text{ exists}$ we may infer
+But then using \eqref{butt} and the fact that $\du \beta \text{ exists}$ we may infer
 \[\du \exists \beta, f \in L[r]_\beta^{\du}[f : \alpha \twoheadrightarrow \mathbb{N}]\]
 contradicting our assumption that $\alpha$ \emph{is $L[r]$-uncountable}$^{\du}$.
 
-We may thus infer \eqref{dtrans} from \eqref{dutrans}: since it is vertically possible 
-$\omega_1^L[r]$ exists, it is also generally possible, and the general possibility of 
-$L[r]$ exists implies the general possibility of the reals of $L[r]$ existing 
-by standard set theory and mirroring. 
+We may thus infer \eqref{dtrans} from \eqref{dutrans}: \eqref{dutrans} is equivalent to 
+$(\omega_1^{L[r]} \text{ exists})^{\du}$, which is equivalent to 
+$(\omega_1^{L[r]} \text{ exists })^\Diamond$,
+which latter is equivalent to \eqref{dtrans} by standard set theory and mirroring. 
 
 But now since we also have Theorem \ref{hcount}, it follows that 
 \begin{equation}
