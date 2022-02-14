@@ -594,10 +594,17 @@ Under these definitions, we can now prove:
 
 For the converse, we have:
 \begin{Theorem}
-    $\mathsf{M} \vdash t((\varphi)(T, r))^\Diamond \leftrightarrow \varphi$
+    $\mathsf{M} \vdash Univ(T) \rightarrow t((\varphi)(T, r))^\Diamond \leftrightarrow \varphi$
 \end{Theorem}
+Here, $Univ(T)$ is an abbreviation for $x in T \leftrightarrow Ex$.
+
+(I guess you need to add an axiom saying: any transitive extension of the universe is possibly universal.)
 \begin{proof}
-    An induction on complexity. For the base case, suppose $\varphi$ is $X_k x_n$. 
+    An induction on complexity.
+    
+    Assume $Univ(T)$. 
+    
+    For the base case, suppose $\varphi$ is $X_k x_n$. 
     Under the $t$ translation this yields $y_{2n} \in y_{2k+1}$, a well formed 
     formula of $\mathcal{L}$. The $\Diamond$ translation of this then takes us 
     to $\Diamond X_k x_n$, which is equivalent to $\varphi$ in $\mathsf{M}$. 
@@ -606,24 +613,18 @@ For the converse, we have:
     For the connectives e.g we have $t(\theta \wedge \psi)(T, r)^\Diamond$ being 
     $t(\theta)(T,r)^\Diamond \wedge t(\psi)(T,r)^\Diamond$, so the IH gets the result. Similar for negation.
 
-    For the quantifiers: $t(\forall x \psi)(T,r)^\Diamond$ being 
+    For the quantifiers: $t(\forall x \psi)(T,r)^\Diamond$ is 
     $\Box \forall x \in T [t(\psi)(T,r)^\Diamond]$. By the IH this reduces to 
     $\Box \forall x \in T [\psi]$. Suppose $T$ is universal in the sense that 
     $x \in T \leftrightarrow Ex$. Then suppose $\Box \forall x \in T [\psi]$ and assume 
     $Ex$. Then $\psi x$. So by universal generalization, $\forall x \psi$. On the 
     other hand, suppose $\forall x \psi$, and let $x \in T$. Then $Ex$ so $\psi x$. So 
-    $\forall x \in T \psi$. But can we necessitate?
+    $\forall x \in T \psi$. By the IH, $\forall x \in T [t (\psi)(T, r)^\Diamond]$.
+    Now since $t (\psi)(T, r)^\Diamond$ and $x \in T$ are both rigid, one can derive
+    a contradiction from the assumption that $\Diamond x \in T[\neg t (\psi)(T, r)^\Diamond]$.
+    Is there a better argument?
 
-    I'm really not sure about the truth of this. Take `every $x$ is not equal to $T$'.
-    The translation of this is `necessarily, for every $x$ in $T$, $x$ is not equal to $T$.'
-    That's true. OK. I guess the problems will come with contingent conditions. What about
-    $\psi$ being for example `there are no infinite sets', so we have vacuous quantification.
-    `everything is such that there are no infinite sets' may be true. 
-    But `necessarily, for every $x \in T$, there are no infinite sets' reduces 
-    to `necessarily, there are no infinite sets' which is false. NO IT DOESN'T! 
-    It becomes `necessarily, there are no infinite sets IN $T$.' The point is 
-    it becomes $\psi^T$ in the translation right? Then the $\Box$ drops away... 
-    but make this precise.
+
     
     For the modal operators, consider first $\varphi := \bu \psi$. The claim then unpacks to
     \[ \Box \forall S [T \subseteq S \in L[r] \rightarrow t(\psi)(S)^\Diamond] \leftrightarrow \bu \psi
