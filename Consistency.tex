@@ -30,8 +30,8 @@ University of Oxford}
 %\begin{abstract} \end{abstract}
 
 \section{Introduction}
-ADD CONVENTION FOR TRANSITIVE SETS AND REALS 
-DISCUSS THE S5 CASE
+TODO: REWRITE TO INCLUDE STUFF ON EQUIVALENT DESCRIPTIONS, AND ANALOGOUS 
+RESULTS FOR $\mathsf{L}$ and ZFC.
 
 In CITE, I presented an axiom system for height and width potentialism combined. 
 Roughly speaking the axiom system is motivated by the idea of an iterative set 
@@ -575,7 +575,7 @@ translation by setting:
 
 Under these definitions, we can now prove:
 \begin{Theorem}
-    $T \vdash t(\varphi^\Diamond)(T, r) \leftrightarrow \varphi$
+    $T \vdash Tran(T) \rightarrow t(\varphi^\Diamond)(T, r) \leftrightarrow \varphi$
 \end{Theorem}
 \begin{proof}
     An induction on complexity. This is all routine,
@@ -592,11 +592,12 @@ Under these definitions, we can now prove:
     gets assigned a plural variable by $t$.)
 \end{proof}
 
-For the converse, we have:
+For the converse, we have to reign in our ambitions a little. Let ${\mathcal{L}_1}^-$
+be the fragment of $\mathcal{L}_1$ without $\dl$. Then we have:
 \begin{Theorem}
     $\mathsf{M} \vdash Univ(T) \rightarrow t((\varphi)(T, r))^\Diamond \leftrightarrow \varphi$
 \end{Theorem}
-Here, $Univ(T)$ is an abbreviation for $x in T \leftrightarrow Ex$.
+Here, $Univ(T)$ is an abbreviation for $x \in T \leftrightarrow Ex$.
 
 (I guess you need to add an axiom saying: any transitive extension of the universe is possibly universal.)
 \begin{proof}
@@ -634,7 +635,8 @@ Here, $Univ(T)$ is an abbreviation for $x in T \leftrightarrow Ex$.
     we get  
     \[ \bu \forall S [T \subseteq S \in L[r] \rightarrow t(\psi)(S, r)^\Diamond]
     \]
-    by the IH, this  entails
+    by the IH, and the axiom (to be added) that says any transitive extension 
+    of the universe is possibly universal, this  entails
     \[ \bu \forall S [T \subseteq S \in L[r] \rightarrow \psi] 
     \]
     but since the quantification is now vacuous this in turn reduces to 
@@ -658,8 +660,16 @@ Here, $Univ(T)$ is an abbreviation for $x in T \leftrightarrow Ex$.
     But this is a contradiction.
 
     The argument for $\varphi := \Box \psi$ is easy. 
-
-    It doesn't go through for $\dl$, so we need to use the restricted language. 
 \end{proof}
+
+Why do we only have the result for ${\mathcal{L}_1}^-$? Well, in the case 
+of $\du$, we can prove it satisfies enough set theory to get absoluteness results going.
+Not so for $\dl$. E.g. we can prove $\du$ every ordinal exists, every $L_\alpha[S]$ exists,
+and so on. It is only when we also have some `building up' abilities, such as with 
+$\Diamond$ (which combines $\du$ and $\dl$) that we can do anything useful.
+
+This omission is not terribly serious. The particular things we posit for $\dl$ 
+are not that important: e.g. we could use forcing or enumeration indifferently, 
+with the same results for $\Diamond$.
 
 \end{document}
