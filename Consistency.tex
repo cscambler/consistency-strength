@@ -603,7 +603,27 @@ For the converse, we have:
     to $\Diamond X_k x_n$, which is equivalent to $\varphi$ in $\mathsf{M}$. 
     The case for $x_k \in x_n$ is similar.
     
-    The quantifiers and connectives are routine.
+    For the connectives e.g we have $t(\theta \wedge \psi)(T, r)^\Diamond$ being 
+    $t(\theta)(T,r)^\Diamond \wedge t(\psi)(T,r)^\Diamond$, so the IH gets the result. Similar for negation.
+
+    For the quantifiers: $t(\forall x \psi)(T,r)^\Diamond$ being 
+    $\Box \forall x \in T [t(\psi)(T,r)^\Diamond]$. By the IH this reduces to 
+    $\Box \forall x \in T [\psi]$. Suppose $T$ is universal in the sense that 
+    $x \in T \leftrightarrow Ex$. Then suppose $\Box \forall x \in T [\psi]$ and assume 
+    $Ex$. Then $\psi x$. So by universal generalization, $\forall x \psi$. On the 
+    other hand, suppose $\forall x \psi$, and let $x \in T$. Then $Ex$ so $\psi x$. So 
+    $\forall x \in T \psi$. But can we necessitate?
+
+    I'm really not sure about the truth of this. Take `every $x$ is not equal to $T$'.
+    The translation of this is `necessarily, for every $x$ in $T$, $x$ is not equal to $T$.'
+    That's true. OK. I guess the problems will come with contingent conditions. What about
+    $\psi$ being for example `there are no infinite sets', so we have vacuous quantification.
+    `everything is such that there are no infinite sets' may be true. 
+    But `necessarily, for every $x \in T$, there are no infinite sets' reduces 
+    to `necessarily, there are no infinite sets' which is false. NO IT DOESN'T! 
+    It becomes `necessarily, there are no infinite sets IN $T$.' The point is 
+    it becomes $\psi^T$ in the translation right? Then the $\Box$ drops away... 
+    but make this precise.
     
     For the modal operators, consider first $\varphi := \bu \psi$. The claim then unpacks to
     \[ \Box \forall S [T \subseteq S \in L[r] \rightarrow t(\psi)(S)^\Diamond] \leftrightarrow \bu \psi
