@@ -195,9 +195,18 @@ variables. The idea is simple: we just take all the first order variables $x_k$ 
 map them to the even numbered variables $x_{2k} := (x_k)_\exists$ in our first order langauge; 
 and we take the pural variables $X_k$ of the 
 potentialist and map them to the odd numbered variables $x_{2k+1} := (X_k)_\exists$ 
-of our first order logic. The guiding thought, ultimately, will be to interpret 
+of our first order logic. The guiding thought behind this is to interpret 
 what the potentialist thinks of as plural talk as talk about sets -- namely the set whose members comprise 
 the alleged plurality. 
+
+To ensure this works we will need to modify our first order language a little. 
+After all, the potentialist makes no sense of assertions like $XX$ or $x = X$, but the translations 
+of these will end up being legitimate formulae of our first order language. So if we want a systematic way to
+work back from the translation of a formula in the modal language to the formula -- as we need for 
+key result 3 -- we need to exclude such formulas from consdieration. Thus we re-define the notion 
+of a well-formed formula so that even numbered variables only ever occur on the right of $\in$, 
+and that $=$ is always only ever flanked by variables of the same parity. One can easily prove 
+that the systems resulting are strongly equivalent to each other. 
 
 Now that we have an intepretation for the potentialist's variables we can proceed to specify 
 the interpretation more generally. We set $x \in y^\exists$ and $Xx^\exists$ as $x_\exists \in y_\exists$ 
@@ -211,13 +220,10 @@ Modal notions are defined in terms of quantification over extensions of the doma
 It is now tedious but routine to prove that theoremhood is preserved 
 in the transition $\varphi \mapsto \varphi^\exists$.
 
-The key idea behind the translation $\varphi \mapsto \varphi^\diamond$ 
+The key idea behind the other translation, $\varphi \mapsto \varphi^\diamond$, 
 is to simply put a $\Diamond$ in front of every existential quantifier (and a $\Box$ in front of 
-every universal). However in our setting this won't quite be enough. We may need to add a $\Diamond$ 
-in front of every atomic formula CHECK. But we will actually need to be a bit clever with variables, in ways
-(and for reasons) I will get to momentarily. 
-
-
+every universal). For variables, we set $(x_{2k})_\diamond := x_k$, and $(x_{2k+1})_\Diamond = x_k$.
+It is easy to show theoremhood is preserved, and key result three requires little work from here.
 
 \subsection{Discussion}
 \section{Lemmas}
