@@ -150,8 +150,75 @@ for this system are compiled in Appendix A.
 We now turn to a discussion of the proof-theoretic relations between this `A axiom system'
 and ZFC.
 \subsection{Key Results}
-There are three key results of interest. I will state them and indicate the methods of proof,
-and give full proofs in appendix.
+There are three key results of interest. I will state them and indicate the methods of proof. 
+Full proofs are provided in Appendix B. 
+
+The {\bf first key result} is that there is a recursive mapping 
+$\varphi \mapsto \varphi^\exists$ from the potentialist 
+language to the language of first order set theory that preserves theormhood in the axiom system $A$.
+
+The {\bf second key result} is that there is a recursive mapping 
+$\varphi \mapsto \varphi^\diamond$ from the language of first 
+order set theory to the modal language that preserves theoremhood in ZFC.
+
+The {\bf third key result} is that these maps are almost inverse to each other up to provable equivalence. 
+
+Why almost? Well, for the maps to be inverse to one another up to provable equivalence would require 
+that ZFC proves $\varphi \leftrightarrow (\varphi^\Diamond)^\exists$, and the axiom system $A$ proves 
+$\varphi \leftrightarrow (\varphi^\exists)^\Diamond$. If that held, we'd say that ZFC and $A$ were 
+\emph{definitionally equivalent}. 
+
+But the translation $\varphi^\exists$ 
+involves interpreting unrestricted quantification in the modal language as tacitly restricted 
+to sets (``possible worlds''), and catering for the extra parameters they induce means that there
+are extra assumptions we need to make to ensure such an equivalence is provable. For 
+instance, we have to assume that the thing the actualist calls `the actual world' (for the potentialist)
+contains exactly all those things the potentialist recognizes. Hence the maps 
+are only inverses if we throw in some extra assumptions on the parameters. 
+
+This really is just a trivial book-keeping detail. All the model-theoretic consequences one gets 
+from definitional equivalence, for example, carry over farily straightforwardly to the form of 
+near-definitional equivalence we acquire. Thus there is a very natural sense in which the first order 
+picture of the sets painted by ZFC is equivalent to the modal account axiomatized by theories like $A$. 
+What more to make of this similarity is a difficult philosophical question I will not go into.
+
+Let me go into the methods of proof for these results. 
+
+First, let's discuss the translation $\varphi \mapsto \varphi^\exists$ from the first key result.
+As I said, the guiding idea is to think of the potentialist as someone who mistakenly believes 
+certain objects not to exist, but to be `merely possible'. They also believe there is a distinction 
+to be drawn between objects and multiplicities, and use a special kind of variable with special laws 
+that we (as good speakers of a first order language) do not recognize. 
+
+In order to interpret the potentialist, the (first order) actualist must first dispense with the plural 
+variables. The idea is simple: we just take all the first order variables $x_k$ of the potentialist, and 
+map them to the even numbered variables $x_{2k} := (x_k)_\exists$ in our first order langauge; 
+and we take the pural variables $X_k$ of the 
+potentialist and map them to the odd numbered variables $x_{2k+1} := (X_k)_\exists$ 
+of our first order logic. The guiding thought, ultimately, will be to interpret 
+what the potentialist thinks of as plural talk as talk about sets -- namely the set whose members comprise 
+the alleged plurality. 
+
+Now that we have an intepretation for the potentialist's variables we can proceed to specify 
+the interpretation more generally. We set $x \in y^\exists$ and $Xx^\exists$ as $x_\exists \in y_\exists$ 
+and $x_\exists \in X_\exists$ respectively. The connectives commute with the translation. For the quantifiers,
+we interpret the potentialist's assertion that any thing(s) has (have) the property $P$ as saying 
+that any thing (s) \emph{in the domain} have the property $P$ \emph{relative to that domain}. More explicitly, 
+the translation introduces a free variable $D$ (to be thought of as ``the domain'') and sets:
+\[\forall x \varphi_\exists := \forall x \in D [\varphi^\exists(D)]\]
+Modal notions are defined in terms of quantification over extensions of the domain:
+\[ \Diamond \varphi_\exists := \forall E \supseteq D [\varphi^\exists(E)]\]
+It is now tedious but routine to prove that theoremhood is preserved 
+in the transition $\varphi \mapsto \varphi^\exists$.
+
+The key idea behind the translation $\varphi \mapsto \varphi^\diamond$ 
+is to simply put a $\Diamond$ in front of every existential quantifier (and a $\Box$ in front of 
+every universal). However in our setting this won't quite be enough. We may need to add a $\Diamond$ 
+in front of every atomic formula CHECK. But we will actually need to be a bit clever with variables, in ways
+(and for reasons) I will get to momentarily. 
+
+
+
 \subsection{Discussion}
 \section{Lemmas}
 Modal Set Theory:
