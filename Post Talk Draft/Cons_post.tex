@@ -214,19 +214,30 @@ and $x_\exists \in X_\exists$ respectively. The connectives commute with the tra
 we interpret the potentialist's assertion that any thing(s) has (have) the property $P$ as saying 
 that any thing (s) \emph{in the domain} have the property $P$ \emph{relative to that domain}. More explicitly, 
 the translation introduces a free variable $D$ (to be thought of as ``the domain'') and sets:
-\[\forall x \varphi_\exists := \forall x \in D [\varphi^\exists(D)]\]
+\[(\forall x \varphi)^\exists := \forall x \in D [\varphi^\exists(D)]\]
 Modal notions are defined in terms of quantification over extensions of the domain:
-\[ \Diamond \varphi_\exists := \forall E \supseteq D [\varphi^\exists(E)]\]
+\[ (\Diamond \varphi)^\exists := \forall E \supseteq D [\varphi^\exists(E)]\]
 It is now tedious but routine to prove that theoremhood is preserved 
 in the transition $\varphi \mapsto \varphi^\exists$.
 
 The key idea behind the other translation, $\varphi \mapsto \varphi^\diamond$, 
 is to simply put a $\Diamond$ in front of every existential quantifier (and a $\Box$ in front of 
-every universal). For variables, we set $(x_{2k})_\diamond := x_k$, and $(x_{2k+1})_\Diamond = x_k$.
+every universal). For variables, we set $(x_{2k})_\diamond := x_k$, and $(x_{2k+1})_\Diamond = X_k$.
 It is easy to show theoremhood is preserved, and key result three requires little work from here.
 
 \subsection{Discussion}
-\section{Lemmas}
+You might think that this shows ZFC and A are two sides of the same coin. 
+This tempting thought is not straightforward. 
+Note that if both accept plurals, then the equivalence breaks down. 
+And one might think the modal operator was enough to endow the claims with a different significance.
+
+Another thought, due to Putnam, is that they \emph{are} genuinely different, but in 
+some deep sense equally good (equivalent descriptions). This is an interesting idea, but 
+it needs developing.
+\section{The system M}
+\section{Results}
+\section{Conclusion}
+\section{Some stuff}
 Modal Set Theory:
 Absolutness of various kinds.
 
@@ -258,8 +269,5 @@ Whenever $PT_n(\varphi) = PT_{n+1}(\varphi)$, $PT_n(\varphi)$ is $PT$. We set
 such $PT_n(\varphi) := PT(\varphi)$.
 
 $PT(\varphi)$ is provable iff $\varphi$ is. Induction on the number of out-of-place 
-variables. Suppose it holds for $n$. 
-\section{Results}
-\section{Conclusion}
-
+variables. Suppose it holds for $n$.
 \end{document}
