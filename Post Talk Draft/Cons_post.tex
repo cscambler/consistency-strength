@@ -25,57 +25,57 @@
     as fatter or thinner.
     A potentialist about the height of the universe believes that, no matter what,
     there could always be further ordinals; 
-    a potentialist about the width of the universe believes that there could 
+    a potentialist about the width of the universe believes that, no matter what, there could 
     always be more subsets of any given infinite set.
     
     
     It is well known that natural axiom systems for height potentialism 
     exhibit tight forms of proof-theoretic equivalence with standard set theories 
-    associated with ZFC. The recent literature has seen some discussion of 
-    height and width potentialism combined, but similar results precisely correlating 
-    these axiom systems with familiar, purely quantificational theories do not yet exist.
-    
+    associated with ZFC (and its extension by large cardinals). 
+    The recent literature has seen some discussion of 
+    height and width potentialism combined. But analogous results precisely correlating 
+    these axiom systems with familiar, purely quantificational theories do not yet exist.    
     
     This paper provides such results. I show that the axioms for height and width 
     potentialism from Scambler CITE exhibit a tight form of equivalence with 
-    second order arithmetic together with the $\Pi_1^1$-Pefect Set Property. 
-    This result is significant, because it (and its strengthenings) 
+    second order arithmetic extended by topological regularity principles. 
+    The results are significant because they 
     helps to round out the foundational 
-    picture underlying height and width potentialism.
+    picture underlying height and width potentialism, and to bring out how different it 
+    is from the standard ZFC-conception of set.
 }
 \section{Overview}
 I will begin by discussing the sense in which axiom systems for height potentialism
 are equivalent to set theories related to ZFC, and the techniques used to attain 
 the equivalence theorems. I then present the relevant axioms fo height and width 
-potentialism, and prove they share the same form of equivalence with theories related 
-to second order arithmetic (augmented by `good behavior' or `determinacy' axioms for 
-classes of reals). Finally, I discuss the relevance of these results for our understanding 
+potentialism, and prove they share the same form of equivalence with certain extensions 
+of second order arithmetic. Finally, I discuss the relevance of these results for our understanding 
 of the height/width potentialist point of view.
 \section{Warm Up: Height Potentialism}
 We begin with a review of some familiar territory. Though the correctness of 
 the results here will be 
 obvious to specialists, and though there are similar arguments on offer in the literature 
-(cf Button, Linnebo), we present some of the details here, partly because the 
+(cf Button, Linnebo), I'll present some of the details here, partly because the 
 results have never been given for the precise set of axioms to be discussed, and 
 partly because seeing how the arguments go in the simpler case of plain height potentialism
-will help to give intuitions when the more complicated case of height and width potentialism 
-comes to the fore.
+will help to give intuitions that will be handy for 
+the more complicated case of height and width potentialism.
 \subsection{Axioms}
 We start with a discussion of the `natural' axiom systems for height potentialism 
 that are at issue.
 
-Our potentialist theories will be directed at axiomatizing the following 
+The systems will be directed at axiomatizing the following 
 intuitive conception. Imagine there is a being who is capable of taking things 
 and {\bf collecting} them together into a set, and of repeatedly performing this act 
 as many times as is conceivable. Say that a \emph{set} is something that, given enough 
-executions of this basic act, can be produced by the being. 
+executions of this basic act, could be produced by such a being. 
 
 We want to axiomatize this conception in modal logic. The modal operator, $\Diamond$, 
 is to be interpreted so that $\Diamond \varphi$ means
 `by repeated acts of collection, $\varphi$ can be made to hold'. The dual 
 operator, $\Box \varphi$, means `no matter how many acts of collection are performed, 
 $\varphi$ will hold'. The axioms governing this modal logic can be taken to be 
-$\mathsf{S4.2}$ with the converse Barcan formula. (We do not want $.3$, 
+$\mathsf{S4.2}$ with the converse Barcan formula. More details are given in Appendix A.\footnote{(We do not want $.3$, 
 since given $a \not= b$ we may form either $\{a\}$ or $\{b\}$, but we do want 
 $.2$,
 so from either of these we can get $\{a\}$ and $\{b\}$.) The rule of necessitation 
@@ -83,48 +83,45 @@ is assumed, along with the standardly valid inference rules:
 \begin{prooftree}
     \AxiomC{$\Phi_1 \rightarrow \Box (\Phi_2 \rightarrow ... \Box ( \Phi_n \rightarrow \Box \Psi) ... )$}
     \UnaryInfC{$\Phi_1 \rightarrow \Box (\Phi_2 \rightarrow ... \Box ( \Phi_n \rightarrow \Box \forall x \Psi) ... )$}
-\end{prooftree}
+\end{prooftree}}
  
 Our conception says that the being can take any \emph{things} whatsoever and collect 
 \emph{them} into a set. These are plural notions, and accordingly we shall want a plural 
 langauge as well. We thus take a stock of plural variables $X$ and singular variables $x$.
 The circumstance of something $x$ being one of some things $X$ will be expressed by 
-the concatenation $Xx$. Identity is type-restricted. The plural logic includes full 
-comprehension (in closed form), the law of extensionality, rigidity for plurals, a 
-version of the axiom of chocie, and 
-the following restricted form of the Barcan formula:
-\[\Diamond \exists x[Xx \wedge x = y] \rightarrow \exists x[Xx \wedge x = y]\]
-Quantification is free for both kinds of variable.
+the concatenation $Xx$. The precise details, once more,  are consigned to Appendix A. 
 
-We can now move on to the discussion of the properly set-theoretic axioms. 
-We assume the axiom of extensionality for sets, as well as rigidity for the 
-membership relation, and the axiom of foundation. 
+The set-theoretic axioms are more interesting. We assume all the usual 
+background stuff: the axiom of extensionality for sets, rigidity for the 
+membership relation, and the axiom of foundation. But in addition, we have 
+distinctively potentialist existence principles like
 
-The first distinctively potentialist axiom of the system is 
 \begin{description} 
     \item[HP] $\Box \forall X \Diamond \exists x [Set(x, X)]$
 \end{description}
-(Here and throughout, $Set(x, X)$ is an abbreviation for 
-$\forall z[z \in x \equiv Xz]$.) This says: \emph{necessarily, any 
-things can be collected together into a set.} 
+Here and throughout, $Set(x, X)$ is an abbreviation for 
+$\forall z[z \in x \equiv Xz]$. {\bf HP} thus says: \emph{necessarily, any 
+things can be the elements of a set}; under our rather fanciful 
+intuitive interpretation, this corresponds to the idea that the being 
+can always collect together any given things into a set, `no matter what'.  
+(Hence, in contrast to standard set theory, there are no 
+special things that somehow can't be made to form a set.)
 
-The axiom allows us (given plural comprehension) to prove the possible existence 
+{\bf HP} allows us (given plural comprehension) to prove the possible existence 
 of each specific hereditarily finite set. But it does not allow for a proof that 
-there are any infinite sets. This is secured by adoption of an axiom of 
-`completeability' for the natural numbers:
+there are any infinite sets. However, in the spirit of transfinite 
+set theory, we will want to secure this possibility axiomatically. 
+One way to to this uses the following {\bf Completeability} principle for $\mathbb{N}$:
 \begin{description}
     \item[Comp$_\mathbb{N}$]
     $\Diamond \exists X \Box \forall y[ Xy \leftrightarrow \mathbb{N}(x)]$
 \end{description}
-This says that it is possible for there to be some things that comprise \emph{all possible}
-natural numbers. Since each partiular natural number possibly exists using iterated 
-{\bf HP}, this guarantees the possibility of an infinite set. (Here $\mathbb{N}$ is any formula 
-defining the notion of a natural number, say as a Dedekind-finite 
-Von Neumann ordinal.) One can think of the axiom as saying that, in addition to 
-each particular natural number being possible to produce, one can in fact go on long 
-enough to get them all.
+This says that it is possible, eventually, for the being to create \emph{all possible}
+natural numbers. This be used to prove the possibility 
+e.g. of $\omega$'s existence, given the other axioms.
 
-In conjunction with {\bf Comp$_\mathbb{N}$} {\bf HP} proves the possibility of a lot of
+Indeed, in conjunction with {\bf Comp$_\mathbb{N}$}, 
+{\bf HP} proves the possible existence of infinitely many
 infinite sets. But there is no guarantee from the axioms stated up to now that 
 the modal analogue of the powerset axiom should old: that it should be possible, 
 given any set, infinite or no, eventually to produce \emph{all} its possible subsets. 
@@ -134,10 +131,11 @@ Axiomatically, these things can be imposed by appeal to another completeability 
     \item[Comp$_\subseteq$]
     $\Box \forall x \Diamond \exists X \Box \forall y[ Xy \leftrightarrow y \subseteq x]$
 \end{description}
-This says that one can always eventually form all possible subsets of any given set.
+This says that one can always eventually form all possible subsets of any given set, 
+and is readily seen to have the asserted consequences.
 
-As a final axiom, or rather axiom scheme, we throw in a certain modal translation of replacement,
-whose exact nature will be specified below for the sake of convenience.
+As a final axiom, or rather axiom scheme, we throw in a modal 
+translation of replacement (the $\Diamond$-translation in the sense defined below).
 
 These are all fairly natural axioms to adopt if one wishes to explicate the idea 
 of a \emph{never ending set-construction process} in modal terms. One has an axiom 
@@ -145,80 +143,102 @@ asserting that any things possibly form a set, along with various other axioms
 that implicitly concern the lengths of iterations of set formation that are possible.
 
 For ease of reference the axioms 
-for this system are compiled in Appendix A. 
+for this system are compiled in Appendix A. I will refer to them as the system $\mathsf{L}$,
+for their creator, \O ystein Linnebo.
 
-We now turn to a discussion of the proof-theoretic relations between this `A axiom system'
-and ZFC.
+We now turn to a discussion of the proof-theoretic relations between $\mathsf{L}$
+and ZFC. 
 \subsection{Key Results}
 There are three key results of interest. I will state them and indicate the methods of proof. 
 Full proofs are provided in Appendix B. 
 
 The {\bf first key result} is that there is a recursive mapping 
 $\varphi \mapsto \varphi^\exists$ from the potentialist 
-language to the language of first order set theory that preserves theormhood in the axiom system $A$.
+language to the language of first order set theory that preserves theoremhood 
+from $\mathsf{L}$ into ZFC.
 
 The {\bf second key result} is that there is a recursive mapping 
 $\varphi \mapsto \varphi^\diamond$ from the language of first 
-order set theory to the modal language that preserves theoremhood in ZFC.
+order set theory to the modal language that preserves theoremhood 
+from ZFC into $\mathsf{L}$.
 
-The {\bf third key result} is that these maps are almost inverse to each other up to provable equivalence. 
+The {\bf third key result} is that these maps are 
+\emph{almost inverse to each other up to provable equivalence}. 
 
-Why almost? Well, for the maps to be inverse to one another up to provable equivalence would require 
-that ZFC proves $\varphi \leftrightarrow (\varphi^\Diamond)^\exists$, and the axiom system $A$ proves 
-$\varphi \leftrightarrow (\varphi^\exists)^\Diamond$. If that held, we'd say that ZFC and $A$ were 
+What does that mean? 
+Well, for the maps to be inverse to one another up to provable equivalence would be for 
+ZFC to prove $\varphi \leftrightarrow (\varphi^\Diamond)^\exists$, and for the axiom system $\mathsf{L}$ 
+to prove
+$\varphi \leftrightarrow (\varphi^\exists)^\Diamond$. If that held, 
+ZFC and $\mathsf{L}$ would be 
 \emph{definitionally equivalent}. 
 
-But the translation $\varphi^\exists$ 
+It would be nice if this were so. But unfortunately it cannot \emph{quite} be. 
+The translation $\varphi^\exists$ 
 involves interpreting unrestricted quantification in the modal language as tacitly restricted 
 to sets (``possible worlds''), and catering for the extra parameters they induce means that there
 are extra assumptions we need to make to ensure such an equivalence is provable. For 
 instance, we have to assume that the thing the actualist calls `the actual world' (for the potentialist)
 contains exactly all those things the potentialist recognizes. Hence the maps 
-are only inverses if we throw in some extra assumptions on the parameters. 
+are only inverses if we throw in some extra assumptions on the parameters.  Thus we are 
+left only with what Button has called \emph{near synonymy} rather than full definitional 
+equivalence.
 
-This really is just a trivial book-keeping detail. All the model-theoretic consequences one gets 
-from definitional equivalence, for example, carry over farily straightforwardly to the form of 
+The difference between the two is not great. 
+Indeed to me it looks like a trivial book-keeping detail. 
+All the model-theoretic consequences one gets 
+from definitional equivalence, for example, carry over fairly straightforwardly to the form of 
 near-definitional equivalence we acquire. Thus there is a very natural sense in which the first order 
-picture of the sets painted by ZFC is equivalent to the modal account axiomatized by theories like $A$. 
+picture of the sets painted by ZFC is equivalent to the modal account axiomatized by theories like L. 
 What more to make of this similarity is a difficult philosophical question I will not go into.
 
 Let me go into the methods of proof for these results. 
 
 First, let's discuss the translation $\varphi \mapsto \varphi^\exists$ from the first key result.
-As I said, the guiding idea is to think of the potentialist as someone who mistakenly believes 
-certain objects not to exist, but to be `merely possible'. They also believe there is a distinction 
-to be drawn between objects and multiplicities, and use a special kind of variable with special laws 
-that we (as good speakers of a first order language) do not recognize. 
+It has to translate the whole potentialist idiolect into the austere idiom of the 
+first order language. How is that to be done? An important part of the idea, as I said, is to introduce a
+notion of a possible world and take the potentialist to really be using quantifiers 
+restricted to such worlds. But the speaker of a first order language must also 
+find some interpretation for the potentialist's plural variables. To do that, 
+they will just interpret plural talk as unusual talk about sets (whose elements 
+are the `plurals'). But the details get a little bit subtle.
 
-In order to interpret the potentialist, the (first order) actualist must first dispense with the plural 
-variables. The idea is simple: we just take all the first order variables $x_k$ of the potentialist, and 
+The initial idea is simple enough: we just take all the first order variables $x_k$ of the potentialist, and 
 map them to the even numbered variables $x_{2k} := (x_k)_\exists$ in our first order langauge; 
 and we take the pural variables $X_k$ of the 
 potentialist and map them to the odd numbered variables $x_{2k+1} := (X_k)_\exists$ 
-of our first order logic. The guiding thought behind this is to interpret 
-what the potentialist thinks of as plural talk as talk about sets -- namely the set whose members comprise 
-the alleged plurality. 
+of our first order logic. Clearly, this is a way of interpreting talk of 
+plurals as just talk of some special objects.
 
-To ensure this works we will need to modify our first order language a little. 
-After all, the potentialist makes no sense of assertions like $XX$ or $x = X$, but the translations 
-of these will end up being legitimate formulae of our first order language. So if we want a systematic way to
-work back from the translation of a formula in the modal language to the formula -- as we need for 
-key result 3 -- we need to exclude such formulas from consdieration. Thus we re-define the notion 
-of a well-formed formula so that even numbered variables only ever occur on the right of $\in$, 
-and that $=$ is always only ever flanked by variables of the same parity. One can easily prove 
-that the systems resulting are strongly equivalent to each other. 
+Unforunately, an interpretation of this kind won't get the third key result 
+without some further tweaking. The issue is that in order to get key result three, 
+we need to be able to translate back from our first order language to 
+our modal language in a way that gets an equivalent formula. The obvious thing to do 
+is to say: translate by mapping odd numbered variables to plurals, and even numbered 
+variables to objects, e voila. But the problem is that this will lead to nonsense, 
+because in the first order language things like $x_0 \in x_0$ are well formed (and that 
+corresponds to the ill-formed $XX$, or something along those lines).
+
+To overcome this annoying detail  we re-define the notion 
+of a well-formed formula so that odd numbered variables only ever occur on the right of $\in$, 
+and that $=$ is always only ever flanked by variables of the same parity. One can easily prove that this doesn't make any significant difference to 
+provability in ZFC.\footnote{Every sentence $\varphi$ in the ordinary language of ZFC has 
+a corresponding sentence $\varphi^*$ in the new language with ZFC 
+$\vdash \varphi \equiv \varphi^*.$ And ZFC in the new language proves $\varphi$ 
+implies ZFC in the old language proves $\varphi$.} ((Could one do this by using a predicate??))
 
 Now that we have an intepretation for the potentialist's variables we can proceed to specify 
 the interpretation more generally. We set $x \in y^\exists$ and $Xx^\exists$ as $x_\exists \in y_\exists$ 
 and $x_\exists \in X_\exists$ respectively. The connectives commute with the translation. For the quantifiers,
-we interpret the potentialist's assertion that any thing(s) has (have) the property $P$ as saying 
-that any thing (s) \emph{in the domain} have the property $P$ \emph{relative to that domain}. More explicitly, 
-the translation introduces a free variable $D$ (to be thought of as ``the domain'') and sets:
-\[(\forall x \varphi)^\exists := \forall x \in D [\varphi^\exists(D)]\]
+we interpret the potentialist's assertion that any thing(s) has(have) the property $P$ as saying 
+that any thing(s) \emph{in the domain} has(have) the property $P$ \emph{relative to that domain}. More explicitly, 
+the translation introduces a free (set) variable $d$ (to be thought of as ``the domain'') and sets:
+\[(\forall x \varphi)^\exists := \forall x \in d [\varphi^\exists(d)]\]
 Modal notions are defined in terms of quantification over extensions of the domain:
-\[ (\Diamond \varphi)^\exists := \forall E \supseteq D [\varphi^\exists(E)]\]
+\[ (\Diamond \varphi)^\exists := \exists e \supseteq d [\varphi^\exists(e)]\]
 It is now tedious but routine to prove that theoremhood is preserved 
-in the transition $\varphi \mapsto \varphi^\exists$.
+in the transition $\varphi \mapsto \varphi^\exists$ (as long as we require $d$ and $e$ 
+to range over \emph{transitive} sets).
 
 The key idea behind the other translation, $\varphi \mapsto \varphi^\diamond$, 
 is to simply put a $\Diamond$ in front of every existential quantifier (and a $\Box$ in front of 
@@ -228,9 +248,53 @@ It is easy to show theoremhood is preserved.
 The third key result is not hard, with the only tricky part being coming up with precisely 
 the right statement. Here it is:
 
+Part one. ZFC proves that for any transitive $d$, 
+$\varphi \equiv (\varphi^\Diamond)^\exists(d)$.
+
+Part two. $\mathsf{L}$ proves that if $d$ is a universal set,
+then $\varphi \equiv (\varphi^\exists d)^\Diamond$.
+
 
 \subsection{Discussion}
-\section{Lemmas}
+\section{Axioms}
+In this section I will give the system of axioms for height and width potentialism 
+that will be the subject of the rest of the paper.
+
+The system is directed at axiomatizing the following intuitive (if fanciful) conception.
+As before, we have a being who is able to take things and {\bf Collect} them together into a set.
+But now, we will also take them to be able to perform another kind of basic act: namely, 
+that of taking some things, and {\bf Counting} them, that is, correlating them one-for-one
+with the natural numbers. Our new theory will concern the possibilities for arbitrary iterations 
+of {\bf Collect} and {\bf Count}. This time, we say that a \emph{set} is something that can be 
+gotten eventually by arbitrary iterations of these operations. {\bf Collect} is a height potentialist 
+principle, in that the set collected together has higher rank than the collected sets, 
+while {\bf Count} is naturally understood as a width potentialist principle, 
+as the introduction of an enumerating function for a given set may corresponds to the introduction 
+of new sets of the same or lower rank as the sets counted in many cases--
+indeed, up to isomorphism, it will correspond to introducing a subset of the naturals.
+
+There are many natural modal operators that one can read off from this conception. 
+There is for example a modal, which I will write $\du \varphi$, which corresponds to 
+possibility only taking acts of {\bf Collect} into consideration. Since this is the 
+height potentialist sense of possibility I shall often refer to this as {\bf vertical}
+possibility. There is also a natural modal, $\dl \varphi$, which corresponds to possibility 
+just by iterated enumeration. This might naturally be read as {\bf horizontal} possibility.
+ And there is a general modal operator, $\Diamond \varphi$, which 
+corresponds to $\varphi$s being possible by some arbitrary number of iterations and alternations 
+of the two available operations. I will refer to this as {\bf general} possibility. There are 
+many others besides, for example that induced by $\du\dl$, but these will play little direct role.
+In fact, for our purposes, even $\dl$ will be superfluous. We will focus our attentions on 
+the two operators $\du$ and $\Diamond$, where the former corresponds to possibility just by 
+{\bf Collection}, and the latter to possibility by combinations of {\bf Collect} and {\bf Count}.
+
+So we take a multi-modal language with the two modal operators $\Diamond$ and $\du$. We still 
+want the capacity to talk about pluralities and so we keep the two types of variable. 
+And we want to talk about sets so we include the membership relation symbol $\in$. 
+
+What axioms should we impose?
+\section{Key Results}
+\section{Discussion}
+\section{Stuff}
 Modal Set Theory:
 Absolutness of various kinds.
 
@@ -263,7 +327,5 @@ such $PT_n(\varphi) := PT(\varphi)$.
 
 $PT(\varphi)$ is provable iff $\varphi$ is. Induction on the number of out-of-place 
 variables. Suppose it holds for $n$. 
-\section{Results}
-\section{Conclusion}
 
 \end{document}
