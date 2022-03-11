@@ -10,7 +10,7 @@
 \usepackage{amsmath, amssymb}
 \usepackage{bussproofs}
 
-\title{{\bf On the Consistency Strength of Axioms for Height and Width Potentialism}}
+\title{On the Consistency Strength of Axioms for Height and Width Potentialism}
 \author{Chris Scambler}
 \date{\today}
 \begin{document}
@@ -223,47 +223,14 @@ in the transition $\varphi \mapsto \varphi^\exists$.
 The key idea behind the other translation, $\varphi \mapsto \varphi^\diamond$, 
 is to simply put a $\Diamond$ in front of every existential quantifier (and a $\Box$ in front of 
 every universal). For variables, we set $(x_{2k})_\diamond := x_k$, and $(x_{2k+1})_\Diamond = X_k$.
-It is easy to show theoremhood is preserved, and key result three requires little work from here.
+It is easy to show theoremhood is preserved.
+
+The third key result is not hard, with the only tricky part being coming up with precisely 
+the right statement. Here it is:
+
 
 \subsection{Discussion}
-You might think that this shows ZFC and A are two sides of the same coin. 
-This tempting thought is not straightforward. 
-Note that if both accept plurals, then the equivalence breaks down. 
-And one might think the modal operator was enough to endow the claims with a different significance.
-
-Another thought, due to Putnam, is that they \emph{are} genuinely different, but in 
-some deep sense equally good (equivalent descriptions). This is an interesting idea, but 
-it needs developing.
-\section{The system M}
-I'm so bored of writing out these axioms, but I guess I better. Write out 
-and explain. Just use two modal operators. 
-\section{Results}
-We will have three key results like last time. But we need a theory $T$. What must 
-$T$ be like? Well we will have to be able to define a notion of a possible world 
-that meets the requirements for the axioms on $\Diamond$. It is easy to see that this means 
-$T$ must extend second order arithmetic, and in particular prove that all sets are countable. 
-On the other hand, we will also need to define a restricted class of worlds such that, 
-relative to that class, the axioms of A come out true, which as we know from the previous section 
-means that those worlds will have to union together to a model for ZFC. (You haven't 
-actually done the model theory stuff, so maybe it would be useful to go into that a 
-little.) Thus $T$ will need to be some extension of second order arithmetic that interprets ZFC 
-in inner models.
-
-Such systems are known. The simplest is SOA + $\Pi_1^1$-PSP. An important 
-fact about this system is that it proves $L[r]$ is a model of ZFC for 
-every real $r$. This itself is a consequence of a perhaps more fundamental 
-result, that given $\Pi_1^1$-PSP, only countably many reals are constructible 
-from $r$. 
-
-This gives us the tools we need to prove the three key results for $T := SOA + \Pi_1^1-PSP$.
-Describe the proofs.
-
-\section{Conclusion}
-\section*{Appendix A: The Theory $\mathsf{L}$}
-\section*{Appendix B: Proofs for the key results on $\mathsf{L}$}
-\section*{Appendix C: The Theory $\mathsf{M}$}
-\section*{Appendix D: Proofs for the key results on $\mathsf{M}$}
-\section{Some stuff}
+\section{Lemmas}
 Modal Set Theory:
 Absolutness of various kinds.
 
@@ -295,5 +262,8 @@ Whenever $PT_n(\varphi) = PT_{n+1}(\varphi)$, $PT_n(\varphi)$ is $PT$. We set
 such $PT_n(\varphi) := PT(\varphi)$.
 
 $PT(\varphi)$ is provable iff $\varphi$ is. Induction on the number of out-of-place 
-variables. Suppose it holds for $n$.
+variables. Suppose it holds for $n$. 
+\section{Results}
+\section{Conclusion}
+
 \end{document}
