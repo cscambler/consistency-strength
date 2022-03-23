@@ -1,0 +1,203 @@
+\documentclass{article}
+
+\renewcommand*\familydefault{\sfdefault} 
+\newcommand{\du}{\Diamond_\uparrow}
+\newcommand{\dl}{\Diamond_\leftarrow}
+\newcommand{\bu}{\Box_\uparrow}
+\newcommand{\bl}{\Box_\leftarrow}
+
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb}
+\usepackage{bussproofs}
+
+\title{On the Consistency of Height and Width Potentialism}
+\author{Chris Scambler}
+\date{\today}
+\begin{document}
+\maketitle
+\abstract{
+    Recent work in philosophy of set theory has furnished 
+    some arguments that height and width potentialism 
+    are inconsistent with one another. 
+    One such argument can be found in this volume (Brauer); 
+    the other is forthcoming (Roberts).
+
+	At the same time, others have suggested 
+    there may be some merit in the combination of 
+    height  and width  potentialism. Such authors 
+    have presented views that appear to manifest 
+    the combination in a non-trivial way, and have 
+    defended philosophical claims on their basis 
+    (e.g. that all sets are ultimately countable 
+    -- cf Builes \& Wilson, Meadows, 
+    Scambler, Pruss).  
+
+	Clearly there is a tension here. 
+    The business of this article is to explain 
+    (what I take to be) its solution. 
+    I will argue that height  and width  potentialism 
+    are compatible, and that there is  
+    even an attractive view in the foundations of 
+    mathematics that arises from their combination. 
+    I will do this by explaining that view and how it 
+    responds to the arguments alleging inconsistency.
+
+}
+\section{Overview}
+Recent work in philosophy of set theory has furnished 
+some arguments that height  and width  potentialism 
+are inconsistent with one another. 
+One such argument can be found in this volume (Brauer); 
+the other is forthcoming (Roberts).
+
+At the same time, others have suggested 
+there may be some merit in the combination of 
+height  and width  potentialism. Such authors 
+have presented views that appear to manifest 
+the combination in a non-trivial way, and have 
+defended philosophical claims on their basis 
+(e.g. that all sets are ultimately countable 
+-- cf Builes \& Wilson, Meadows, 
+Scambler, Pruss).  
+
+Clearly there is a tension here. 
+The business of this article is to explain 
+(what I take to be) its solution. 
+I will argue that height  and width  potentialism 
+are compatible, and that there is  
+even an attractive view in the foundations of 
+mathematics that arises from their combination. 
+I will do this by explaining that view and how it 
+responds to the arguments alleging inconsistency.
+
+The plan is as follows. 
+Section 1 gives some definitional background and context. 
+Section 2 then presents a system that purports to 
+combine height  and width  potentialism and cites 
+some new results about its precise consistency 
+strength and equivalence to standard actualist 
+systems of set theory. Section 3 presents the 
+inconsistency argument of Roberts and explains 
+how the a proponent of the theory from Section 2 
+would reply. Section 4 does the same for Brauer.
+
+\section{Background}
+Let me start be explaining the terms. 
+
+For present purposes, \emph{potentialism} in set theory 
+will be the idea that there could always be 
+more sets than there in fact are. 
+In slogan form, for the potentialist,  
+the universe of sets is `indefinitely extendible'. 
+
+\emph{Height potentialism} is the idea that the universe
+is always extendible `upwards' to include 
+new sets of higher rank than any given ones. 
+\emph{Width potentialism}, on the other hand, 
+is the idea that the universe is always extendible 
+`outwards', to contain new sets of no greater rank 
+than the max of any given ones.
+
+Historically, height potentialism has been motivated 
+by considerations involving the set-theoretic paradoxes. 
+Russell's paradox shows there is no set of all 
+non-self-membered sets, and hence that the cumulative 
+hierarchy of all sets is itself (therefore) not a set. 
+But the height potentialist complains that any 
+`stopping point' for the cumulative hierarchy 
+would be arbitrary. Surely there is no conceptual obstacle 
+to any particular collection of ranks of the cumulative 
+hierarchy providing `urelements' for a longer continuation.
+
+It is natural to
+explicate this idea of an indefinitely extendible 
+universe of sets in modal logic. 
+Indeed, modal axiom systems based around core height potentialist 
+ideas are known to exhibit tight forms of 
+equivalence with standard iterative set theories like ZFC.
+
+Width potentialism has been historically 
+less popular, although has been attracting 
+some attention over the last few decades as a 
+way understand the independence phenomenon in set 
+theory. There is, in fact, a close structural 
+similarity in the motivation for height  and 
+width  potentialism in these terms (cf Meadows). 
+Just as the height potentialist begins with the 
+intuition that it is arbitrary that there should be 
+some ranks of the cumulative hierarchy that somehow 
+inherently can't extended to include further sets, 
+the width  potentialist may begin with the idea that 
+it is arbitrary that there should be some universe of 
+sets that cannot be extended by forcing over its 
+partial orders. Just as in the previous case, the 
+mathematics of forcing seems to lead us to believe 
+there is at least no conceptual obstacle to making 
+sense of such `forcing extensions of the universe'.
+
+Again, as with height potentialism, a natural way for the 
+width  potentialist to formalize their view 
+involves modal logic: one formulates an axiom to the 
+fact that, for any partial order $\mathbb{P}$, it is possible to 
+find a generic for $\mathbb{P}$. Such explicitly 
+axiomatic approaches 
+to width  potentialism are in fact less well-studied: 
+the focus of most work in this area has been on model 
+theory. Nevertheless, axiomatic approaches are possible 
+and easy enough to formulate. 
+
+There are, in any event, clear analogies 
+in the cases for height  and width  potentialism. 
+In each case one has a central inexistence result 
+in first order set theory (Russell's paradox, the 
+proof that some filters do not admit partial orders) 
+and one seeks to overcome it, after a fashion, by 
+implementing a modalized version -- any things can 
+form a set in the first case, any partial order can 
+be forced over in the second. It is natural to think 
+that going potentialist one way might give you some 
+reason to consider going potentialist the other way too. 
+But then, as I have said, there are those who think 
+that this is impossible on grounds of a logical 
+inconsistency between the two ideas.
+
+\section{Height and Width Potentialism Combined}
+
+In this section we will present and begin to motivate 
+axioms for a theory designed to combine height and width 
+potentialism. 
+
+Simple case: take a modal operator, $\Diamond$. 
+Height potentialism says: any things possibly are the elements 
+of a set. 
+Width potentialism: any partial order and any dense sets,
+possible to find a filter meeting all of them. 
+What first order theory do we get? It turns out that 
+with not very much extra we get second order arithmetic 
+up to near synonymy. Interpret possible worlds as transitive 
+sets. Then all the axioms will come out true (everything 
+is countable in our background theory).
+
+If we want more mathematical strength, factor the contributions 
+into a vertical and a horizontal dimension. We can assert 
+ZFC for the vertical but retain the horizontal. What we 
+get is lots of ZFC models living inside our overal universe, 
+which is one for SOA. 
+
+These get determinacy axioms in the translation.
+
+\section{Roberts}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
