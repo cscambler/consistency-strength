@@ -1,14 +1,15 @@
 \documentclass{article}
 
 \renewcommand*\familydefault{\sfdefault} 
-\newcommand{\du}{\Diamond_\uparrow}
-\newcommand{\dl}{\Diamond_\leftarrow}
-\newcommand{\bu}{\Box_\uparrow}
-\newcommand{\bl}{\Box_\leftarrow}
+
 
 \usepackage[T1]{fontenc}
-\usepackage{amsmath, amssymb}
+\usepackage{amsmath, amssymb, amsthm, txfonts, stmaryrd}
 \usepackage{bussproofs}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
 
 \title{On the Consistency of Height and Width Potentialism}
 \author{Chris Scambler}
@@ -163,40 +164,259 @@ inconsistency between the two ideas.
 
 \section{Height and Width Potentialism Combined}
 
-In this section we will present and begin to motivate 
-axioms for a theory designed to combine height and width 
-potentialism. 
+In this section, I will present some axiom systems that seem to 
+explicate the intuitive idea of height and width potentialism, as 
+described above.
 
-Let us start with the simplest combination of height and 
-width potentialism, before looking at some natural extensions. 
+\subsection{Core Logical Principles}
+All the versions of height and width potentialism we will consider will be built around
+two principles: the first is the height potentialist principle that any things can be 
+the elements of a set; the second is the width potentialist `forcing axiom', that 
+a generic filter can be found for any partial order. 
 
-As I said, in order to explicate these potentialist views, 
-it is natural to use a modal operator, $\Diamond$. Potentialists
-disagree about how this is to be understood, but since 
-our primary goals here are logical in nature (we are interested
-in a question of consistency) we don't need to trouble too much about it.
+Both potentialist principles involve modality; the first also involves plural 
+quantification. Accordingly the language $\mathcal{L}_0$
+we use to formulate these theories 
+will have at least a modal operator $\Box$, singular variables $x_n$, plural variables 
+$X_n$, the propositional connectives and quantifiers, the identity symbol $=$ 
+and the symbol $\in$ for set membership. The circumstance that some thing $x$ is 
+one of some things $X$ will be represented by the concatenation $Xx$. Identity 
+is only well formed between terms of the same type (singular/plural). 
 
-What is important is that we find axioms to explicate the 
-core ideas of height and width potentialism.
+The following core axioms will be included in all the potentialist theories we 
+will go on to discuss.
+\begin{description}
+    \item[FQ] Standard rules for free quantifier logic 
+    with identity for each type of variable.
+    \item[Mod] The modal logic $\mathsf{S4.2}$ with converse Barcan formula,
+    necessitation, and standard rules for universal quantification within the scope of $\Box$.  
+    \item[PR] The plural rigidity axioms 
+    \begin{enumerate} 
+        \item $\Box \forall X \Diamond Xx \rightarrow \Box Xx$ 
+        \item $\Box \forall X \Diamond (\exists x Xx \wedge x = y) \rightarrow \exists x Xx \wedge x = y$.
+    \end{enumerate}
+    \item[Comp] For any formula $\varphi(x, y, Y)$, 
+    $\Box \forall y \Box \forall Y \Box \exists X \forall x [Xx \leftrightarrow \varphi(x, y, Y)]$ is an axiom.
+    \item[P-Choice] A plural version of the axiom of choice.
+    \item[M-Rep] A modal version of the axiom scheme of replacement.
+    \item[Inf] An axiom saying that the set of natural numbers exists.
+    \item[Sets] The axioms of extensionality and the axiom of foundation, and an axiom 
+      $\Box \forall x \exists X \Box \forall y[Xy \leftrightarrow y \in x]$ asserting the rigidity of set membership
+\end{description}
+The precise details of many of these won't be too relevant below, but they are cited 
+here for something like completeness' sake. More details can be found in CITE. The 
+odd one out, of course, is {\bf Inf}. It is included here for simplicity, since 
+many of the 
+phenomena we will be interested in occur only at the level of infinite sets.
 
+The basic 
+idea behind the core axioms is to get a modal and plural logic, combined with fundamental 
+principles of set theory, to allow for the development of set theory based on potentialist 
+principles of set existence. Let us now turn to that development.
 
-Height potentialism says: any things possibly are the elements 
-of a set. 
-Width potentialism: any partial order and any dense sets,
-possible to find a filter meeting all of them. 
-What first order theory do we get? It turns out that 
-with not very much extra we get second order arithmetic 
-up to near synonymy. Interpret possible worlds as transitive 
-sets. Then all the axioms will come out true (everything 
-is countable in our background theory).
+\subsection{Simple HWP}
+In this section I will present what seems to me to be the simplest formal combination 
+of height and width potentialism. The theory is not mathematically strong, being 
+exactly equivalent in strength to second order arithmetic. But it does offer a clean 
+and simple proof of concept for the combination of height and width potentialism, 
+as well as a useful starting point for further extensions.
 
-If we want more mathematical strength, factor the contributions 
-into a vertical and a horizontal dimension. We can assert 
-ZFC for the vertical but retain the horizontal. What we 
-get is lots of ZFC models living inside our overal universe, 
-which is one for SOA. 
+The first axiom we add is:
+\begin{description}
+    \item[HP] $\Box \forall X \Diamond \exists x \forall y[y \in x \leftrightarrow Xy]$
+    \begin{itemize} 
+    \item \emph{Any things can be the elements of a set.}
+    \end{itemize}
+\end{description}
+HP enshrines the core idea of height potentialism, since it implies (given the
+usual notion of rank) that given any sets one can find others of still higher rank.
 
-These get determinacy axioms in the translation.
+The second requires a little more preparation. In our background logic we 
+can define the notion of a partial order, the notion of being a filter on 
+a partial order, and the notion of being a dense set in a partial order in 
+the standard way. Let blackboard variables $\mathbb{P}, \mathbb{Q}$ range over 
+partial orders. (These are singular variables.) Let $D(X, \mathbb{P})$ mean 
+that all $X$s are dense in $\mathbb{P}$. Finally, let $F_\cap(x, \mathbb{P}, X)$ 
+mean that $x$ is a filter on $\mathbb{P}$ that intersects every one of the $X$s.
+Then our width potentialist axiom can be stated as:
+\begin{description}
+    \item[WP] $\Box \forall \mathbb{P} \forall X D(X, \mathbb{P}) \rightarrow \Diamond \exists g(F_\cap(g, \mathbb{P}, X)) $   \begin{itemize} 
+    \item \emph{Any partial order can be used in forcing.}
+    \end{itemize}
+\end{description}
+WP is one way to flesh out width potentialism, since it implies that any 
+given sets may be extended to include ones of rank no greater than their max by 
+forcing. 
+
+The following will be useful to us going forward. In it, $f : \mathbb{N} \twoheadrightarrow X$
+is an abbreviation for the assertion that $f$ is a function on $\mathbb{N}$ with every $X$ in its range.
+
+\begin{proposition}\label{SHWP0}
+    Let {\bf Count} be the principle:
+    $$\Box \forall X \Diamond \exists f[f : \mathbb{N} \twoheadrightarrow X] $$ 
+    then {\bf Count} is equivalent to WP over the core logic + HP.
+\end{proposition}
+\begin{proof}
+    See CATBC.
+\end{proof}
+Let us call the result of adding these HP and either WP or {\bf Count}
+ to the core logic 
+{\bf Simple Height and Width Potentialism}, or SHWP.
+
+Turning now to questions of consistency, 
+it turns out that SHWP is 
+demonstrably consistent relative to Second Order Arithmetic (SOA). 
+In fact it turns out that SHWP exhibits a tight form of equivalence with SOA,
+something Tim Button has called `near synonymy' in the 
+recent literature. 
+
+(Here and below, we understand SOA under the guise of 
+ZFC without power + all sets are countable. This is 
+definitionally equivalent to the more standard
+arithmetical formulations; see e.g. Simpson.)
+
+A detailed account of the relationship between SOA and SHWP would be overkill here.
+(Details can be found in CITE.) But certain features will be important 
+to our discussion of consistency below, and having some idea of how the interpretation 
+of the modal theory SHWP in the non-modal SOA goes will be very 
+helpful to us going forward. 
+So we will spend some time discussing certain aspects of the `tight equivalence'
+just mentioned.
+
+Let $\mathcal{L}_\in$ be the first order 
+language of set theory. Then:
+\begin{theorem}\label{SHWP1}
+    There is a map $\cdot^\Diamond : \mathcal{L}_\in \to \mathcal{L}_0$ that preserves 
+    theoremhood from SOA to SHWP.
+\end{theorem}
+\begin{theorem}\label{SHWP2}
+    There is a map $\cdot^\exists : \mathcal{L}_0 \to \mathcal{L}_\in$ that preserves 
+    theoremhood from SHWP to
+    SOA.
+\end{theorem}
+Theorem \ref{SHWP1} says that SHWP interprets SOA; this 
+direction does not really concern us directly, since it does not 
+imply anything about the consistency of SHWP, but some 
+idea of how things go will be useful.
+The translation $\varphi \mapsto \varphi^\Diamond$ proceeds by prepending every 
+universal quantifier in $\varphi$ by a $\Box$ and every existential by a $\Diamond$.
+A result due to Linnebo says that for $\varphi \in \mathcal{L}_\in$, 
+\[\Gamma \vdash \varphi \Leftrightarrow \Gamma^\Diamond \vdash_{Core} \varphi^\Diamond\]
+where $\Gamma^\Diamond$ has the obvious meaning of $\{\gamma^\Diamond : \gamma \in \Gamma\}$.
+It thus suffices to prove $\varphi^\Diamond$ for each axiom of SOA in SHWP, 
+which (using Proposition \ref{SHWP0}) is not difficult. 
+
+Theorem \ref{SHWP2} is directly on-topic. It says that SOA interprets SHWP and hence
+secures the consistency of the latter relative to the former. Full details of the 
+ideal proof are a little fiddly and would go beyond our needs here. But some idea, 
+again, of how things go down will be useful.
+
+The key idea behind the translation $\varphi \mapsto \varphi^\exists$ is to factor 
+out use of modal operators in favor of quantification over possible worlds. 
+
+In a bit more detail, the idea is that we define the notion of a possible world 
+in SOA to be a transitive set. That means we interpret the language of SHWP so that ordinary 
+quantifiers are always restricted to such worlds, and the modal operators induce 
+quantifiers over such worlds. 
+
+Formally, this means our translation will have to 
+carry formulas $\varphi$ in the modal language (which may be sentences) to formulas 
+$\varphi^\exists(w)$ 
+in the first order language with a free `world' variable $w$. Key clauses of the 
+translation are things like
+\[ (\forall x \varphi)^\exists(w) := \forall x \in w \varphi^\exists(w) \]
+\[ (\forall X \varphi)^\exists(w) := \forall x \subseteq w \varphi^\exists(w) \]
+\[ (\Box \varphi)^\exists(w) := \forall u [Tran(u) \wedge w \subseteq u \rightarrow \varphi^\exists(u)]\]
+where $Tran(u)$ of course is the assertion that $u$ is transitive. (The case of 
+plural containment $Xx$ is a little fiddly, but can be made to work quite nicely.)
+The potentialist axioms are then readily seen to be true, under the translation, 
+in SOA. For HP, this is because every set is an element of a transitive set. 
+For WP, this is because SOA proves all sets are countable. So for any 
+given partial order, we may move to a transitive set that witnesses its countability, 
+and then proceed to introduce a generic for it if need be.
+
+A final point is that these results can be strengthened to attain something 
+approximating definitional equivalence between the two theories.  ...
+\subsection{Strong HWP}
+The theory I have just cited combines height and width potentialism in a 
+straightforward way. The result is a theory that is (up to a near-synonymy) 
+second order arithmetic. This is a pretty weak theory, although as we know 
+from the reverse mathematics literature it is plenty strong enough to develop 
+much of the mathematics needed in applications. Can the height and with potentialist 
+do better?
+
+There is indeed a reasonable way to proceed here. Our potentialist is interested 
+with expansions of the universe along two `directions'. One has the ability 
+to extend the universe `upwards' to create sets of higher rank; and one has the ability 
+to extend it `outwards' by forcing. By separating out these two possible methods of 
+expansion, and by asserting strong axioms regarding what can be attained along the 
+vertical dimension of expansion alone, much stronger HWP systems can be derived,
+indeed ones with all the power of ZFC and more. This extension makes the general 
+picture of height and width potentialism much more philosophically interesting, since 
+such versions have at least the consistency strength to recover all standard mathematics.
+But they also bring new conceptual problems with them, problems that will be exploited 
+in one of the inconsistency arguments we will consider. 
+
+Let us first discuss in a little more detail how to implement this idea. We expand 
+the language $\mathcal{L}_0$ to $\mathcal{L}_1$ by adding in two new modal operators, 
+$\circledbar$ and $\circledbslash$. $\circledbar$ is to reflect possibility by \emph{only} vertical expansion: 
+one can think of this as possibility by \emph{only} iteratively introducing new sets 
+for given pluarlities. $\circledbslash$, on the other hand, is to reflect possibility by \emph{only}
+horizontal expansion: one can think of this, indifferently, as just by adding 
+new generic filters, or adding new enumerating functions. ($\boxbar$ and $\boxbslash$
+are the duals.) $\Diamond$ remains in the 
+language, and represents `absolute' possibility, that is, possibility by either 
+domain expansion method. 
+
+Here is a way to axiomatize a `strong' system of this kind. 
+
+We begin by modifying HP and WP. 
+\begin{description}
+    \item[HP] $\Box \forall X \circledbar \exists x \forall y[y \in x \leftrightarrow Xy]$
+\end{description}
+
+\begin{description}
+    \item[WP] $\Box \forall \mathbb{P} \forall X D(X, \mathbb{P}) \rightarrow \circledbslash \exists g(F_\cap(g, \mathbb{P}, X)) $
+\end{description}
+
+Next, we add rules to reflect the generality of $\Diamond$.
+\begin{description}
+    \item[Gh] $\circledbar \varphi \rightarrow \Diamond \varphi$
+    \item[Gw] $\circledbslash \varphi \rightarrow \Diamond \varphi$
+\end{description}
+Finally, add the following restricted version of the 
+powerset axiom to vertical possibility.
+\begin{description}
+    \item[r-Pow] $\Box \forall x \circledbar \exists y \boxbar \forall z[ z \in y \leftrightarrow z \subseteq x]$
+\end{description}
+Pow says that it is always possible by vertical expansion to get all the subsets of 
+any given set, \emph{so long as one disregards the subsets you can get by forcing}.
+
+It is useful to compare r-Pow with the corresponding `unrestricted' version 
+\begin{description}
+    \item[Pow] $\Box \forall x \circledbar \exists y \Box \forall z[ z \in y \leftrightarrow z \subseteq x]$
+\end{description}
+which is provably inconsistent with {\bf WP} over the rest of the theory. Pow says that 
+it is possible for there to such things as \emph{all possible} subsets of any given 
+set; but given the existence of an infinite set (as we are guaranteed), and the 
+universal possibility of forcing, enshrined in {\bf WP}, this cannot be, since we can always force 
+to add new subsets to any given set.
+
+Let the extension of the core theory by the above principles (but not, of course, Pow)
+be called HWP. The following facts come easily.
+\begin{theorem}\label{HWP0}
+    There is a translation $\cdot^\circledbar : \mathcal{L}_\in \to \mathcal{L}_1$
+    that preserves theoremhood from ZFC to HWP.
+\end{theorem}
+\begin{theorem}\label{HWP1}
+    There is a translation $\cdot^\Diamond : \mathcal{L}_\in \to \mathcal{L}_1$
+    that preserves theoremhood from SOA to HWP.
+\end{theorem}
+In each case, the result follows much as it did in the previous case. In fact 
+Theorem \ref{HWP1} really just is Theorem \ref{SHWP1}. The first uses the same translation
+but with $\circledbar$ in place of $\Diamond$ and $\boxbar$ in place of $\Box$ 
+everywhere. That the theorem goes through is a known theorem of Linnebo in a slightly 
+different key.
 
 \section{Roberts}
 
