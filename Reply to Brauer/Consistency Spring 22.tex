@@ -10,6 +10,8 @@
 \newtheorem{theorem}{Theorem}
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{corollary}[theorem]{Corollary}
 
 \title{On the Consistency of Height and Width Potentialism}
 \author{Chris Scambler}
@@ -252,9 +254,9 @@ The following will be useful to us going forward. In it, $f : \mathbb{N} \twohea
 is an abbreviation for the assertion that $f$ is a function on $\mathbb{N}$ with every $X$ in its range.
 
 \begin{proposition}\label{SHWP0}
-    Let {\bf Count} be the principle:
+    Let Count  be the principle:
     $$\Box \forall X \Diamond \exists f[f : \mathbb{N} \twoheadrightarrow X] $$ 
-    then {\bf Count} is equivalent to WP over the core logic + HP.
+    then Count is equivalent to WP over the core logic + HP.
 \end{proposition}
 \begin{proof}
     See CATBC.
@@ -389,7 +391,7 @@ powerset axiom to vertical possibility.
 \begin{description}
     \item[r-Pow] $\Box \forall x \circledbar \exists y \boxbar \forall z[ z \in y \leftrightarrow z \subseteq x]$
 \end{description}
-Pow says that it is always possible by vertical expansion to get all the subsets of 
+r-Pow says that it is always possible by vertical expansion to get all the subsets of 
 any given set, \emph{so long as one disregards the subsets you can get by forcing}.
 
 It is useful to compare r-Pow with the corresponding `unrestricted' version 
@@ -417,6 +419,165 @@ Theorem \ref{HWP1} really just is Theorem \ref{SHWP1}. The first uses the same t
 but with $\circledbar$ in place of $\Diamond$ and $\boxbar$ in place of $\Box$ 
 everywhere. That the theorem goes through is a known theorem of Linnebo in a slightly 
 different key.
+
+The resulting theory has some intruiging features. If one restricts one's attention 
+to vertical possibility and necessity, one can construct objects that 
+satisfy anything you can get in ZFC, for example the existence of uncountable cardinals, 
+beth fixed points, and so on. But these large cardinals are always mirages: 
+and the mirage can always be revealed 
+by appeal to $\circledbslash$-possibility. Anything that might in some possible world 
+satisfy the formula saying that it is (say) $\omega_1$ will also not satisfy that 
+description in some other possible world. There are no absolute uncountabiles.
+
+The final point of course is true in SHWP; the interest here is its 
+compatibility with the `local' existence of transfinite cardinals.
+
+The chief advantage HWP has over SHWP is interpretative power: it can interpret all 
+of ZFC, notwithstanding its ultimate commitment to the countability of all things.
+This gives HWP the capacity, at least once motivational details are filled in,
+to potentially offer a countabilist foundation for all mathematics. This is I think
+one of the principle interests of the combination of height and width potentialism.
+
+I have said that the chief advantage of HWP over SHWP is interpretative power. But 
+how much of that does it have? Does it have too much? We now turn to addressing 
+these issues of consistency in HWP.
+
+It turns out that the methods employed in the previous section generalize fairly 
+naturally to cater to systems like HWP and even further extensions. The generalization
+involves extend second order arithmetic to include `topological regularity axioms',
+and then giving a more nuanced definition of possible world in terms of such an extension.
+
+Let's start with the extension of second order arithmetic involved, 
+to include so-called topological regularity axioms. 
+What are those?
+
+Well, there are certain `nice' topological properties of sets of reals -- 
+things like being Lebesgue measurable, or having the perfect set property -- 
+that cannot hold everywhere, at least given the axiom of choice. The issue (repeatedly)
+is that the axiom of choice allows you to well-order the reals and then construct
+barbaric sets of various kinds that don't have the nice features. 
+
+There's a general feeling in set theory that the `nice' properties should all 
+hold of easily definable sets of reals, and that the `nasty' counterexample sets 
+should all be pretty complicated to define (in terms of the usual analytical hierarchy).
+For example, if $V = L$, then there are easily definable nasty sets of reals, and 
+this is generally taken to be a mark against the principle.
+
+Since 
+$V = L$ implies there are easily definable but nasty sets, 
+it follows that principles asserting 
+that easily definable sets are nice must in some cases go beyond SOA (which is 
+of course consistent with $V = L$). Principles of this kind 
+are what I'm calling \emph{topological 
+regularity axioms}. 
+
+The weakest such axiom is something called the
+$\Pi_1^1$-Perfect Set Property (PSP), which says that every uncountable set of reals 
+definable by a $\Pi_1^1$ formula is either countable or has a perfect subset.\footnote{
+    A perfect set is a closed set with no isolated points.
+} It turns out that this minimal extension of SOA is enough to secure 
+the interpretability of HWP.
+
+\begin{theorem}
+    There is a map $\cdot^\exists : \mathcal{L}_1 \to \mathcal{L}_\in$
+    that preserves theoremhood from HWP to SOA + $\Pi_1^1$-PSP.
+\end{theorem}
+The proof uses similar ideas to those employed for SOA and SHWP in the previous 
+section, but as I said one has to take a more nuanced definition of `possible world'. 
+In particular, it turns out that here our definition of a world will 
+need to be `doubly parameterized': that is, we will need \emph{two} free 
+variables in $\varphi^\exists$. 
+
+Why?
+Let us think about how our possible worlds will have 
+to look to get an interpretation going. In order for r-Pow to be true, 
+there will have to be worlds $w$ at which the set $x$ 
+of all $\circledbar$-possible sets of numbers 
+exist. These worlds are worlds where 
+any plurality of numbers, in the sense of $w$, form a set. 
+And yet, since we can always force to add subsets to any infinite set, 
+there must still be further possible sets of numbers. These sets of numbers 
+have numbers as their members. But we said that all pluralities of numbers at 
+$w$ formed sets at $w$!
+
+The only way out of this tangle for the HWP proponent is to accept indefinite 
+extendability both with respect the singular domain, and with respect the plural 
+domain (holding the singular domain fixed). The introduction of new generics 
+witnesses, on this view, the extension of the plural domain (over a fixed) singular 
+domain. Indefinite extendability `runs in two dimensions', according to the present 
+picture. Hence, our possible worlds will be doubly parameterized, with one 
+parameter representing the singular domain, and the other parameter representing the
+plural. Expansions will then be possible, under the proposed interpretation, in 
+both directions. 
+
+Let's now look in more detail 
+how this works. We will make use of the following fact, whose proof 
+is originally due to Solovay.
+\begin{fact}
+    Over SOA, the $\Pi_1^1$-PSP is equivalent to $L[r]$ containing only 
+    countably many reals for every $r$.
+\end{fact}
+Thus, in effect, the Fact says that $L[r]$ always falls badly short of containing 
+all reals if we have $\Pi_1^1$-PSP. It is thus a strong form of $V \not = L$.
+
+It is fairly easy to see that the fact has the following corollary.
+\begin{corollary}
+    In  SOA + $\Pi_1^1$-PSP, $L[r]$ is a (class) model of ZFC for every real $r$.
+\end{corollary}
+I provide an argument sketch (that the corollary follows from the fact) in 
+a footnote.\footnote{
+    Do.
+}
+
+This now gives us the tools we need to implement our parametrized possible worlds 
+strategy. We define, in SOA + $\Pi_1^1$-PSP, our `possible worlds' to comprise
+a transitive set $t$ (representing the first order domain) and a real number $r$
+(representing the second order domain). We require that $t \in L[r]$, 
+and will say that plural quantification in a possible world is always 
+restricted to subsets of $L[r]$. 
+
+On this interpretation, when we vertically expand the domain, 
+that means that we add to the transitive set $t$ while staying within $L[r]$; when 
+we horizontally expand the domain, that means we extend the real parameter to $s$ (say), 
+making more pluralities `visible': we will now we consider $L[s]$ when we think about 
+extending vertically, and so on. Since SOA + $\Pi_1^1$-PSP has $L[r] \vDash$ ZFC 
+for every real $r$, this interpretation for vertical possibility will get 
+us ZFC, as we need, even remaining within the SOA context in general. 
+
+To implement this formally, 
+our mapping $\varphi \mapsto \varphi^\exists$ will therefore 
+need to carry $\varphi \in \mathcal{L}_1$ to a formula in $\mathcal{L}_\in$ with 
+not just one but two free variables: $\varphi \mapsto \varphi^\exists(t, r)$. It will 
+contain clauses like 
+
+\[ (\forall x \varphi)^\exists(t, r) := \forall x \in t \varphi^\exists(t, r) \]
+\[ (\forall X \varphi)^\exists(t, r) := \forall x \subseteq t [x \in L[r] \rightarrow \varphi^\exists(t, r)] \]
+\[ (\boxbar \varphi)^\exists(t, r) := \forall u \in L[r] [Tran(u) \wedge t \subseteq u \wedge u \in L[r] \rightarrow \varphi^\exists(u, r)]\]
+\[ (\Box \varphi)^\exists(t, r) := \forall s \geq r \forall u \in L[s] [Tran(u) \wedge t \subseteq u  \rightarrow \varphi^\exists(u, s)]\]
+(In the final expression, $s \geq r$ means that $r$ is constructible from $s$.)
+
+With the full translation in hand 
+it is a fairly straightforward matter to prove that every theorem of HWP 
+comes good in SOA + $\Pi_1^1$-PSP under the translation: 
+$\varphi \mapsto \forall t, r Tran(t) \wedge t \in L[r][ \varphi^\exists(t, r)]$.
+In fact, one can show that HWP has $\Pi_1^1$-PSP$^\Diamond$ as a theorem, and 
+prove the same kind of tight proof-theoretic equivalence obtains here 
+between HWP and SOA + $\Pi_1^1$-PSP as did between SHWP and SOA simpliciter. 
+These results can be pushed further: by increasing the strength of the regularity 
+assumed in the interpreting theory, 
+one can ratchet up the consistency strength of the corresponding modal HWP 
+theory, allowing for measurables and beyond to be `vertically' attainable.
+(We will return to this observation in more detail below.)
+
+In any case, that concludes the formal arguments 
+in favor of the consistency of height and width potentialism.
+We have seen, in outline, that there are arguments for the consistency of 
+height and width potentialism in both a strong and a weak form, relative to 
+extensions of SOA by topological regularity axioms.
+
+Let us 
+now turn to the arguments alleging inconsistency between height and width 
+potentialism, and to see how they relate to the approaches sketched up to now.
 
 \section{Roberts}
 
