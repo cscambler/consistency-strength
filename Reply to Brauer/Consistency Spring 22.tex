@@ -189,7 +189,7 @@ will go on to discuss.
     with identity for each type of variable.
     \item[Mod] The modal logic $\mathsf{S4.2}$ with converse Barcan formula,
     necessitation, and standard rules for universal quantification within the scope of $\Box$.  
-    \item[P-ext] $\forall x [Xx \equiv Yx] \supset X = Y$
+    \item[P-ext] $\Box \forall x [\Diamond Xx \equiv \Diamond Yx] \supset X = Y$
     \item[PR] The plural rigidity axioms 
     \begin{enumerate} 
         \item $ \Diamond Xx \rightarrow \Box Xx$ 
@@ -200,7 +200,9 @@ will go on to discuss.
     \item[P-Choice] A plural version of the axiom of choice.
     \item[M-Rep] A modal version of the axiom scheme of replacement.
     \item[Inf] An axiom saying that the set of natural numbers exists.
-    \item[Sets] The axioms of extensionality and the axiom of foundation, and an axiom 
+    \item[Set-Ext] The axiom of extensionality in the form 
+    $\Box \forall x [\Diamond x \in y \equiv \Diamond x \in z] \supset y = z $
+    \item[Sets] The axiom of foundation, and an axiom 
       $\Box \forall x \exists X \Box \forall y[Xy \leftrightarrow y \in x]$ asserting the rigidity of set membership
 \end{description}
 The precise details of many of these won't be too relevant below, but they are cited 
@@ -622,27 +624,32 @@ where $\varphi$ may include free variables. Then:
     abbreviate this as $\Diamond \exists x \Psi(x, y, z)$. By 
     strong comprehension and existential instantiation,
     \begin{equation} 
-        \Diamond (Ex \wedge \Psi(x, y, z) \wedge \exists X \forall w[Xw \equiv \Diamond w \in z])
+        \Diamond (Ex \wedge \Psi(x, z) \wedge \exists X \forall w[Xw \equiv \Diamond w \in z])
     \end{equation}
     by HP, 
     \begin{equation} 
-        \Diamond (Ex \wedge \Psi(x, y, z) \wedge \circledbar \exists u \forall w[w \in u \equiv \Diamond w \in z])
+        \Diamond (Ex \wedge \Psi(x, z) \wedge \circledbar \exists u \forall w[w \in u \equiv \Diamond w \in z])
     \end{equation}
-    one can then instantiate on $u$ and prove $\circledbar Eu \wedge u = z$ 
-    in the relevant context.
+    one can then instantiate on $u$ and prove $u = z$ by 
+    (our strong modal form of) extensionality.
+
     But this is a contradiction.
-
-    why doesn't this work without $y \subseteq x$? 
-
-    Need to show $\Diamond \circledbar \forall a[ a \in u \equiv a \in z]$. 
-    Suppose $\Diamond \circledbar Ea$ and $a \in u$. Then 
-    $\Diamond \circledbar Ea \wedge \Diamond a \in z$.
-    By rigidity for membership, $\Diamond \circledbar Ea \wedge a \in z$.
-    Conversely, suppose that $\Diamond \circledbar Ea$ and $a \in z$.
 
 \end{proof}
 
-
+Naturally, given this argument, we should expect the proof of consistency implicit in the 
+previous section to break down with strong comprehension. And this is precisely 
+what happens in the interpretation offered for HWP in SOA $+ \Pi_1^1$-PSP.
+When we have closed comprehension, in effect we are requiring 
+all the comprehending parameters come from $L[r]$ for fixed $r$; the fact that 
+$L[r]$ satisfies separation for formulas 
+\emph{in such parameters} then secures the interpretation 
+of plural comprehension. But when free variables are allowed in instances, 
+we may find ourselves in a situation where the parameters invovled do not 
+come from $L[r]$, and so there will be no reason to expect that 
+the acquired interpretation comprehension 
+will come good in $L[r]$, and in general it does not (consider reals $s$ not in $L[r]$ and 
+the instance $x = s$).
 
 
 
