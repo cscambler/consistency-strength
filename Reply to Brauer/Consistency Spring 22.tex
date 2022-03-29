@@ -189,10 +189,11 @@ will go on to discuss.
     with identity for each type of variable.
     \item[Mod] The modal logic $\mathsf{S4.2}$ with converse Barcan formula,
     necessitation, and standard rules for universal quantification within the scope of $\Box$.  
+    \item[P-ext] $\forall x [Xx \equiv Yx] \supset X = Y$
     \item[PR] The plural rigidity axioms 
     \begin{enumerate} 
-        \item $\Box \forall X \Diamond Xx \rightarrow \Box Xx$ 
-        \item $\Box \forall X \Diamond (\exists x Xx \wedge x = y) \rightarrow \exists x Xx \wedge x = y$.
+        \item $ \Diamond Xx \rightarrow \Box Xx$ 
+        \item $ \Diamond (\exists x Xx \wedge x = y) \rightarrow \exists x Xx \wedge x = y$.
     \end{enumerate}
     \item[Comp] For any formula $\varphi(x, y, Y)$, 
     $\Box \forall y \Box \forall Y \Box \exists X \forall x [Xx \leftrightarrow \varphi(x, y, Y)]$ is an axiom.
@@ -580,9 +581,66 @@ potentialism, and to see how they relate to the approaches sketched up to now.
 
 \section{Roberts}
 
+Right from the off it is perhaps worth mentioning 
+that Roberts' argument applies to HWP only. This is not a big deal: 
+he is assuming that the height potentialist will be committed at least 
+to the recovery of ZFC in terms of pure height potentialism, so that 
+any commitment to width potentialism will require a bimodal treatment 
+of the sort described in the last section. But it is worth mentioning 
+that a less grand form of height and width potentialism can still be viable,
+in the form of SHWP.
 
+The actual details of Roberts' argument are at present not entirely 
+clear to me. His paper is a work in progress, but in the most 
+recent version he argues that the addition of an actuality operator 
+to a theory related to HWP is incosistent, and that on that basis 
+we should think that the viewpoint enshrined in HWP is similarly inconsistent.
+In correspondence, I suggested that the use of an actuality operator 
+was a red-herring, and that in fact the argument turns (whether or not 
+we have an actuality operator in the picture) on whether we are allowed 
+comprehension only in the `closed' form cited above, or if instead 
+we accept instances of comprehension with free variables. I continue 
+to believe that the fundamentals of the argument Roberts presents turn 
+on issues surrounding comprehension, and that addition of an actuality 
+operator is a needless increase in complexity. So here I will discuss 
+what I take to be the simpler version of the argument, rather than 
+the last one I saw in a draft from Roberts. In an appendix, I will 
+explain why I think the addition of an actuality operator is unnecessary.
 
+Here then is the argument. Let HWP$^+$ be the 
+results of allowing all instances of comp, 
+\[ \exists X \forall x[Xx \equiv \varphi]\]
+where $\varphi$ may include free variables. Then:
+\begin{theorem}
+    HWP$^+$ is inconsistent.
+\end{theorem}
+\begin{proof}
+    It is easy to see that HWP implies
+    \begin{equation}
+        \Diamond \exists x[\Diamond (\exists y[ y \subseteq x \wedge y = z]) \wedge \boxbar(\neg \exists y[y = z])]
+    \end{equation}
+    abbreviate this as $\Diamond \exists x \Psi(x, y, z)$. By 
+    strong comprehension and existential instantiation,
+    \begin{equation} 
+        \Diamond (Ex \wedge \Psi(x, y, z) \wedge \exists X \forall w[Xw \equiv \Diamond w \in z])
+    \end{equation}
+    by HP, 
+    \begin{equation} 
+        \Diamond (Ex \wedge \Psi(x, y, z) \wedge \circledbar \exists u \forall w[w \in u \equiv \Diamond w \in z])
+    \end{equation}
+    one can then instantiate on $u$ and prove $\circledbar Eu \wedge u = z$ 
+    in the relevant context.
+    But this is a contradiction.
 
+    why doesn't this work without $y \subseteq x$? 
+
+    Need to show $\Diamond \circledbar \forall a[ a \in u \equiv a \in z]$. 
+    Suppose $\Diamond \circledbar Ea$ and $a \in u$. Then 
+    $\Diamond \circledbar Ea \wedge \Diamond a \in z$.
+    By rigidity for membership, $\Diamond \circledbar Ea \wedge a \in z$.
+    Conversely, suppose that $\Diamond \circledbar Ea$ and $a \in z$.
+
+\end{proof}
 
 
 
