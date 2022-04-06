@@ -371,7 +371,8 @@ are the duals.) $\Diamond$ remains in the
 language, and represents `absolute' possibility, that is, possibility by either 
 domain expansion method. 
 
-Here is a way to axiomatize a `strong' system of this kind. 
+Here is a way to axiomatize a `strong' system of this kind.\footnote{I ignore 
+fiddly details with the background multi-modal logic. Details can be found in CITE.}
 
 We begin by modifying HP and WP. 
 \begin{description}
@@ -393,7 +394,11 @@ powerset axiom to vertical possibility.
     \item[r-Pow] $\Box \forall x \circledbar \exists y \boxbar \forall z[ z \in y \leftrightarrow z \subseteq x]$
 \end{description}
 r-Pow says that it is always possible by vertical expansion to get all the subsets of 
-any given set, \emph{so long as one disregards the subsets you can get by forcing}.
+any given set, \emph{so long as one disregards the subsets you can get by forcing}. 
+This is a kind of local powerset axiom: in intuitive (procedural) terms,
+it says that you can always eventually get 
+all the subsets of a given set you can get without forcing, if you go on introducing 
+sets long enough.
 
 It is useful to compare r-Pow with the corresponding `unrestricted' version 
 \begin{description}
@@ -496,7 +501,7 @@ to look to get an interpretation going. In order for r-Pow to be true,
 there will have to be worlds $w$ at which the set $x$ 
 of all $\circledbar$-possible sets of numbers 
 exist. These worlds are worlds where 
-any plurality of numbers, in the sense of $w$, form a set. 
+any plurality of numbers, in the sense of $w$, forms a set. 
 And yet, since we can always force to add subsets to any infinite set, 
 there must still be further possible sets of numbers. These sets of numbers 
 have numbers as their members. But we said that all pluralities of numbers at 
@@ -536,15 +541,13 @@ strategy. We define, in SOA + $\Pi_1^1$-PSP, our `possible worlds' to comprise
 a transitive set $t$ (representing the first order domain) and a real number $r$
 (representing the second order domain). We require that $t \in L[r]$, 
 and will say that plural quantification in a possible world is always 
-restricted to subsets of $L[r]$. 
-
-On this interpretation, when we vertically expand the domain, 
-that means that we add to the transitive set $t$ while staying within $L[r]$; when 
-we horizontally expand the domain, that means we extend the real parameter to $s$ (say), 
-making more pluralities `visible': we will now we consider $L[s]$ when we think about 
-extending vertically, and so on. Since SOA + $\Pi_1^1$-PSP has $L[r] \vDash$ ZFC 
-for every real $r$, this interpretation for vertical possibility will get 
-us ZFC, as we need, even remaining within the SOA context in general. 
+restricted to subsets of $L[r]$. A possible world $t, r$ may then be extended 
+along two paramters. `Vertical' expansion expands the $t$ parameter, staying within 
+$L[r]$. `Horizontal' expansion expands the $r$ parameter, and insodoing 
+accommodates the needed growth in the plural domain even holding the first 
+order domain fixed. $t$ will in general have different subsets in $L[r]$ than 
+$L[s]$, and \emph{these} are the first order theorist's interpretation for talk of 
+plurals in HWP. 
 
 To implement this formally, 
 our mapping $\varphi \mapsto \varphi^\exists$ will therefore 
@@ -562,6 +565,9 @@ With the full translation in hand
 it is a fairly straightforward matter to prove that every theorem of HWP 
 comes good in SOA + $\Pi_1^1$-PSP under the translation: 
 $\varphi \mapsto \forall t, r Tran(t) \wedge t \in L[r][ \varphi^\exists(t, r)]$.
+(The fact that $L[r]$ models ZFC
+in SOA + $\Pi_1^1$-PSP is needed to get the translations of the $\circledbar$ 
+axioms to come good.)
 In fact, one can show that HWP has $\Pi_1^1$-PSP$^\Diamond$ as a theorem, and 
 prove the same kind of tight proof-theoretic equivalence obtains here 
 between HWP and SOA + $\Pi_1^1$-PSP as did between SHWP and SOA simpliciter. 
