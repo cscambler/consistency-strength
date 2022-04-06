@@ -621,12 +621,16 @@ where $\varphi$ may include free variables. Then:
     \begin{equation}
         \Diamond \exists x[\Diamond (\exists y[ y \subseteq x \wedge y = z]) \wedge \boxbar(\neg \exists y[y = z])]
     \end{equation}
-    abbreviate this as $\Diamond \exists x \Psi(x, y, z)$. By 
-    strong comprehension and existential instantiation,
-    \begin{equation} 
+    abbreviate this as $\Diamond \exists x \Psi(x, z)$. By 
+    existential instantiation and the comprehension instance
+    \begin{equation}\label{exa}
+        \exists X \forall w[Xw \equiv \Diamond w \in z]
+    \end{equation}
+    in parameter $z$ we get:
+    \begin{equation}\label{xb}
         \Diamond (Ex \wedge \Psi(x, z) \wedge \exists X \forall w[Xw \equiv \Diamond w \in z])
     \end{equation}
-    by HP, 
+    Then by HP, 
     \begin{equation} 
         \Diamond (Ex \wedge \Psi(x, z) \wedge \circledbar \exists u \forall w[w \in u \equiv \Diamond w \in z])
     \end{equation}
@@ -653,7 +657,8 @@ The question about the consistency of HWP that arises from this argument concern
 the status of the `strong' open version of plural comprehension. Formally speaking 
 the path toward saving HWP is clear: accept only the closed instances of comprehension.
 
-Roberts' claim is that the open instances are mandatory. But I see no good reason 
+Roberts' claim is that the open instances are mandatory:
+any reasonable plural logic will contain them. But I see no good reason 
 for thinking this is so. 
 
 For one thing, it is generally assumed that formulas with free 
@@ -662,47 +667,81 @@ under interpretation they don't say anything at all. They are analogous to
 assertions with hanging pronouns, like in `it's a good thing'. To rest a philosophical 
 case on such formulas being mandatory would therefore be peculiar.
 
-For another, if one looks at the role played by such instances in the argument,
-one will find reasonable grounds for the potentialist to be doubtful of the instances
-at an intuitive level, at least given a broadly Stalnakerian approach to the 
-metaphsycis of modality. Roughly speaking, in intuitive terms, the argument 
-for the inconsistency goes like this.
+For another, I would argue that the intuitive validity 
+of the instances of comprehension that are used in 
+the cited argument is legitimately (and independently) questionable, 
+whether or not one is a potentialist. In particular, 
+those of a Stalnakerian actualist bent in modal metaphysics 
+are likely to find the open schema doubtful.
 
-\begin{quote}
-    Strong HWP says there could be an $x$ such that: 
-    \begin{enumerate}
-        \item $x$ could have $z$ as a subset in the absolute sense, but
-        \item $z$ could not be attained by vertical expansion.
-    \end{enumerate}
-    But this is inconsistent. Suppose $x$ 
-    exists at world $w$. By plural comprehension there 
-    always such things as $z$s elements at $w$, and so by vertical expansion 
-    those things form a set. But that set is just $z$. So it was 
-    attainable by vertical expansion after all. 
-\end{quote}
-Should the HW-potentialist accept the instance of plural comprehension appealed 
-to there? That is, at $w$, should we believe there are such things as $z$s elements?
+Let me explain. Stalnakerian actualism involves contingentism about 
+(among other things) \emph{properties}. For example, 
+in the event that I should not exist, the property of not being 
+identical to me would also fail to exist according to Stalnaker. Of course, 
+given that I exist, it makes sense to look upon some 
+other circumstances in which I don't exist, and truly affirm 
+of various things that they are not identical to me. 
+But this does not mean that the world in question would 
+be one in which various things had the property of not being 
+identical to me, since were those circumstances to be actual 
+there would be no such property. 
 
-There's a certain line of thought here (with roots in Stalnaker) that says 
-clearly not. Suppose you are an inhabitant of the world $w$. In $w$, as it 
-were, there is no such thing as $z$ to refer to. It is possible, in $w$, 
-that there be some subset of $x$ that cannot be attained by vertical expansion; 
-that much we are sure of. But we are incapable of singling out any particular such 
-$z$ on which to comprehend, because there simply are no such $z$. There is 
-simply the generic possibility of there being something of the relevant type, 
-without it being true of any particular thing that it is possibly a thing 
-of the type. 
+Whatever the merits of this view in general -- I myself 
+happen to be sympathetic to it -- it is clearly coherent and 
+a reasonable idea to consider in modal metaphysics. At its 
+core, from a formal point of view, is precisely a denial of 
+arbitrary instances of comprehension for properties. It is 
+not true, on this picture, that arbitrary worlds will satisfy comprehension for 
+properties on formulas like `being identical to $x$', though 
+they will have the closed analogue (for every $x$ there is a property 
+of being identical to $x$.) Similar points go for `higher order' instances 
+of comprehension, like `being identical to the property $P$'.
 
-This is a perfectly coherent position and a reasonable rational for, in the formal 
-theory, restricting the allowable instances of comprehension to be closed. It amounts 
+For a Stalnakerian, the problem with open instances of property comprehension
+is that they allow worlds illict access to things in \emph{other} 
+worlds in the model.
+In our formal model, we have a bunch of worlds with separate domains,
+and we can name all the things in the domain of any model and ask 
+questions about whether one thing that exists according to one world 
+exists according to another. But these questions are only askable with 
+our external, model-theoretic perspective. 
+When $z$ gets assigned something that doesn't exist at $w$, 
+inhabitants of $w$ do not have the resources to refer to $z$, 
+and there in a certain sense simply are no comprehension instances 
+involving $z$ at $w$.
+Such formulas, 
+under interpretation in the model,
+just don't correspond to real propositions that exist at the 
+worlds at which truth is to be evaluated.
+There is no thought there to be thought there.
+
+The view transposes straightforwardly to one that 
+denies the relevant instances of comprehension for plurals.
+Presumably, on this Stalnakerian view, in circumstances where 
+I do not exist there are no such things as my molecules, 
+whether or not my molecules as we now recognize them
+should in fact exist at the world in question.  Similarly, 
+in circumstances where a generic filter
+for a partial order does not exist there are no such things 
+as its elements, whether or not the elements we will eventually 
+recognize it to have in fact exist at the world in question.
+
+Thus the Stalnakerian actualist 
+has indpendent grounds 
+for restricting the allowable instances of comprehension to be closed. This amounts 
 to only allowing parameters that are existent things, to which de re reference 
 is possible, into the instances of comprehension. In other cases mere de dicto, 
 generic reference to possibilities is all we can hope for. We can't single out 
 particular witnesses to possible existentials on which to comprehend. 
 
-All told then I do not think this argument shows HWP is inconsistent, although it 
-does serve to bring out the contours of the philosophical commitments that go along 
-with the view.
+This seems to me to be a clear enough rationale for holding only closed comprehension 
+to be valid. But the alleged inconsistency argument turns on the open instances.
+I conclude it does not go through.
+
+All told then I do not think Roberts' argument shows HWP is inconsistent.
+But I should say that the argument does do an excellent job 
+at bringing out the contours of the philosophical commitments that go along 
+with the view, and in this regard I think it is still a significant contribution.
 
 There is a related argument in the vicinity here that is also worth some brief 
 discussion. This says that HWP is inconsistent because it violates the valid 
@@ -809,14 +848,16 @@ But this is no different from the previous case, which is (hopefully?) completel
 unproblematic.
 
 But discussion of P1 is really a red herring, since at least so far as the 
-brands of height and width potentialism here go P2 is clearly false.
-It is after all easy to prove in HWP that if it is possible that some generic 
+brands of height and width potentialism here go P2 is false:
+one can argue in (S)HWP that if it is possible that some generic 
 $g_1$ exists, and it is possible that some generic $g_2$ exists, then it is 
 possible that they exist together. One can see this most easily by using 
-the tight form of equivalence with SOA + $\Pi_1^1$-PSP. This obviously proves that 
-any two possible generics for a partial order can both exist together in a transitive 
-set, namely a sufficiently large fragment of $L[r]$ with $r$ witnessing 
-the countability of all the relevant parties. Thus the modal logic of forcing, in this 
+the tight form of equivalences offered with extensions of SOA. 
+Such theories prove that
+any two generics for a partial order are both contained in a common transitive 
+set, for example a sufficiently large fragment of $L[r]$ with $r$ witnessing 
+the countability of all the relevant parties.
+Thus the modal logic of forcing, in this 
 setting, \emph{is} convergent. 
 
 Brauer's argument on the other hand is based on the familiar result from ZFC saying 
@@ -835,11 +876,17 @@ the mathematical universe than that associated with ZFC. Now I must concede
 that there is a sense in which the iterative concept of set is tied very closely 
 to ZFC and to certain forms of height potentialism: and if one thinks that 
 these links are essential to height potentialism then of course it is right 
-to say that height potentialism is inconsistent with width potentialism. 
+to say that height potentialism is inconsistent with width potentialism.  
+That is, if you think height potentialism requires commitment 
+to the potential hierarchy being stratified into $V_\alpha$s that 
+satisfy a modal analogue of ZFC, then trivially we will find that 
+width potentialism is ruled out.
 (This barely requires argument.) But in any case
 I see no reason to think such a thing. The core idea of height potentialism is 
 that the universe can always be extended upward, not that it can't be extended outward
-too.
+too. If fleshing out that position means temporarily giving up on ZFC, so be it.
+(Though as we have seen ZFC is readily interpretable in HWP in something resembling 
+`innner models'.)
 
 I hope it is clear that there is 
 at least a coherent 
