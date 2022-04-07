@@ -74,15 +74,15 @@ I will do this by explaining that view and how it
 responds to the arguments alleging inconsistency.
 
 The plan is as follows. 
-Section 1 gives some definitional background and context. 
-Section 2 then presents some axiomatic systems that purport to 
+Section 2 gives some definitional background and context. 
+Section 3 then presents some axiomatic systems that purport to 
 combine height  and width  potentialism and discusses
 issues of relevant to consistency, citing new results
 on strength and equivalence to standard `actualist' 
-set theories. Section 3 presents the 
+set theories. Section 4 presents the 
 inconsistency argument of Roberts and explains 
 how a proponent of height and width potentialism should reply.
-Section 4 does the same for Brauer.
+Section 5 does the same for Brauer.
 
 \section{Background}
 Let me start be explaining the terms. 
@@ -633,16 +633,18 @@ where $\varphi$ may include free variables. Then:
         \exists X \forall w[Xw \equiv \Diamond w \in z]
     \end{equation}
     in parameter $z$ we get:
-    \begin{equation}\label{xb}
+    \begin{equation}\label{exb}
         \Diamond (Ex \wedge \Psi(x, z) \wedge \exists X \forall w[Xw \equiv \Diamond w \in z])
     \end{equation}
     Then by HP, 
-    \begin{equation} 
+    \begin{equation}\label{exc}
         \Diamond (Ex \wedge \Psi(x, z) \wedge \circledbar \exists u \forall w[w \in u \equiv \Diamond w \in z])
     \end{equation}
-    one can then instantiate on $u$ and prove $u = z$ by 
-    (our strong modal form of) extensionality, using $ z \subseteq x $
-    to get $z \subseteq u$.
+    one can then instantiate on $u$ and prove $u = z$, using our (strong 
+    modal version of) extensionality.\footnote{$z \subseteq x$ is needed
+    to get $\Diamond w \in z \supset \Diamond w \in u$; without that, 
+    the other hypotheses imply the converse, but $z$ may have elements that 
+    don't exist at the initial world where $x$ exists implicit in \eqref{exc}.}
 
     But this is a contradiction.
 
@@ -666,20 +668,13 @@ the path toward saving HWP is clear: accept only the closed instances of compreh
 
 Roberts' claim is that the open instances are mandatory:
 any reasonable plural logic will contain them. But I see no good reason 
-for thinking this is so. 
-
-For one thing, it is generally assumed that formulas with free 
-variables at best play an auxiliary role in such formalizations, since 
-under interpretation they don't say anything at all. They are analogous to 
-assertions with hanging pronouns, like in `it's a good thing'. To rest a philosophical 
-case on such formulas being mandatory would therefore be peculiar.
-
-For another, I would argue that the intuitive validity 
+for thinking this is so. Indeed, I would argue that the intuitive validity 
 of the instances of comprehension that are used in 
 the cited argument is legitimately (and independently) questionable, 
-whether or not one is a potentialist. In particular, 
+whether or not one is a potentialist. For example, 
 those of a Stalnakerian actualist bent in modal metaphysics 
-are likely to find the open schema doubtful.
+might find the open plural comprehension schema doubtful, by analogy with things they 
+already think about property comprehension.
 
 Let me explain. Stalnakerian actualism involves contingentism about 
 (among other things) \emph{properties}. For example, 
@@ -688,10 +683,10 @@ identical to me would also fail to exist according to Stalnaker. Of course,
 given that I exist, it makes sense to look upon some 
 other circumstances in which I don't exist, and truly affirm 
 of various things that they are not identical to me. 
-But this does not mean that the world in question would 
-be one in which various things had the property of not being 
-identical to me, since were those circumstances to be actual 
-there would be no such property. 
+But this does not mean that the circumstances in question would 
+be ones in which various things had the property of not being 
+identical to me, since in those circumstances that property 
+does not exist. 
 
 Whatever the merits of this view in general -- I myself 
 happen to be sympathetic to it -- it is clearly coherent and 
@@ -724,73 +719,78 @@ There is no thought there to be thought there.
 
 The view naturally goes along with an analogous one that
 denies the relevant instances of comprehension for plurals.
-If we think, for instance, of a plurality along the lines 
-of the extension of a property -- the $P$s, for some $P$ 
--- then it seems natural enough 
-to think that in circumstances where no such individuating 
-$P$ exists, the corresponding plurality will not exist, 
-whether or not each individual thing that $P$s (given access to $P$!) exists. 
-Such a view would warrant a formal restriction to closed comprehension 
-along the lines of that just suggested on the Stalnakerian view for property 
-comprehension.
+Suppose for example that we think of a plurality as fundmentally 
+tied to an individuating property, roughly along the lines that 
+a plurality just is the extension of a property (the things instantiating it).
+We still hold -- since pluralities are \emph{extensions} -- that plural membership 
+is rigid, extensional, and all the other things involved in HWP. Only now, 
+our basic comprehension principle for plurals is of the form: for any property 
+$P$, there are some things such that $x$ is one of them if and only if $Px$. 
+The plurality of $P$s are, on this view, `rigidly' 
+the things that happen to instantiate $P$. 
 
-Note that there is no commitment to 
-there being anything intensional about pluralities here: 
-it is precisely as the \emph{extension} of a property, though plurally rather than 
-singularly, that we are conceving of pluarlities, and strong 
-principles of extensionality along the lines of those adopted in HWP 
-would still be warranted. And there is no reason to believe that this 
-account would have to give up on the idea of a plurality as `many'
-as opposed to `one'. It is just that, on this conception, the 
-existence of a plurality would be tied to the existence of an 
-individuating property classifying them.
-
-Such a view would support
-contingencies in plurality existence along the lines of 
-those just cited. For example, on this view, 
+Such an account of pluralities would support
+failures of comprehension on non-existent parameters of 
+the kind needed to defend HWP, given the corresponding 
+failures for property comprehension.
+For example, on this view, 
 in circumstances where 
 I did not exist there would be no guarantee there 
 were such things as \emph{my} molecules,
 unless some other property (not involving me) happened 
-to have them for its extension, even if each individual molecule 
-that would comprise me existed. 
+to have them for its extension;
+and, this is so even if each individual molecule 
+that would comprise me nevertheless existed.\footnote{
+    In this case it is plausible that there would be properties
+    not involving me that would fit the bill, 
+    since for each molecule $m_i$ in me there 
+    would be the property of being $m_i$, and 
+    hence the disjunctive property of being either 
+    $m_1$ or $m_2$ or ... or $m_k$, where $k$ 
+    is the number of molecules comprising me. But this sort of thing argument 
+    is not available in cases, like the next one I mention and like those 
+    relevant to HWP,
+    where infinitely many things are involved. 
+}
+The existence of each thing, as it were, is not 
+enough for the existence of the many: there must 
+in addition be `resources' to single them out.
 Similarly, 
 in circumstances where a generic filter
-for a partial order does not exist there are no such things 
-as its elements, whether or not the elements we will eventually 
-recognize \emph{it} to have in fact exist at the world in question.
-
-Thus the Stalnakerian actualist 
-can provide independent and conceptually motivated grounds 
-for restricting the allowable instances of comprehension to be closed. This amounts 
-to only allowing parameters that represent actual things on comprehension. But from 
-a Stalnakerian point of view this is no restriction at all. The other instances 
-do not even correspond to genuine thoughts, as there are no propositions involving 
-the alleged inexistents to be objects of thought.
+for a partial order (is possible but) does not exist there would be no guarantee 
+that there exist such things 
+as `its' elements, whether or not each element we will eventually 
+recognize `it' to have in fact exists: for there may be no property, like 
+`being an element of \emph{it}', that singles `its' elements out.
 
 This seems to me to be a clear enough rationale for holding only closed comprehension 
-to be valid. But the alleged inconsistency argument turns on the open instances.
-I conclude it does not go through. (I note in passing that there are 
-various other ways to motivate the restriction on comprehension besides,
-for example a form of predicativism about pluralities where their existence 
-is tied not to an individuating property but a defining condition. This 
-view can similarly motivate all we need for HWP, but it raises some subtle issues 
-about the strength of predicative comprehension that we don't need to get 
-into here.)
+to be valid, compatibly with the other tenets of height (and width) potentialism.
+We still have for example the pluralities we'd like to secure the translations 
+of separation in set theory; and we still have reasons for holding membership in 
+a plurality to be strongly extensional. But we have reason to reject 
+comprehension on parameters that don't exist in our formal theory, since 
+in fact in a certain sense 
+we believe there \emph{are} no such instances, when it comes to the semantics proper,
+in line with Stalnakerian actualism.
 
-All told then I do not think Roberts' argument shows HWP is inconsistent.
-But I should say that the argument is useful 
-in bringing out the contours of the philosophical commitments that go along 
-with the view, and in this regard I think it is still a significant contribution.
+I conclude that Roberts' argument does not show HWP is inconsistent.
+Instead, it serves to empahsize the importance of the 
+restriction to closed comprehension
+in the formulation of HWP, 
+and highlights the need for a corresponding conception of 
+plurality according to which 
+only the closed instances are supported, such as the one just given. 
+(There are in fact others besides, salient among them a predicativst 
+conception of pluralities, but the one above is simpler to explain.)
 
-One particularly important feature of HWP brought out here that bears empahsizing 
-is that it pushes one away from what Roberts has elsewhere called the 
-`nothing over and above' conception of plurals. This is the popular conception 
+I think that a useful way to understand Roberts' argument is as showing
+that HWP is inconsistent \emph{given the 
+`nothing over and above' conception of plurals}. This is the popular conception 
 according to which pluralities are the sorts of things you get `for free'
 when you have each individual comprising them.\footnote{This must not be confused with 
 the view, accepted on all sides, that a plurality is not a single thing 
-separate from the many comprising it.} It is absolutely crystal 
-clear that this view is incompatible with HWP: for example, 
+separate from the many comprising it.} It is crystal 
+clear that this take on plurals is incompatible with HWP: for example, 
 the nothing over and above conception would clearly mandate acceptance of 
 \begin{description}
     \item[BF] $\Box \forall Y (\Diamond \exists X \sqsubseteq Y [X = Z] \supset \exists X \sqsubseteq Y[X = Z])$
@@ -802,46 +802,35 @@ implies the existence of the plurality; moreover, it is violated
 in HWP, since there even the sub-pluralities of the natural numbers are indefinitely 
 extendible.
 
-My impression is that Roberts and I agree up to this point:
-we both agree that this conception and HWP cannot live together.
-Where we disagree is that Roberts believes the nothing over and above 
-conception is either the only way to think about plurals, or else 
-that it is the only way for a potentialist to think about plurals.
+Roberts and I agree here:
+this `nothing over and above' conception and HWP cannot live together.
+We disagree, however, because Roberts believes the nothing over and above 
+conception is the only way (for a potentialist) to think about plurals.
+On the other hand I think something like the account sketched above is 
+just as good for potentialist purposes. 
+ 
+In my view, plurality in philosophical parlance is a term of art with 
+some fairly significant roots in informal talk and thought. 
+The informal idea provides a sort of scaffold against which various more 
+detailed concepts can be constructed in logic, all with roots to a greater 
+or lesser extent in linguistic practice. There are intensional and extensional notions, 
+for example, and among the extensional there are those that take the `nothing over and above'
+line and those that do not. None of them are somehow the `right' way to think about plurals,
+written into the fabric of reality. Which one to employ in formulating mathematical theories
+is really up to us. 
 
-In either case, as I said, I disagree there.
-Our conception of plurals -- of `some things' -- 
-is one bequeathed us from informal thought. Precisely what logical principles 
-they should obey, and how they are to be conceptualized, is not rigidly 
-determined \emph{a priori}, but something that is to a great extent up to 
-us to decide how to fill in the details. Indeed there are in all likelihood 
-a number of related notions that can serve different roles in philosophical 
-enquiry. (Two besides the `nothing over and above' idea have been adumbrated here 
-already, both involving the requirement of some kind of individuation, a `carving out' 
-of the things in question.) 
-The task in the present context is to find such an understanding that suits HWP, 
-and the one that does 
-will necessarily not satisfy BF, since given any definite range of pluralities 
-over a given domain one can find new ones by forcing. Similarly, 
-the conception will not be one according to which many things are 
-`nothing over and above' the things they comprise, but 
-rather one where they will in general
-depend for their existence on individuating properties or conditions.
-There are such conceptions, and there is no reason not to invoke them. The 
-`nothing over and above' idea is not somehow written into the fabric of reality.
-
-
-There is a general moral in the vicinity.
+There is, I would argue, a general moral in the vicinity.
 HWP uses a cluster of ideas: modality, set membership, quantification, plurality, 
-and so on. None of them is an absolute fixed point, and there are basically no 
+and so on. None of them is an absolute fixed point, and there are few 
 conceptual fixed points within them. It is a matter of finding the right configuration 
 of these things to do justice to the guiding picture. That is why, in my view,
 it is highly unlikely that any serious inconsistency argument for the combination of
 height and width potentialism will be forthcoming: 
 pretty much any derived inconsistency  in a formal system would as naturally 
 be taken to show 
-the formalization was not up to the task. This 
-generally seems to be the right response to these sorts of inconsistency proofs.\footnote{
-    Compare e.g. Russell's paradox and the concept of set, or Berkeley's 
+the formalization was not up to the task.\footnote{This 
+generally seems to be the right response to these sorts of inconsistency proofs.
+Compare e.g. Russell's paradox and the concept of set, or Berkeley's 
 critique of the notion of the infinitesimal.}
 
 \section{Brauer}
