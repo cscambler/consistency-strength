@@ -216,16 +216,24 @@ we need to be able to translate back from our first order language to
 our modal language in a way that gets an equivalent formula. The obvious thing to do 
 is to say: translate by mapping odd numbered variables to plurals, and even numbered 
 variables to objects, e voila. But the problem is that this will lead to nonsense, 
-because in the first order language things like $x_0 \in x_0$ are well formed (and that 
-corresponds to the ill-formed $XX$, or something along those lines).
+because in the first order language things like $x_1 \in x_3$ are well formed (and that 
+corresponds to the ill-formed $XY$, or something along those lines). So in this 
+case our translation from the first order language to the plural language would 
+not even be everywhere defined.
 
 To overcome this annoying detail  we re-define the notion 
 of a well-formed formula so that odd numbered variables only ever occur on the right of $\in$, 
 and that $=$ is always only ever flanked by variables of the same parity. One can easily prove that this doesn't make any significant difference to 
-provability in ZFC.\footnote{Every sentence $\varphi$ in the ordinary language of ZFC has 
-a corresponding sentence $\varphi^*$ in the new language with ZFC 
-$\vdash \varphi \equiv \varphi^*.$ And ZFC in the new language proves $\varphi$ 
-implies ZFC in the old language proves $\varphi$.} ((Could one do this by using a predicate??))
+provability in ZFC.\footnote{Specifically: let $\mathcal{L}^-$ be the modified language, 
+and ZFC$^-$ be the modified version of ZFC. Then one can show that for every formula $\varphi$ 
+in the language $\mathcal{L}$ there is a formula $\varphi^-$ in the language $\mathcal{L}^-$ such that 
+(a) ZFC $\vDash \varphi \equiv$ ZFC$^-$ $\vDash \varphi^-$, and if $\varphi$ is a sentence, 
+ZFC $\vDash \varphi \equiv \varphi^-$.} ((Could one do this by using a predicate??
+Is what you have in the footnote enough??))
+
+
+[[Another option: weaken the key result to just cover the first order part. I think 
+that should be enough. Yeh: change the $\Diamond$ translation to just ignore plurals!!!!]]
 
 Now that we have an intepretation for the potentialist's variables we can proceed to specify 
 the interpretation more generally. We set $x \in y^\exists$ and $Xx^\exists$ as $x_\exists \in y_\exists$ 
