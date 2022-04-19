@@ -94,30 +94,36 @@ the concatenation $Xx$. The precise details, once more,  are consigned to Append
 The set-theoretic axioms are more interesting. We assume all the usual 
 background stuff: the axiom of extensionality for sets, rigidity for the 
 membership relation, and the axiom of foundation. But in addition, we have 
-distinctively potentialist existence principles like
+distinctively potentialist existence principles, the most fundamental of which 
+being:
 
 \begin{description} 
     \item[HP] $\Box \forall X \Diamond \exists x [Set(x, X)]$
 \end{description}
 Here and throughout, $Set(x, X)$ is an abbreviation for 
-$\forall z[z \in x \equiv Xz]$. {\bf HP} thus says: \emph{necessarily, any 
-things can be the elements of a set}; under our rather fanciful 
+$\forall z[z \in x \equiv Xz]$; {\bf HP} thus says: \emph{necessarily, any 
+things can be the elements of a set}. Under the given 
 intuitive interpretation, this corresponds to the idea that the being 
-can always collect together any given things into a set, `no matter what'.  
+can always collect together any given things into a set in any circumstances.  
 (Hence, in contrast to standard set theory, there are no 
 special things that somehow can't be made to form a set.)
 
 {\bf HP} allows us (given plural comprehension) to prove the possible existence 
 of each specific hereditarily finite set. But it does not allow for a proof that 
-there are any infinite sets. However, in the spirit of transfinite 
+it is possible to produce any infinite sets. 
+
+In the spirit of transfinite 
 set theory, we will want to secure this possibility axiomatically. 
-One way to to this uses the following {\bf Completeability} principle for $\mathbb{N}$:
+One way to to this uses the following {\bf Completeability} principle. 
+Let $\mathbb{N}(x)$ be the assertion that $x$ is a transitive set well-ordered 
+by $\in$ which, in addition, is Dedekind finite. Then we have the following 
+so-called completeability principle for the nautral numbers:
 \begin{description}
     \item[Comp$_\mathbb{N}$]
     $\Diamond \exists X \Box \forall y[ Xy \leftrightarrow \mathbb{N}(x)]$
 \end{description}
 This says that it is possible, eventually, for the being to create \emph{all possible}
-natural numbers. This be used to prove the possibility 
+natural numbers. It can be used to prove the possibility 
 e.g. of $\omega$'s existence, given the other axioms.
 
 Indeed, in conjunction with {\bf Comp$_\mathbb{N}$}, 
@@ -126,13 +132,19 @@ infinite sets. But there is no guarantee from the axioms stated up to now that
 the modal analogue of the powerset axiom should old: that it should be possible, 
 given any set, infinite or no, eventually to produce \emph{all} its possible subsets. 
 We also have no guarantee that any uncountable sets are possible.
+
 Axiomatically, these things can be imposed by appeal to another completeability axiom:
 \begin{description}
     \item[Comp$_\subseteq$]
     $\Box \forall x \Diamond \exists X \Box \forall y[ Xy \leftrightarrow y \subseteq x]$
 \end{description}
-This says that one can always eventually form all possible subsets of any given set, 
-and is readily seen to have the asserted consequences.
+This time, we assert that the subsets of any given set are always `completeable': 
+under our intuitive interpretation, 
+it says that one can always eventually form all possible subsets of any given set. 
+The axiom can easily be shown is readily seen to have the desired consequences, as 
+for example proving the possibility of uncountable sets in the strong sense that 
+it is necessary that there is no function defined on the natural numbers with the set 
+a subset of its range.
 
 As a final axiom, or rather axiom scheme, we throw in a modal 
 translation of replacement (the $\Diamond$-translation in the sense defined below).
@@ -152,6 +164,13 @@ and ZFC.
 There are three key results of interest. I will state them and indicate the methods of proof. 
 Full proofs are provided in Appendix B. 
 
+TODO: YOU NEED TO REDO THIS SO BOTH THEORIES ARE SET IN 
+SECOND ORDER LOGIC. THEN YOU CAN BRING OUT THE DIFFERENCES IN 
+TERMS OF PLURAL COMPREHENSION AND MORE EASILY PROVE THE FIRST ORDER 
+EQUIVALENCE. YOU CAN ALSO DISCUSS STRATGIES FOR INTERPRETING 
+THE SECOND ORDER CASE ALONG THE LINES OF BUTTON, WHICH YOU REALLY 
+MUST READ AND UNDERSTAND.
+
 The {\bf first key result} is that there is a recursive mapping 
 $\varphi \mapsto \varphi^\exists$ from the potentialist 
 language to the language of first order set theory that preserves theoremhood 
@@ -162,35 +181,46 @@ $\varphi \mapsto \varphi^\diamond$ from the language of first
 order set theory to the modal language that preserves theoremhood 
 from ZFC into $\mathsf{L}$.
 
-The {\bf third key result} is that these maps are 
-\emph{almost inverse to each other up to provable equivalence}. 
+The {\bf third key result} is that the first order fragments of these theories 
+exhibit what Button (cite) has called a \emph{near-synonymy} relation.
 
-What does that mean? 
-Well, for the maps to be inverse to one another up to provable equivalence would be for 
-ZFC to prove $\varphi \leftrightarrow (\varphi^\Diamond)^\exists$, and for the axiom system $\mathsf{L}$ 
-to prove
-$\varphi \leftrightarrow (\varphi^\exists)^\Diamond$. If that held, 
-ZFC and $\mathsf{L}$ would be 
-\emph{definitionally equivalent}. 
+The latter takes a little unpacking. What does that mean? 
+The relation of \emph{full synonymy} or \emph{definitional equivalence} between 
+the first order fragments would require, in addition to the first two key results, 
+that ZFC should prove $\varphi \leftrightarrow (\varphi^\Diamond)^\exists$, 
+and that $\mathsf{L}$ should prove
+$\varphi \leftrightarrow (\varphi^\exists)^\Diamond$, where $\varphi$ in each case 
+is restricted to the first order fragment of the language (but where it may, if a 
+$\mathsf{L}$ formula, contain modal operators).
 
 It would be nice if this were so. But unfortunately it cannot \emph{quite} be. 
 The translation $\varphi^\exists$ 
-involves interpreting unrestricted quantification in the modal language as tacitly restricted 
-to sets (``possible worlds''), and catering for the extra parameters they induce means that there
-are extra assumptions we need to make to ensure such an equivalence is provable. For 
-instance, we have to assume that the thing the actualist calls `the actual world' (for the potentialist)
-contains exactly all those things the potentialist recognizes. Hence the maps 
-are only inverses if we throw in some extra assumptions on the parameters.  Thus we are 
-left only with what Button has called \emph{near synonymy} rather than full definitional 
+involves interpreting unrestricted quantification in the modal language as 
+tacitly restricted 
+to sets (``possible worlds''), and catering for the extra parameters they 
+induce means that there
+are extra assumptions we need to make to ensure such an equivalence is 
+provable. For 
+instance, we have to assume that the thing the actualist calls 
+`the actual world' (for the potentialist)
+contains exactly all those things the potentialist recognizes. 
+Hence the maps 
+are only inverses if we throw in some extra assumptions on the parameters.  
+Thus we are 
+left only with what Button has called \emph{near synonymy} 
+rather than full definitional 
 equivalence.
 
 The difference between the two is not great. 
 Indeed to me it looks like a trivial book-keeping detail. 
 All the model-theoretic consequences one gets 
 from definitional equivalence, for example, carry over fairly straightforwardly to the form of 
-near-definitional equivalence we acquire. Thus there is a very natural sense in which the first order 
-picture of the sets painted by ZFC is equivalent to the modal account axiomatized by theories like L. 
-What more to make of this similarity is a difficult philosophical question I will not go into.
+near-definitional equivalence we acquire. 
+Thus there is a very natural sense in which the first order 
+picture of the sets painted by ZFC is equivalent to the 
+first order modal account axiomatized by theories like L. 
+What more to make of this, and the relevance of the restriction to the 
+first order fragment, will be discussed below.
 
 Let me go into the methods of proof for these results. 
 
@@ -201,39 +231,16 @@ notion of a possible world and take the potentialist to really be using quantifi
 restricted to such worlds. But the speaker of a first order language must also 
 find some interpretation for the potentialist's plural variables. To do that, 
 they will just interpret plural talk as unusual talk about sets (whose elements 
-are the `plurals'). But the details get a little bit subtle.
+are the `plurals'). 
 
-The initial idea is simple enough: we just take all the first order variables $x_k$ of the potentialist, and 
-map them to the even numbered variables $x_{2k} := (x_k)_\exists$ in our first order langauge; 
+To implement this, we take all the 
+first order variables $x_k$ of the potentialist, and 
+map them to the even numbered variables $x_{2k} := (x_k)_\exists$ 
+in our first order langauge; 
 and we take the pural variables $X_k$ of the 
 potentialist and map them to the odd numbered variables $x_{2k+1} := (X_k)_\exists$ 
 of our first order logic. Clearly, this is a way of interpreting talk of 
 plurals as just talk of some special objects.
-
-Unforunately, an interpretation of this kind won't get the third key result 
-without some further tweaking. The issue is that in order to get key result three, 
-we need to be able to translate back from our first order language to 
-our modal language in a way that gets an equivalent formula. The obvious thing to do 
-is to say: translate by mapping odd numbered variables to plurals, and even numbered 
-variables to objects, e voila. But the problem is that this will lead to nonsense, 
-because in the first order language things like $x_1 \in x_3$ are well formed (and that 
-corresponds to the ill-formed $XY$, or something along those lines). So in this 
-case our translation from the first order language to the plural language would 
-not even be everywhere defined.
-
-To overcome this annoying detail  we re-define the notion 
-of a well-formed formula so that odd numbered variables only ever occur on the right of $\in$, 
-and that $=$ is always only ever flanked by variables of the same parity. One can easily prove that this doesn't make any significant difference to 
-provability in ZFC.\footnote{Specifically: let $\mathcal{L}^-$ be the modified language, 
-and ZFC$^-$ be the modified version of ZFC. Then one can show that for every formula $\varphi$ 
-in the language $\mathcal{L}$ there is a formula $\varphi^-$ in the language $\mathcal{L}^-$ such that 
-(a) ZFC $\vDash \varphi \equiv$ ZFC$^-$ $\vDash \varphi^-$, and if $\varphi$ is a sentence, 
-ZFC $\vDash \varphi \equiv \varphi^-$.} ((Could one do this by using a predicate??
-Is what you have in the footnote enough??))
-
-
-[[Another option: weaken the key result to just cover the first order part. I think 
-that should be enough. Yeh: change the $\Diamond$ translation to just ignore plurals!!!!]]
 
 Now that we have an intepretation for the potentialist's variables we can proceed to specify 
 the interpretation more generally. We set $x \in y^\exists$ and $Xx^\exists$ as $x_\exists \in y_\exists$ 
