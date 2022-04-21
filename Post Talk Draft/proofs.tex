@@ -103,6 +103,7 @@ Finally, the set theoretic axioms.
     \item[Inf] $\Diamond X\Box \forall y[Xy \equiv \mathbb{N}(y)]$
     \item[Pow] $\Box \forall x \Diamond \exists X \Box \forall y [Xy \equiv y \subseteq x]$
     \item[Rep] $Rep^\Diamond$
+    \item[Min] $\forall y[ y \in x] \supset \Diamond(\forall y[y \in x] \wedge \Diamond (z \in x) \supset Ez)$ 
 \end{description}
 
 \subsection{Key Result One}
@@ -204,6 +205,16 @@ a suitable choice of (free) $y$.
     Then by $Univ(d)$ we get $Ex$. We also have $\Diamond \varphi_\exists(d)^\Diamond(x)$.
     But by a result of Linnebo this implies $\varphi_\exists(d)^\Diamond(x)$.
     By the IH we have $\varphi(x)$ and the result follows.
+
+    Finally, for $\Box \varphi$, we must show that 
+    $$L \vdash Univ(d) \supset 
+    \Box \forall e [e \supseteq d \wedge Tran(e) \supset (\varphi_\exists(e))^\Diamond]
+    \equiv 
+    \Box \varphi$$
+    Going left to right, suppose $Univ(d)$ and 
+    $\Box \forall e [e \supseteq d \wedge Tran(e) \supset (\varphi_\exists(e))^\Diamond]$.
+    Suppose $Univ(e)$. Then $Tran(e)$ and $d \subseteq e$, and hence 
+    $\varphi_\exists(e)^\Diamond$. 
 \end{proof}
 
 \end{document}
