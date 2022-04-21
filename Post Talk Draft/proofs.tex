@@ -121,7 +121,7 @@ theoremhood from L to ZFC.
         \item $(\varphi \vee \psi)_\exists := \varphi_\exists(d) \vee \psi_\exists(d)$
         \item $(\exists x \varphi)_\exists := \exists x \in d[ \varphi_\exists(d)]$
         \item $(\exists X \varphi)_\exists := \exists X \subseteq d [ \varphi_\exists(d)]$
-        \item $(\Box \varphi)_\exists := \forall e[e \supseteq d \wedge Tran(e) \supset \varphi_\exists(e)]$
+        \item $(\Diamond \varphi)_\exists := \exists e[e \supseteq d \wedge Tran(e) \wedge \varphi_\exists(e)]$
     \end{itemize}
     In these, $\varphi_\exists(e)$ represents the result of substituting $e$ for $d$ in
     $\varphi_\exists$.
@@ -186,6 +186,31 @@ $\varphi$ without second order variables, we have
 Here, $Univ(d)$ abbreviates $\forall x[x \in d] \wedge \Diamond(y \in d) \supset Ey$ for 
 a suitable choice of (free) $y$.
 \end{theorem}
+\begin{lemma}
+    Let $\varphi^e$ be the restriction of $\varphi$ to the set $e$.
+    Then we have (for first order $\varphi$) 
+    $$L \vdash Tran(e) \supset \varphi_\exists(e)^\Diamond \equiv \varphi^e $$ 
+\end{lemma}
+\begin{proof}
+    An induction on the complexity of $\varphi$. the base cases are all immediate, as are the propositional connectives. 
+    For the quantifier, we need 
+    $$L \vdash Tran(e) \supset 
+    \Diamond \exists x \in e(\varphi_\exists(e)^\Diamond(x)) 
+    \equiv 
+    \exists x \in e [\varphi^e(x)]$$
+    So suppose $Tran(e)$. Left to right follows by rigidity 
+    for membership and the induction hypothesis, and the right 
+    to left is similar. 
+
+    For the modal operator, we need 
+    $$L \vdash Tran(e) \supset 
+    \Diamond \exists f[f \supseteq e \wedge Tran(f) \wedge \varphi_\exists(f)^\Diamond] 
+    \equiv 
+    \Diamond \varphi^e$$
+    so suppose $Tran(e)$. Going left to right, the induction 
+    hypothesis gets $$\Diamond \exists f[f \supseteq e \wedge Tran(f) \wedge \varphi^f],$$
+    which...
+\end{proof}
 \begin{proof}
     In each case we proceed by induction on the complexity of $\varphi$.
 
