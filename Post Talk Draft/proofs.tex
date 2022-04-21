@@ -1,0 +1,154 @@
+\documentclass{article}
+\renewcommand*\familydefault{\sfdefault} 
+\newcommand\D[1]{\langle #1 \rangle}
+\newcommand\B[1]{[ #1 ]}
+\newcommand\I[1]{ #1^* }
+\newcommand\Ix[2]{ #1^#2 }
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, amsthm, stmaryrd}
+\usepackage{mdframed}
+\usepackage{bussproofs}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+
+\title{Proofs}
+\author{CS}
+\date{\today}
+\begin{document}
+\maketitle
+
+\section{ZFC and L}
+
+\subsection{Formulation of ZFC}
+\subsubsection{Language $\mathcal{L}_\in^2$}
+\paragraph{Signature}
+\begin{itemize}
+    \item countable infinity of first order variables $x_i$
+    \item countable infinity of monadic second order variables $X_i$
+    \item propositional connectives $\vee, \neg$
+    \item variable binding quantifier $\exists$
+    \item relation $=$
+    \item relation $\in$
+\end{itemize}
+
+\paragraph{wffs}
+    $$Xx | x \in y | x = y | X = Y$$
+    $$\varphi \wedge \psi | \neg \varphi | \forall x \varphi | \forall X \varphi $$
+
+\paragraph{defs}
+\begin{itemize}
+    \item usual defs for connectives quantifiers
+    \item symbol for $\emptyset$, $\{x : \psi \}$ notation
+\end{itemize}
+
+\subsubsection{Axioms of ZFC}
+
+Standard second order logic with full comprehension and extensional second order 
+identity. For set theoretic axioms:
+
+\begin{description}
+    \item[Ext$_\forall$] $\forall x[x \in y \equiv x \in z] \supset y = z$
+    \item[Fun$_\forall$] $ x \not = \emptyset \supset \exists y[y \in x \wedge y \cap x = \emptyset]$
+    \item[Pair] $\exists z[z = \{x, y\}]$
+    \item[Un] $\exists y [y = \bigcup{U}(x)]$
+    \item[Rep] $Fun (F) \supset \forall x\exists y(y = F|x)$
+\end{description}
+
+
+
+\subsection{Formulation of L}
+
+\subsubsection{Language $\mathcal{L}_0$}
+\paragraph{Signature}
+\begin{itemize}
+    \item countable infinity of first order variables $x_i$
+    \item countable infinity of monadic second order variables $X_i$
+    \item propositional connectives $\vee, \neg$
+    \item variable binding quantifier $\exists$
+    \item relation $=$
+    \item operator $\Diamond$
+    \item relation $\in$
+\end{itemize}
+
+\paragraph{wffs}
+    $$Xx | x \in y | x = y | X = Y$$
+    $$\varphi \wedge \psi | \neg \varphi | \forall x \varphi | \forall X \varphi | \Diamond \varphi$$
+
+\paragraph{defs}
+\begin{itemize}
+    \item usual defs for connectives quantifiers and modals
+    \item $Ex$ is an abbreviation for $\exists y[y = x]$ or a more suitable alphabetic variant
+    \item $Set(x, X)$ abbreviates $\forall y[Xy \equiv y \in x]$
+    \item Previous abbreviations from set theory
+\end{itemize}
+\subsubsection{Axioms of L}
+We assume all propositional tautologies, along with any standard axioms for positive free quantifier logic.
+
+The modal logic is S4.2 with necessitation (and CBF). The rule of inference ... is also assumed.
+
+As to the plural logic, we assume the following.
+\begin{description}
+    \item[pExt] $\forall X \forall Y [(\forall x[Xx \equiv Yx]) \supset X = Y]$
+    \item[pR] $ \Diamond Xx \supset \Box Xx$
+    \item[pBF] $\forall X[ \Diamond (\exists x[Xx \wedge x = y]) \supset \exists x [Xx \wedge x = y]]$
+\end{description}
+Finally, the set theoretic axioms.
+\begin{description}
+    \item[Ext] $\forall x \forall y [(\forall z[z \in x \equiv z \in y]) \supset x = y]$
+    \item[Ele] $\Box \forall x \exists X \Box \forall y[Xy \equiv y \in x]$
+    \item[Fun] $\forall x[ x \not = \emptyset \supset \exists y[y \in x \wedge y \cap x = \emptyset]]$
+    \item[Set] $\Box \forall X \Diamond \exists y [Set(y, X)]$
+    \item[Inf] $\Diamond X\Box \forall y[Xy \equiv \mathbb{N}(y)]$
+    \item[Pow] $\Box \forall x \Diamond \exists X \Box \forall y [Xy \equiv y \subseteq x]$
+    \item[Rep] $Rep^\Diamond$
+\end{description}
+
+\subsection{Key Result One}
+\begin{theorem} 
+There is an interpretation $\exists : \mathcal{L}_0 \to \mathcal{L}_\in$ that preserves 
+theoremhood from L to ZFC.
+\end{theorem}
+\begin{definition}[$\varphi_\exists$]
+    The translation $\varphi \mapsto \varphi_\exists$ is defined by the following clauses.
+    In each case, $d$ is the least variable not occuring in $\varphi$.
+    \begin{itemize}
+        \item $x \in y_\exists := x \in y \wedge d = d$
+        \item $Xx_\exists := Xx \wedge d = d$
+        \item $(\neg \varphi)_\exists := \neg \varphi_\exists(d)$
+        \item $(\varphi \vee \psi)_\exists := \varphi_\exists(d) \vee \psi_\exists(d)$
+        \item $(\exists x \varphi)_\exists := \exists x \in d[ \varphi_\exists(d)]$
+        \item $(\Box \varphi)_\exists := \forall e[e \supseteq d \wedge Tran(e) \supset \varphi_\exists(e)]$
+    \end{itemize}
+    We then set $\exists(\varphi) := Tran(d) \supset \varphi_\exists$.
+\end{definition}
+\begin{proof}
+    The propositional tautologies and modus ponens are obvious. For free universal 
+    instantiation, we must show (under the assumptin $Tran(d)$) that
+    $$\forall x \in d [ \forall y \in d (\varphi(y))_\exists (d) \supset (\varphi(x))_\exists(d)]]$$
+    But this is immediate. (Note however that the unfree quantifier rule,
+    which removes the initial quantifier, is not provable 
+    under this interpretation.)
+
+    As to the laws of $S4.2$ modal logic, it is completely clear that S4 will hold 
+    in light of the reflexivity and transitivity of $\subseteq$. For $.2$, suppose 
+    $(\Diamond \Box \varphi)_\exists$. Then there is a transitive extension $e_0$ of $d$ 
+    such that every extension $f$ of $e_0$ has $\varphi_\exists(f)$. Suppose given 
+    transitive extension $e$ of $d$. Then $f_1 := e \cup e_0$ is a transitive extension 
+    of $e_0$ that (therefore) has $\varphi_\exists(f_1)$. Hence $(\Box \Diamond \varphi)_\exists$.\footnote{
+        In fact it seems we have the stronger $\Diamond \Box \varphi \supset \Box \Diamond \Box \varphi$??)
+    }
+    
+\end{proof}
+
+\subsection{Key Result Two}
+\begin{theorem}
+There is an interpretation $\Diamond: \mathcal{L}_\in \to \mathcal{L}_0$ that preserves theoremhood from ZFC to L \emph{on first order formulas}. 
+\end{theorem}
+
+\subsection{Key Result Three}
+\begin{theorem}
+These translations yield a definitional equivalence between the first order fragments of ZFC and L. 
+\end{theorem}
+\end{document}
