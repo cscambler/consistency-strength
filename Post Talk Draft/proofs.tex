@@ -186,31 +186,7 @@ $\varphi$ without second order variables, we have
 Here, $Univ(d)$ abbreviates $\forall x[x \in d] \wedge \Diamond(y \in d) \supset Ey$ for 
 a suitable choice of (free) $y$.
 \end{theorem}
-\begin{lemma}
-    Let $\varphi^e$ be the restriction of $\varphi$ to the set $e$.
-    Then we have (for first order $\varphi$) 
-    $$L \vdash Tran(e) \supset \varphi_\exists(e)^\Diamond \equiv \varphi^e $$ 
-\end{lemma}
-\begin{proof}
-    An induction on the complexity of $\varphi$. the base cases are all immediate, as are the propositional connectives. 
-    For the quantifier, we need 
-    $$L \vdash Tran(e) \supset 
-    \Diamond \exists x \in e(\varphi_\exists(e)^\Diamond(x)) 
-    \equiv 
-    \exists x \in e [\varphi^e(x)]$$
-    So suppose $Tran(e)$. Left to right follows by rigidity 
-    for membership and the induction hypothesis, and the right 
-    to left is similar. 
 
-    For the modal operator, we need 
-    $$L \vdash Tran(e) \supset 
-    \Diamond \exists f[f \supseteq e \wedge Tran(f) \wedge \varphi_\exists(f)^\Diamond] 
-    \equiv 
-    \Diamond \varphi^e$$
-    so suppose $Tran(e)$. Going left to right, the induction 
-    hypothesis gets $$\Diamond \exists f[f \supseteq e \wedge Tran(f) \wedge \varphi^f],$$
-    which...
-\end{proof}
 \begin{proof}
     In each case we proceed by induction on the complexity of $\varphi$.
 
@@ -231,15 +207,37 @@ a suitable choice of (free) $y$.
     But by a result of Linnebo this implies $\varphi_\exists(d)^\Diamond(x)$.
     By the IH we have $\varphi(x)$ and the result follows.
 
-    Finally, for $\Box \varphi$, we must show that 
+    Finally, for $\Diamond \varphi$, we must show that:
     $$L \vdash Univ(d) \supset 
-    \Box \forall e [e \supseteq d \wedge Tran(e) \supset (\varphi_\exists(e))^\Diamond]
+    \Diamond \exists e [e \supseteq d \wedge Tran(e) \wedge (\varphi_\exists(e))^\Diamond]
     \equiv 
-    \Box \varphi$$
-    Going left to right, suppose $Univ(d)$ and 
-    $\Box \forall e [e \supseteq d \wedge Tran(e) \supset (\varphi_\exists(e))^\Diamond]$.
-    Suppose $Univ(e)$. Then $Tran(e)$ and $d \subseteq e$, and hence 
-    $\varphi_\exists(e)^\Diamond$. 
+    \Diamond \varphi$$
+
+    Suppose $Univ(d)$. Going left to right, suppose
+    $$\Diamond (Ee \wedge e \supseteq d \wedge Tran(e) \wedge (\varphi_\exists(e))^\Diamond).$$
+    By rigidity, $e \supseteq d \wedge Tran(e)$. So by Min $\Diamond Univ(e)$. Since also 
+    $\Diamond (\varphi_\exists(e))^\Diamond$ and the latter is rigid, we may infer 
+    $\Diamond Univ(e) \wedge (\varphi_\exists(e))^\Diamond$.
+    By our induction hypothesis, 
+    $\Box (Univ(e) \supset (\varphi_\exists(e))^\Diamond \equiv \varphi)$.
+    Hence $\Diamond \varphi$. Going right to left,
+    Suppose $\Diamond \varphi$. By comp, 
+    $\Diamond \varphi \wedge EX \wedge \forall y[Xy \equiv y = y]$.
+    By HP, 
+    $\Diamond (\varphi \wedge \Diamond (Ee \wedge Set(e, X)))$.
+    By rigidity, $\Diamond (\varphi \wedge Set(e, X))$.
+
+    I claim $\Diamond (\varphi \wedge Univ(e))$. It is obvious that 
+    $\Diamond (\varphi \wedge \forall y[y \in e])$. And $z \in e$ implies $Xe$ which 
+    implies $\Diamond (\varphi \wedge Univ(e) \wedge Ee)$. Hence $\Diamond (\varphi \wedge Univ(e))$.
+    By the IH, $\Diamond (\varphi \wedge ((\varphi(e)_\exists)^\Diamond \equiv \varphi))$.
+    Hence $\Diamond (\varphi(e)_\exists)^\Diamond$. And moreover it is not hard to argue 
+    $Tran(e)$. Hence 
+    $\Diamond (\exists e[e  \supseteq d \wedge Tran(e) \wedge (\varphi(e)_\exists)^\Diamond])$,
+    as required.
+
+    
+
 \end{proof}
 
 \end{document}
