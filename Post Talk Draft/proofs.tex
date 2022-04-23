@@ -183,7 +183,10 @@ $\varphi$ without second order variables, we have
     \item $L \vdash Univ(d) \supset (\varphi_\exists)^\Diamond \equiv \varphi$
     \item $ZFC \vdash Tran(d) \supset (\varphi^\Diamond)_\exists \equiv \varphi.$
 \end{enumerate}
-Here, $Univ(d)$ abbreviates $\forall x[x \in d] \wedge \Diamond(y \in d) \supset Ey$ for 
+Here, $Univ(d)$ abbreviates 
+$\forall x[x \in d] \wedge \Diamond(\exists y[y \in d \wedge y = z]) 
+\supset 
+\exists y[y \in d \wedge y = z]$ for 
 a suitable choice of (free) $y$.
 \end{theorem}
 
@@ -213,31 +216,50 @@ a suitable choice of (free) $y$.
     \equiv 
     \Diamond \varphi$$
 
-    Suppose $Univ(d)$. Going left to right, suppose
+    Suppose $Univ(d)$. 
+    
+    Going left to right, suppose
     $$\Diamond (Ee \wedge e \supseteq d \wedge Tran(e) \wedge (\varphi_\exists(e))^\Diamond).$$
     By rigidity, $e \supseteq d \wedge Tran(e)$. So by Min $\Diamond Univ(e)$. Since also 
     $\Diamond (\varphi_\exists(e))^\Diamond$ and the latter is rigid, we may infer 
     $\Diamond Univ(e) \wedge (\varphi_\exists(e))^\Diamond$.
     By our induction hypothesis, 
     $\Box (Univ(e) \supset (\varphi_\exists(e))^\Diamond \equiv \varphi)$.
-    Hence $\Diamond \varphi$. Going right to left,
+    Hence $\Diamond \varphi$. 
+    
+    Going right to left,
     Suppose $\Diamond \varphi$. By comp, 
     $\Diamond \varphi \wedge EX \wedge \forall y[Xy \equiv y = y]$.
     By HP, 
     $\Diamond (\varphi \wedge \Diamond (Ee \wedge Set(e, X)))$.
     By rigidity, $\Diamond (\varphi \wedge Set(e, X))$.
 
-    I claim $\Diamond (\varphi \wedge Univ(e))$. It is obvious that 
-    $\Diamond (\varphi \wedge \forall y[y \in e])$. And $z \in e$ implies $Xe$ which 
-    implies $\Diamond (\varphi \wedge Univ(e) \wedge Ee)$. Hence $\Diamond (\varphi \wedge Univ(e))$.
-    By the IH, $\Diamond (\varphi \wedge ((\varphi(e)_\exists)^\Diamond \equiv \varphi))$.
-    Hence $\Diamond (\varphi(e)_\exists)^\Diamond$. And moreover it is not hard to argue 
-    $Tran(e)$. Hence 
+    We have, as a general lemma,
+    $EX \wedge \forall y[Xy \equiv y = y] \wedge Set(x, X) \supset Univ(x)$.
+    For, suppose $Ez$. Then since $z = z$ we get $Xz$ and hence $z \in x$. So 
+    $\forall z[z \in x]$. Then suppose $\Diamond \exists y[y \in x \wedge y = z]$. 
+    Then $\Diamond \exists y[Xy \wedge y = z]$. Since $EX$ it follows that $Ez$, 
+    and of course still $y \in x$ as required.
+
+    It follows that $\Diamond (\varphi \wedge Univ(e))$. By the IH, 
+    $\Box (Univ(e) \supset ((\varphi(e)_\exists)^\Diamond \equiv \varphi))$. Hence,
+    since $Univ(e) \supset Tran(e)$, we have 
     $\Diamond (\exists e[e  \supseteq d \wedge Tran(e) \wedge (\varphi(e)_\exists)^\Diamond])$,
     as required.
 
     
 
 \end{proof}
+
+\section{SOA and M}
+\subsection{Formulation of SOA}
+\subsubsection{Language of SOA}
+\subsubsection{Axioms of SOA}
+\subsection{Formulation of M}
+\subsubsection{Language of M}
+\subsubsection{Axioms of M}
+\subsection{Key Result 4}
+\subsection{Key Result 5}
+\subsection{Key Result 6}
 
 \end{document}
