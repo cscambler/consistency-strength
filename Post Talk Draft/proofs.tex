@@ -1,9 +1,7 @@
 \documentclass{article}
 \renewcommand*\familydefault{\sfdefault} 
-\newcommand\D[1]{\langle #1 \rangle}
-\newcommand\B[1]{[ #1 ]}
-\newcommand\I[1]{ #1^* }
-\newcommand\Ix[2]{ #1^#2 }
+\newcommand\D{\blacklozenge}
+\newcommand\B{\blacksquare}
 \usepackage[T1]{fontenc}
 \usepackage{amsmath, amssymb, amsthm, stmaryrd}
 \usepackage{mdframed}
@@ -18,11 +16,15 @@
 \date{\today}
 \begin{document}
 \maketitle
+TODO: 
+Check consistency of notation: do you use $T$ for SOA$^+$? What even is the best 
+name for this?
 
+Always use mathsf for the modal theories.
 \section{ZFC and L}
 
 \subsection{Formulation of ZFC}
-\subsubsection{Language $\mathcal{L}_\in^2$}
+\subsubsection{Language $\mathcal{L}_\in$}
 \paragraph{Signature}
 \begin{itemize}
     \item countable infinity of first order variables $x_i$
@@ -100,7 +102,7 @@ Finally, the set theoretic axioms.
     \item[Ele] $\Box \forall x \exists X \Box \forall y[Xy \equiv y \in x]$
     \item[Fun] $\forall x[ x \not = \emptyset \supset \exists y[y \in x \wedge y \cap x = \emptyset]]$
     \item[Set] $\Box \forall X \Diamond \exists y [Set(y, X)]$
-    \item[Inf] $\Diamond X\Box \forall y[Xy \equiv \mathbb{N}(y)]$
+    \item[Inf] $\Diamond \exists X\Box \forall y[Xy \equiv \mathbb{N}(y)]$
     \item[Pow] $\Box \forall x \Diamond \exists X \Box \forall y [Xy \equiv y \subseteq x]$
     \item[Rep] $Rep^\Diamond$
     \item[Min] $\forall y[ y \in x] \supset \Diamond(\forall y[y \in x] \wedge \Diamond (z \in x) \supset Ez)$ 
@@ -200,7 +202,7 @@ a suitable choice of (free) $y$.
     \equiv 
     \exists x \varphi$$
     So suppose $Univ(d)$. Going right to left, our induction hypothesis 
-    yields $\exists x (\varphi_\exists(d)^\Diamond(x))$, and then $Univ(d)$ 
+    yields \\ $\exists x (\varphi_\exists(d)^\Diamond(x))$, and then $Univ(d)$ 
     implies $\Diamond \exists x \in d (\varphi_\exists(d)^\Diamond(x))$ as 
     required. 
 
@@ -251,15 +253,351 @@ a suitable choice of (free) $y$.
 
 \end{proof}
 
-\section{SOA and M}
-\subsection{Formulation of SOA}
-\subsubsection{Language of SOA}
-\subsubsection{Axioms of SOA}
+\section{SOA$^+$ and M}
+\subsection{Formulation of SOA$^+$}
+\subsubsection{Language of SOA$^+$}
+The language of SOA is just $\mathcal{L}_\in$.
+\subsubsection{Axioms of SOA$^+$}
+The axioms of SOA$^+$ are those of ZFC without the axiom 
+of power, with replacement possibly reformulated as 
+collection, and with the $\Pi_1^1$ PSP.
+
+Important lemma: $L[r] \vDash ZFC$ for every real $r$ in this theory.
 \subsection{Formulation of M}
 \subsubsection{Language of M}
+The language $\mathcal{L}_1$ of $M$ is $\mathcal{L}_0$ closed
+under the operator $\blacklozenge$.
 \subsubsection{Axioms of M}
-\subsection{Key Result 4}
-\subsection{Key Result 5}
-\subsection{Key Result 6}
+We assume all propositional tautologies, 
+along with any standard axioms for positive free quantifier logic.
 
+The modal logic is S4.2 with necessitation (and CBF) for both operators. 
+The rule of inference ... is also assumed for both operators.
+
+The only axiom on the combination of modals we need is 
+\begin{description}
+    \item[W] $\D \varphi \supset \Diamond \varphi$. 
+\end{description}
+
+As to the plural logic, we assume the following.
+\begin{description}
+    \item[pExt] $\forall X \forall Y [(\forall x[Xx \equiv Yx]) \supset X = Y]$
+    \item[pR] $ \Diamond Xx \supset \Box Xx$
+    \item[pBF] $\forall X[ \Diamond (\exists x[Xx \wedge x = y]) \supset \exists x [Xx \wedge x = y]]$
+\end{description}
+Finally, the set theoretic axioms.
+\begin{description}
+    \item[Ext] $\forall x \forall y [(\forall z[z \in x \equiv z \in y]) \supset x = y]$
+    \item[Ele] $\Box \forall x \exists X \Box \forall y[Xy \equiv y \in x]$
+    \item[Fun] $\forall x[ x \not = \emptyset \supset \exists y[y \in x \wedge y \cap x = \emptyset]]$
+    \item[Set] $\Box \forall X \D \exists y [Set(y, X)]$
+    \item[Inf] $\D \exists X\Box \forall y[Xy \equiv \mathbb{N}(y)]$
+    \item[Pow] $\Box \forall x \D \exists X \B \forall y [Xy \equiv y \subseteq x]$
+    \item[Rep] $Rep^\Diamond$, $Rep^\D$
+    \item[Min2] ??
+\end{description}
+\subsection{Necessary Lemmas}
+\begin{lemma}[Mirroring]
+    Let $\Gamma 
+    \cup {\phi}$ be a set of formulas in the first order language of set theory. Then
+    $\Gamma \vdash \phi$ in first order logic if and only if 
+    $\Gamma^\Diamond \vdash_\mathsf{M} \phi^\Diamond$. 
+    The same is true for $\blacklozenge$.
+\end{lemma}
+\begin{proof}
+    See cite.
+\end{proof}
+
+\begin{lemma}[Bounded Modal Absoluteness]\label{BMA}
+    Let $\phi$ be 
+    a formula in the first order language of set theory
+    with only bounded quantifiers. Then
+    $\mathsf{M} \vdash \phi \leftrightarrow \phi^\Diamond$.
+    The same is true for $\blacklozenge$.
+\end{lemma}
+\begin{proof}
+    An induction on the complexity of $\phi$. See Lemma 12.2 of Linnebo.
+\end{proof}
+\begin{lemma}[$\Delta_1$ Absoluteness]\label{DA}
+    Let $\phi$ be a formula that is provably $\Delta_1$ over $ZFC$ without 
+    powerset. Then we have: 
+    \[\mathsf{M} \vdash \phi^{\Diamond} \leftrightarrow \phi^{\D}\]
+\end{lemma}
+\begin{proof}
+    Temporarily let $T$ be the theory in question.
+    Note that $T^\Diamond$ and $T^{\D}$ are each contained in $\mathsf{M}$.
+
+    It follows from our assumption that there are $\Delta_0$ formulas $\psi, \theta$
+    for which
+    \[\mathsf{M} \vdash \phi^\Diamond \leftrightarrow 
+    \Box \forall x \psi^\Diamond \leftrightarrow 
+    \Diamond \exists x \theta^\Diamond \] 
+    and similarly
+    \[\mathsf{M} \vdash \phi^{\D} \leftrightarrow 
+    \B \forall x \psi^{\D} \leftrightarrow 
+    \D \exists x \theta^{\D} \] 
+    by the previous lemma, these are each equivalent to 
+    \[\mathsf{M} \vdash \phi^\Diamond \leftrightarrow 
+    \Box \forall x \psi \leftrightarrow 
+    \Diamond \exists x \theta \] 
+    \[\mathsf{M} \vdash \phi^{\D} \leftrightarrow 
+    \B \forall x \psi \leftrightarrow 
+    \D \exists x \theta \] 
+    respectively. But weakening implies that 
+    $\D \exists x \theta \rightarrow \Diamond \exists x \theta$
+    and similarly that $\Box \forall x \psi \rightarrow \B \forall x \psi$.
+    The result follows.
+\end{proof}
+
+\begin{theorem}
+    $\mathsf{M}$ interprets ZFC under the $\D$-translation.
+\end{theorem}
+\begin{proof}
+    As with cite, this is a straightforward modification of 
+    Linnebo's argument from cite. It is sufficient to prove the $\D$ 
+    translations of axioms of ZFC. For example, for the powerset 
+    axiom, use \eqref{comps2} and \eqref{hpot}.
+\end{proof}
+
+\begin{theorem}
+    $\mathsf{M}$ interprets ZFC$^-$ under the $\Diamond$-translation.
+\end{theorem}
+\begin{proof}
+    Essentially the same as the previous. 
+\end{proof}
+\begin{theorem}\label{hcount}
+    $\mathsf{M}$ proves every set is (hereditarily) countable under the 
+    $\Diamond$ translation.
+\end{theorem}
+\begin{proof}
+    See cite.
+\end{proof}
+\begin{corollary}\label{soa}
+    $\mathsf{M}$ interprets second order arithmetic under the $\Diamond$ translation.
+\end{corollary}
+\begin{proof}
+    $ZFC^- + V = HC$ is definitionally equivalent to SOA. See Krapf, Simpson.
+\end{proof}
+\begin{lemma}[SOA]\label{sol}
+    If there are only countably many reals constructible from $r$, then the $\Pi_1^1[r]$-$PSP$ holds.
+\end{lemma}
+\subsection{Key Result 4}
+\begin{theorem} 
+    There is an interpretation $\exists : \mathcal{L}_1 \to \mathcal{L}_\in$ that preserves 
+    theoremhood from M to SOA.
+    \end{theorem}
+    \begin{definition}[$\varphi_\exists$]
+        The translation $\varphi \mapsto \varphi_\exists$ is defined by the following clauses.
+        In each case, $d_1, d_2$ are the least variables not occuring in $\varphi$.
+        \begin{itemize}
+            \item $x \in y_\exists := x \in y \wedge \bigwedge_i d_i = d_i$
+            \item $Xx_\exists := Xx \wedge \wedge \bigwedge_i d_i = d_i$
+            \item $(\neg \varphi)_\exists := \neg \varphi_\exists(d_1, d_2)$
+            \item $(\varphi \vee \psi)_\exists := \varphi_\exists(d_1, d_2) \vee \psi_\exists(d_1, d_2)$
+            \item $(\exists x \varphi)_\exists := \exists x \in d_1[ \varphi_\exists(d_1, d_2)]$
+            \item $(\exists X \varphi)_\exists := \exists X \subseteq d_1 \wedge X \in L[d_2] [ \varphi_\exists(d_1, d_2)]$
+            \item $(\D \varphi)_\exists := \exists e[e \supseteq d_1 \wedge Tran(e) \wedge e \in L[d_2] \wedge \varphi_\exists(e, d_2)]$
+            \item $(\Diamond \varphi)_\exists := \exists e_1, e_2[d_2 \leq e_2 \wedge d_1 \subseteq e_1 \in L[e_2] \wedge Tran(e_1) \wedge \varphi_\exists(e_1, e_2)]$
+        \end{itemize}
+        In these, $\varphi_\exists(e_1, e_2)$ represents the result of substituting $e_1, e_2$ for $d_1, d_2$ in
+        $\varphi_\exists$.
+    
+        We then set $\exists(\varphi) := Tran(d_1) \wedge Real(d_2) \supset \varphi_\exists$.
+    \end{definition}
+    \begin{proof}
+        The propositional tautologies and quantifier logic stuff is straightforward.
+    
+        The laws of S4.2 for $\D$ hold for similar reasons to those given 
+        in the proof of key result 1. 
+
+        As for $\Diamond$, it is again easy to see the axioms of S4 come good.
+        For $.2$, suppose 
+        $(\Diamond \Box \varphi)_\exists$. Then there is a real $e_2$ constructible from
+        $d_2$ and transitive $e_1$, a superset of $d_1$ and element of $L[e_2]$,
+        such that $ (\Box \varphi)_\exists(e_1, e_2)$.
+        That in turn means that for every real $e$ constructible from $e_2$, and 
+        every transitive 
+        set $d$ containing $e_1$ and an element of $L[e]$, we have 
+        $\varphi_\exists(d, e)$.
+
+        So suppose given arbitrary $d, e$ with $d_2$ constructible from $e$, 
+        $d$ a superset of $d_1$ and an element of $L[e]$. We must find a real $r$ 
+        constructible from $e$ and transitive set $t$ a superset of $d$ and element 
+        of $L[r]$ such that $\varphi_\exists(t, r)$. The obvious candidates are 
+        $t:= e_1 \cup d$, and $r := e_2*e$. And it is not hard to see they 
+        have the required features.
+
+        All the plural axioms are straightforward.
+    
+        On to the set-theoretic axioms. The case of extensionality reduces to the claim 
+        that extensionality holds in transitive sets. Ele and Fun are equally straightforward.
+        
+        For set: suppose given a transitive extension $e$ of $d_1$ in $L[d_2]$,
+        and a subset $X$ of $e$ that is also an element of $L[d_2]$. Since $L[d_2]$
+        satisfies ZFC, it has that 
+        every set is an element of a transitive set in $L[d_2]$.
+        Thus we can extend $e$ to a transitive 
+        set $e_1$ in $L[d_2]$ that contains $X$ as an element, and the result follows. 
+        Inf is pretty much the same as before.
+        
+        For Pow, suppose given $d_4 \geq d_2$ and $d_3 \supseteq d_1$, $d_3 \in L[d_4]$,
+        and $x \in d_3$. The needed result then follows from the powerset axiom in 
+        $L[d_4]$.
+
+        Replacement follows from replacement, once in $L[r]$ and once just straight up.
+    \end{proof}
+\subsection{Key Result 5}
+\begin{theorem}
+    There is an interpretation $\Diamond: \mathcal{L}_\in \to \mathcal{L}_1$ that preserves theoremhood from SOA$^+$ to M 
+    \emph{on first order formulas}. 
+\end{theorem}
+\begin{proof}
+    Using Lemma \ref{sol} and the mirroring theorem, to establish 
+the desired conclusion it is sufficient to show the $\Diamond$-translation 
+of the hypothesis of Lemma \ref{sol}. That is: assuming given an arbitrary real $r$, 
+we must show that is possible to produce a function on the natural numbers such that, 
+necessarily, if $s$ is a real constructible from $r$, 
+then $s$ is in the range of $f$.
+
+The strategy for doing so is simple: we first show that, given any real $r$, 
+it is possible to produce the set of all possible reals constructible from $r$ in 
+$M$ (in the sense of the modality $\Diamond$). We then invoke Lemma \ref{hcount}, which 
+says that all sets are countable in $\mathsf{M}$ (with respect the $\Diamond$ translation)
+to get the result.
+
+In more detail,
+we first observe that by the $\D$-translation of ZFC, 
+we the $\D$ translation of the assertion that for any real $r$, the 
+set of reals constructible from $r$ exists, namely:
+\begin{equation}\label{dutrans}
+    \D \exists x [\mathbb{R}^{L[r]}(x)^{\D}]
+\end{equation}
+Where in \eqref{dutrans} $\mathbb{R}^{L[r]}(x)^{\D}$ is the $\D$-translation of the first order 
+formula asserting that $x$ 
+is the set of reals constructible from $r$. The problem now is to derive from this 
+that 
+\begin{equation}\label{dtrans}
+    \Diamond \exists x [\mathbb{R}^{L[r]}(x)^{\Diamond}]
+\end{equation}
+since it is only with respect $\Diamond$, and not $\D$, that we have Theorem \ref{hcount}.
+
+To move from \eqref{dutrans} to \eqref{dtrans} we use the absoluteness 
+lemma \ref{DA}. The formula asserting that $x$ is $L[r]_\alpha$ is $\Delta_1$ 
+(in parameters $r$, $\alpha$) 
+over ZFC without power. Thus, for any $x$, $\alpha$, $r$, 
+\begin{equation}\label{butt}\mathsf{M} \vdash (x = L[r]_\alpha)^\Diamond \leftrightarrow
+(x = L[r]_\alpha)^{\D}.\end{equation}
+A simple induction shows that for any ordinal $\alpha$, $\Diamond \exists x[ x = \alpha]$ if and only if 
+$\D \exists x[x = \alpha]$.
+Moreover, standard set-theoretic reasoning (together with mirroring) 
+implies that $\mathbb{R}^{L[r]}$ exists is equivalent to $\omega_1^{L[r]}$
+exists, relative to either modality. 
+We show that $(\omega_1^{L[r]} \text{ exists})^{\D}$ is equivalent to 
+$(\omega_1^{L[r]} \text{ exists })^\Diamond$, 
+in contrast of course to the real $\omega_1$.
+
+For the non-trivial direction, suppose $\omega_1^{L[r]} \text{ exists}^{\D}$. 
+This is equivalent to there being \emph{$L[r]$-uncountable ordinals relative to $\D$}, in the sense that
+\[\D \exists \alpha \in L[r]^{\D} \B \forall f \in L[r]^{\D}[\neg(f : \alpha \twoheadrightarrow \mathbb{N})].\]
+So assume the latter and instantiate such an $\alpha$ (using the rule on p $N$). 
+By lemma \ref{DA}, $(\alpha \in L[r])^\Diamond$. Suppose $\alpha$ is not
+$L[r]$-uncountable relative to $\Diamond$, i.e. 
+$\Diamond \exists f \in L[r]^\Diamond[f : \alpha \twoheadrightarrow \mathbb{N}]$
+This implies 
+$\Diamond \exists \beta, f \in L[r]_\beta^\Diamond[f : \alpha \twoheadrightarrow \mathbb{N}]$. 
+But then using \eqref{butt} and the fact that $\D \beta \text{ exists}$ we may infer
+\[\D \exists \beta, f \in L[r]_\beta^{\D}[f : \alpha \twoheadrightarrow \mathbb{N}]\]
+contradicting our assumption that $\alpha$ \emph{is $L[r]$-uncountable}$^{\D}$.
+
+We may thus infer \eqref{dtrans} from \eqref{dutrans}: \eqref{dutrans} is equivalent to 
+$(\omega_1^{L[r]} \text{ exists})^{\D}$, which is equivalent to 
+$(\omega_1^{L[r]} \text{ exists })^\Diamond$,
+which latter is equivalent to \eqref{dtrans} by standard set theory and mirroring. 
+
+But now since we also have Theorem \ref{hcount}, it follows that 
+\begin{equation}
+    (\exists x[\mathbb{R}^{L[r]}(x) \wedge \exists f : \mathbb{N} \twoheadrightarrow x])^\Diamond
+\end{equation}
+which is just the $\Diamond$-translation of the claim that there are only countably many 
+reals constructible from $r$. Hence, by an application of mirroring, we conclude $\Pi_1^1[r]$-$PSP$.
+The result follows.
+
+\end{proof}
+\subsection{Key Result 6}
+\begin{theorem}
+    These translations yield a definitional equivalence 
+    between the first order fragments of SOA$^+$ and $M$ in the following sense: for all 
+    $\varphi$ without second order variables, we have
+    \begin{enumerate}
+        \item $M \vdash Univ(d_1) \wedge d_1 \leq d_2 \supset (\varphi_\exists)^\Diamond \equiv \varphi$
+        \item $SOA^+ \vdash Tran(d_1) \wedge Real(d_2) \supset (\varphi^\Diamond)_\exists \equiv \varphi.$
+    \end{enumerate}
+    Here, $Univ(d_1)$ is as before. 
+    \end{theorem}
+    \begin{proof}
+        Start with 1.
+        The base cases are all immediate, as are the propositional connectives. 
+        For the quantifier, we need 
+        $$M \vdash Univ(d_1) \wedge d_1 \leq d_2 \supset 
+        \Diamond \exists x \in d_1(\varphi_\exists(d_1, d_2)^\Diamond(x)) 
+        \equiv 
+        \exists x \varphi$$
+        So suppose $Univ(d_1)$. Going right to left, our induction hypothesis 
+        yields $\exists x (\varphi_\exists(d_1, d_2)^\Diamond(x))$, 
+        and then $Univ(d_1)$ 
+        implies $\Diamond \exists x \in d_1 (\varphi_\exists(d_1, d_2)^\Diamond(x))$ as 
+        required. 
+    
+        For the converse, suppose 
+        $\Diamond Ex \wedge x \in d_1 \wedge \varphi_\exists(d_1, d_2)^\Diamond(x)$.
+        Then by $Univ(d_1)$ we get $Ex$. 
+        We also have $\Diamond \varphi_\exists(d_1, d_2)^\Diamond(x)$.
+        But by a result of Linnebo this implies $\varphi_\exists(d_1, d_2)^\Diamond(x)$.
+        By the IH we have $\varphi(x)$ and the result follows.
+    
+        For $\Diamond \varphi$, we must show that:
+        $$M \vdash Univ(d_1) \wedge d_1 \leq d_2 \supset $$
+        $$\Diamond \exists e_1, e_2[d_2 \leq e_2 \wedge d_1 \subseteq e_1 \in L[e_2] \wedge Tran(e_1) \wedge (\varphi_\exists(e_1, e_2))^\Diamond]$$
+        $$\equiv $$
+        $$\Diamond \varphi$$
+    
+        So suppose $Univ(d_1)$ and $d_1 \leq d_2$. 
+        
+        Going left to right, suppose
+        $$\Diamond (Ee_1 \wedge Ee_2  \wedge d_2 \leq e_2 \wedge d_1 \subseteq e_1 \in L[e_2] \wedge Tran(e_1) \wedge (\varphi_\exists(e_1, e_2))^\Diamond].$$
+        By rigidity, $e_1 \supseteq d_1 \wedge Tran(e)$. 
+        So by Min $\Diamond Univ(e_1)$. We also have \\ $\Box e_1 \leq e_2$.
+        As before, since
+        $\Diamond (\varphi_\exists(e))^\Diamond$ and the latter is rigid, we may infer 
+        $\Diamond Univ(e_1) \wedge e_1 \leq e_2 \wedge (\varphi_\exists(e_1, e_2))^\Diamond$.
+        By our induction hypothesis, 
+        $\Box (Univ(e_1) \wedge e_1 \leq e_2 \supset (\varphi_\exists(e_1, e_2))^\Diamond \equiv \varphi)$.
+        Hence $\Diamond \varphi$. 
+        
+        NOT DONE BELOW HERE
+        Going right to left,
+        Suppose $\Diamond \varphi$. By comp, 
+        $\Diamond \varphi \wedge EX \wedge \forall y[Xy \equiv y = y]$.
+        By HP, 
+        $\Diamond (\varphi \wedge \Diamond (Ee \wedge Set(e, X)))$.
+        By rigidity, $\Diamond (\varphi \wedge Set(e, X))$.
+    
+        We have, as a general lemma,
+        $EX \wedge \forall y[Xy \equiv y = y] \wedge Set(x, X) \supset Univ(x)$.
+        For, suppose $Ez$. Then since $z = z$ we get $Xz$ and hence $z \in x$. So 
+        $\forall z[z \in x]$. Then suppose $\Diamond \exists y[y \in x \wedge y = z]$. 
+        Then $\Diamond \exists y[Xy \wedge y = z]$. Since $EX$ it follows that $Ez$, 
+        and of course still $y \in x$ as required.
+    
+        It follows that $\Diamond (\varphi \wedge Univ(e))$. By the IH, 
+        $\Box (Univ(e) \supset ((\varphi(e)_\exists)^\Diamond \equiv \varphi))$. Hence,
+        since $Univ(e) \supset Tran(e)$, we have 
+        $\Diamond (\exists e[e  \supseteq d \wedge Tran(e) \wedge (\varphi(e)_\exists)^\Diamond])$,
+        as required.
+    
+        
+    
+
+    \end{proof}
+    
 \end{document}
