@@ -294,15 +294,17 @@ Finally, the set theoretic axioms.
     \item[Inf] $\D \exists X\Box \forall y[Xy \equiv \mathbb{N}(y)]$
     \item[Pow] $\Box \forall x \D \exists X \B \forall y [Xy \equiv y \subseteq x]$
     \item[Rep] $Rep^\Diamond$, $Rep^\D$
-    \item[Min2] $Univ(d_1) \wedge vUniv(d_2) \wedge Tran(e_1) \wedge e_1 \supseteq d_1 \wedge e_2 \geq d_2 \supset \Diamond Univ(e_1)\wedge vUniv(e_2)$ 
+    \item[Min2] Necessarily, either all sets are necessarily constructible, or else $\exists r[\B \forall x[x \in L[r]]$
+    \item[Min1] $Univ(d_1) \wedge vUniv(d_2) \wedge Tran(e_1) \wedge d_1 \subseteq e_1 \wedge e_2 \geq d_2 \supset \Diamond Univ(e_1) \wedge vUniv(e_2)$ 
 \end{description}
+In the latter, $vUniv(r)$ abbreviates $\B \forall x [x \in L[r]]$.
 \subsection{Necessary Lemmas}
 \begin{lemma}[Mirroring]
     Let $\Gamma 
     \cup {\phi}$ be a set of formulas in the first order language of set theory. Then
     $\Gamma \vdash \phi$ in first order logic if and only if 
     $\Gamma^\Diamond \vdash_\mathsf{M} \phi^\Diamond$. 
-    The same is true for $\blacklozenge$.
+    The same is true for $\D$.
 \end{lemma}
 \begin{proof}
     See cite.
@@ -313,7 +315,7 @@ Finally, the set theoretic axioms.
     a formula in the first order language of set theory
     with only bounded quantifiers. Then
     $\mathsf{M} \vdash \phi \leftrightarrow \phi^\Diamond$.
-    The same is true for $\blacklozenge$.
+    The same is true for $\D$.
 \end{lemma}
 \begin{proof}
     An induction on the complexity of $\phi$. See Lemma 12.2 of Linnebo.
@@ -532,9 +534,7 @@ The result follows.
         \item $M \vdash Univ(d_1) \wedge vUniv(d_2) \supset (\varphi_\exists)^\Diamond \equiv \varphi$
         \item $SOA^+ \vdash Tran(d_1) \wedge Real(d_2) \supset (\varphi^\Diamond)_\exists \equiv \varphi.$
     \end{enumerate}
-    Here, $Univ(d_1)$ is as before. $vUniv(d_2)$ means that $d_2$ is a function 
-    that enumerates all vertically possible sets. Symbolically:
-    \[ Fun(d_2) \wedge \B \forall x \exists n [d_2(n) = x] \wedge \forall n \D \exists x[d_2(n) = x] \]
+    Here, $Univ(d_1)$ is as before. $vUniv(d_2)$ means that $\D Ex \equiv x \in L[d_2]$.
     \end{theorem}
     \begin{proof}
         Start with 1.
@@ -568,10 +568,10 @@ The result follows.
         
         Going left to right, suppose
         $$\Diamond (Ee_1 \wedge Ee_2  \wedge d_2 \leq e_2 \wedge d_1 \subseteq e_1 \in L[e_2] \wedge Tran(e_1) \wedge (\varphi_\exists(e_1, e_2))^\Diamond].$$
-        By rigidity, $Tran(e_1) \wedge e_1 \supseteq d_1 \wedge e_2 \geq d_2$. 
-        So by Min2 $\Diamond Univ(e_1) \wedge vUniv(e_2)$.
-        As before, since
-        $\Diamond (\varphi_\exists(e))^\Diamond$ and the latter is rigid, we may infer 
+        By rigidity, $Tran(e_1) \wedge d_1 \subseteq e_1 \wedge e_2 \geq d_2$. 
+        So by Min1 $\Diamond Univ(e_1) \wedge Univ(e_2)$.
+        Since
+        $\Diamond (\varphi_\exists(e))^\Diamond$ and this is rigid, we may infer 
         $\Diamond Univ(e_1) \wedge vUniv(e_2) \wedge (\varphi_\exists(e_1, e_2))^\Diamond$.
         By our induction hypothesis, 
         $$\Box (Univ(e_1) \wedge vUniv(e_2) \supset (\varphi_\exists(e_1, e_2))^\Diamond \equiv \varphi).$$
@@ -581,22 +581,15 @@ The result follows.
         Going right to left,
         Suppose $\Diamond \varphi$. By comp, 
         $\Diamond \varphi \wedge EX \wedge \forall y[Xy \equiv y = y]$.
-        By HP, 
-        $\Diamond (\varphi \wedge \Diamond (Ee \wedge Set(e, X)))$.
-        By rigidity, $\Diamond (\varphi \wedge Set(e, X))$.
+
+        By HP and Min2, 
+        $\Diamond (\varphi \wedge Ee_2 \wedge vUniv(e_2) \wedge \Diamond (Ee_1 \wedge Set(e_1, X)))$.
+        By rigidity, $\Diamond (\varphi \wedge Ee_2 \wedge vUniv(e_2) \wedge Set(e_1, X))$.
     
-        We have, as a general lemma,
-        $EX \wedge \forall y[Xy \equiv y = y] \wedge Set(x, X) \supset Univ(x)$.
-        For, suppose $Ez$. Then since $z = z$ we get $Xz$ and hence $z \in x$. So 
-        $\forall z[z \in x]$. Then suppose $\Diamond \exists y[y \in x \wedge y = z]$. 
-        Then $\Diamond \exists y[Xy \wedge y = z]$. Since $EX$ it follows that $Ez$, 
-        and of course still $y \in x$ as required.
-    
-        It follows that $\Diamond (\varphi \wedge Univ(e))$. By the IH, 
-        $\Box (Univ(e) \supset ((\varphi(e)_\exists)^\Diamond \equiv \varphi))$. Hence,
-        since $Univ(e) \supset Tran(e)$, we have 
-        $\Diamond (\exists e[e  \supseteq d \wedge Tran(e) \wedge (\varphi(e)_\exists)^\Diamond])$,
-        as required.
+        As before, it follows that $\Diamond (\varphi \wedge Ee_2 \wedge vUniv(e_2) \wedge Univ(e_1))$. By the IH, 
+        $\Box (Univ(e_1) \wedge Univ(e_2) \supset ((\varphi(e)_\exists)^\Diamond \equiv \varphi))$. Hence,
+        since $Univ(e_1) \supset Tran(e)$, and $vUniv(e_2) \wedge Ee_1$ implies $e_1 \leq e_2$, \dots
+        is this worth the bother lol........
     
         ***
 
@@ -607,8 +600,9 @@ The result follows.
         $$\equiv $$
         $$\D \varphi$$
 
-        what if we modify universality so $d_2$ is an enumeration of all
-        vertically-possible sets?
+
+        try adding a principle that says it is vertically possible that 
+        Ex iff it is possible there is a real r such that x in L[r].
 
         then suppose rtl. 
 
