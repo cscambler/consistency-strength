@@ -294,7 +294,7 @@ Finally, the set theoretic axioms.
     \item[Inf] $\D \exists X\Box \forall y[Xy \equiv \mathbb{N}(y)]$
     \item[Pow] $\Box \forall x \D \exists X \B \forall y [Xy \equiv y \subseteq x]$
     \item[Rep] $Rep^\Diamond$, $Rep^\D$
-    \item[Min2] ??
+    \item[Min2] $Univ(d_1) \wedge vUniv(d_2) \wedge Tran(e_1) \wedge e_1 \supseteq d_1 \wedge e_2 \geq d_2 \supset \Diamond Univ(e_1)\wedge vUniv(e_2)$ 
 \end{description}
 \subsection{Necessary Lemmas}
 \begin{lemma}[Mirroring]
@@ -529,20 +529,23 @@ The result follows.
     between the first order fragments of SOA$^+$ and $M$ in the following sense: for all 
     $\varphi$ without second order variables, we have
     \begin{enumerate}
-        \item $M \vdash Univ(d_1) \wedge d_1 \leq d_2 \supset (\varphi_\exists)^\Diamond \equiv \varphi$
+        \item $M \vdash Univ(d_1) \wedge vUniv(d_2) \supset (\varphi_\exists)^\Diamond \equiv \varphi$
         \item $SOA^+ \vdash Tran(d_1) \wedge Real(d_2) \supset (\varphi^\Diamond)_\exists \equiv \varphi.$
     \end{enumerate}
-    Here, $Univ(d_1)$ is as before. 
+    Here, $Univ(d_1)$ is as before. $vUniv(d_2)$ means that $d_2$ is a function 
+    that enumerates all vertically possible sets. Symbolically:
+    \[ Fun(d_2) \wedge \B \forall x \exists n [d_2(n) = x] \wedge \forall n \D \exists x[d_2(n) = x] \]
     \end{theorem}
     \begin{proof}
         Start with 1.
         The base cases are all immediate, as are the propositional connectives. 
         For the quantifier, we need 
-        $$M \vdash Univ(d_1) \wedge d_1 \leq d_2 \supset 
+        $$M \vdash Univ(d_1) \wedge vUniv(d_2) \supset 
         \Diamond \exists x \in d_1(\varphi_\exists(d_1, d_2)^\Diamond(x)) 
         \equiv 
         \exists x \varphi$$
-        So suppose $Univ(d_1)$. Going right to left, our induction hypothesis 
+        So suppose $Univ(d_1) \wedge vUniv(d_2)$. 
+        Going right to left, our induction hypothesis 
         yields $\exists x (\varphi_\exists(d_1, d_2)^\Diamond(x))$, 
         and then $Univ(d_1)$ 
         implies $\Diamond \exists x \in d_1 (\varphi_\exists(d_1, d_2)^\Diamond(x))$ as 
@@ -556,22 +559,22 @@ The result follows.
         By the IH we have $\varphi(x)$ and the result follows.
     
         For $\Diamond \varphi$, we must show that:
-        $$M \vdash Univ(d_1) \wedge d_1 \leq d_2 \supset $$
+        $$M \vdash Univ(d_1) \wedge vUniv(d_2) \supset $$
         $$\Diamond \exists e_1, e_2[d_2 \leq e_2 \wedge d_1 \subseteq e_1 \in L[e_2] \wedge Tran(e_1) \wedge (\varphi_\exists(e_1, e_2))^\Diamond]$$
         $$\equiv $$
         $$\Diamond \varphi$$
     
-        So suppose $Univ(d_1)$ and $d_1 \leq d_2$. 
+        So suppose $Univ(d_1)$ and $vUniv(d_2)$. 
         
         Going left to right, suppose
         $$\Diamond (Ee_1 \wedge Ee_2  \wedge d_2 \leq e_2 \wedge d_1 \subseteq e_1 \in L[e_2] \wedge Tran(e_1) \wedge (\varphi_\exists(e_1, e_2))^\Diamond].$$
-        By rigidity, $e_1 \supseteq d_1 \wedge Tran(e)$. 
-        So by Min $\Diamond Univ(e_1)$. We also have \\ $\Box e_1 \leq e_2$.
+        By rigidity, $Tran(e_1) \wedge e_1 \supseteq d_1 \wedge e_2 \geq d_2$. 
+        So by Min2 $\Diamond Univ(e_1) \wedge vUniv(e_2)$.
         As before, since
         $\Diamond (\varphi_\exists(e))^\Diamond$ and the latter is rigid, we may infer 
-        $\Diamond Univ(e_1) \wedge e_1 \leq e_2 \wedge (\varphi_\exists(e_1, e_2))^\Diamond$.
+        $\Diamond Univ(e_1) \wedge vUniv(e_2) \wedge (\varphi_\exists(e_1, e_2))^\Diamond$.
         By our induction hypothesis, 
-        $\Box (Univ(e_1) \wedge e_1 \leq e_2 \supset (\varphi_\exists(e_1, e_2))^\Diamond \equiv \varphi)$.
+        $$\Box (Univ(e_1) \wedge vUniv(e_2) \supset (\varphi_\exists(e_1, e_2))^\Diamond \equiv \varphi).$$
         Hence $\Diamond \varphi$. 
         
         NOT DONE BELOW HERE
@@ -595,8 +598,26 @@ The result follows.
         $\Diamond (\exists e[e  \supseteq d \wedge Tran(e) \wedge (\varphi(e)_\exists)^\Diamond])$,
         as required.
     
-        
+        ***
+
+        The really difficult case is $\B$. We need
     
+        $$M \vdash Univ(d_1) \wedge d_1 \leq d_2 \supset $$
+        $$\Diamond \exists e[e \supseteq d_1 \wedge Tran(e) \wedge e \in L[d_2] \wedge \varphi_\exists(e, d_2)^\Diamond]$$
+        $$\equiv $$
+        $$\D \varphi$$
+
+        what if we modify universality so $d_2$ is an enumeration of all
+        vertically-possible sets?
+
+        then suppose rtl. 
+
+        the hypothesis implies vertically-possible that $e$ exists. the other stuff 
+        is rigid. so the IH gets the result.
+
+        suppose ltr. then it is vertically-possible there 
+        is an e that is universal and $\varphi$. This e is in $L[d_2]$.
+        and the other stuff is rigid. so IH gets the
 
     \end{proof}
     
