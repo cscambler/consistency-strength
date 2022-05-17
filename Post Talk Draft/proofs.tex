@@ -297,7 +297,7 @@ Finally, the set theoretic axioms.
     \item[Min2] Necessarily, either all sets are necessarily constructible, or else $\exists r[\B \forall x[x \in L[r]]$
     \item[Min1] $Univ(d_1) \wedge vUniv(d_2) \wedge Tran(e_1) \wedge d_1 \subseteq e_1 \wedge e_2 \geq d_2 \supset \Diamond Univ(e_1) \wedge vUniv(e_2)$ 
 \end{description}
-In the latter, $vUniv(r)$ abbreviates $\B \forall x [x \in L[r]]$.
+In the latter, $vUniv(r)$ abbreviates $\B \forall x [x \in L[r]] \wedge \Box \forall x[x \in L[r] \supset \D Ex]]$.
 \subsection{Necessary Lemmas}
 \begin{lemma}[Mirroring]
     Let $\Gamma 
@@ -534,7 +534,6 @@ The result follows.
         \item $M \vdash Univ(d_1) \wedge vUniv(d_2) \supset (\varphi_\exists)^\Diamond \equiv \varphi$
         \item $SOA^+ \vdash Tran(d_1) \wedge Real(d_2) \supset (\varphi^\Diamond)_\exists \equiv \varphi.$
     \end{enumerate}
-    Here, $Univ(d_1)$ is as before. $vUniv(d_2)$ means that $\D Ex \equiv x \in L[d_2]$.
     \end{theorem}
     \begin{proof}
         Start with 1.
@@ -577,7 +576,6 @@ The result follows.
         $$\Box (Univ(e_1) \wedge vUniv(e_2) \supset (\varphi_\exists(e_1, e_2))^\Diamond \equiv \varphi).$$
         Hence $\Diamond \varphi$. 
         
-        NOT DONE BELOW HERE
         Going right to left,
         Suppose $\Diamond \varphi$. By comp, 
         $\Diamond \varphi \wedge EX \wedge \forall y[Xy \equiv y = y]$.
@@ -587,31 +585,34 @@ The result follows.
         By rigidity, $\Diamond (\varphi \wedge Ee_2 \wedge vUniv(e_2) \wedge Set(e_1, X))$.
     
         As before, it follows that $\Diamond (\varphi \wedge Ee_2 \wedge vUniv(e_2) \wedge Univ(e_1))$. By the IH, 
-        $\Box (Univ(e_1) \wedge Univ(e_2) \supset ((\varphi(e)_\exists)^\Diamond \equiv \varphi))$. Hence,
-        since $Univ(e_1) \supset Tran(e)$, and $vUniv(e_2) \wedge Ee_1$ implies $e_1 \leq e_2$, \dots
-        is this worth the bother lol........
+        $\Box (Univ(e_1) \wedge vUniv(e_2) \supset ((\varphi(e_1, e_2)_\exists)^\Diamond \equiv \varphi))$.  Thus 
+        $\Diamond \varphi(e_1, e_2)_\exists^\Diamond$, and it is tedious but routine to show that the other 
+        conditions are necessary of $e_1$ and $e_2$ using rigidity properties. ($e_1 \leq e_2$ follows 
+        from the fact that $e_1$ exists when $e_2$ is vertically universal.)
     
-        ***
-
-        The really difficult case is $\B$. We need
+        The most difficult case is $\B$. We need
     
-        $$M \vdash Univ(d_1) \wedge d_1 \leq d_2 \supset $$
+        $$M \vdash Univ(d_1) \wedge vUniv(d_2) \supset $$
         $$\Diamond \exists e[e \supseteq d_1 \wedge Tran(e) \wedge e \in L[d_2] \wedge \varphi_\exists(e, d_2)^\Diamond]$$
         $$\equiv $$
         $$\D \varphi$$
 
+        Suppose $Univ(d_1) \wedge vUniv(d_2)$.
 
-        try adding a principle that says it is vertically possible that 
-        Ex iff it is possible there is a real r such that x in L[r].
+        Going left to right, if 
+        $$\Diamond (Ee \wedge e \supseteq d_1 \wedge Tran(e) \wedge e \in L[d_2] \wedge \varphi_\exists(e, d_2)^\Diamond)$$
+        Then using Min1 and rigidity we may infer 
+        $$\Diamond ( e \supseteq d_1 \wedge Univ(e) \wedge e \in L[d_2] \wedge \varphi_\exists(e, d_2)^\Diamond)$$
+        ((HERE YOU NEED TO WRITE IN ANOTHER ANNOYING PRINCIPLE. I THINK YOU SHOULD JUST TANK THIS.
+        THE PRINCIPLE YOU NEED TO WRITE IN IS THAT IF IT IS VERTICALLY POSSIBLE THERE IS SOME TRANSITIVE 
+        EXTENSION OF THE UNIVERSE, THEN ITS VERTICALLY POSSIBLE THAT IT IS UNIVERSAL.
+        BUT IT'S JUST GETTING RIDICULOUS.))
+        the IH provides 
+        $$\Box (Univ(e) \wedge vUniv(d_2) \supset \varphi_\exists(e, d_2)^\Diamond \equiv \varphi)$$
+        hence 
+        $$\Diamond ( e \supseteq d_1 \wedge Univ(e) \wedge e \in L[d_2] \wedge \varphi_\exists(e, d_2)^\Diamond)$$
 
-        then suppose rtl. 
 
-        the hypothesis implies vertically-possible that $e$ exists. the other stuff 
-        is rigid. so the IH gets the result.
-
-        suppose ltr. then it is vertically-possible there 
-        is an e that is universal and $\varphi$. This e is in $L[d_2]$.
-        and the other stuff is rigid. so IH gets the
 
     \end{proof}
     
