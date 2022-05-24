@@ -6,11 +6,17 @@
 \newcommand{\bu}{\Box_\uparrow}
 \newcommand{\bl}{\Box_\leftarrow}
 
+
 \usepackage[T1]{fontenc}
-\usepackage{amsmath, amssymb}
+\usepackage{amsmath, amssymb, amsthm}
 \usepackage{bussproofs}
 \usepackage{tcolorbox}
 \usepackage[]{multicol}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{fact}{Fact}
 
 \title{On the Consistency Strength of Axioms for Height and Width Potentialism}
 \author{Chris Scambler}
@@ -82,14 +88,6 @@ intuitive conception. Imagine there is a being who is capable of taking things
 and {\bf collecting} them together into a set, and of repeatedly performing this act 
 as many times as is conceivable. Say that a \emph{set} is something that, given enough 
 executions of this basic act, could be produced by such a being. 
-
-In order to axiomatize this conception we will want to isolate a formal language 
-with the right components. The following will be taken to comprise the relevant 
-language $\mathcal{L}_0$.
-
-\begin{tcolorbox}
-    Here is some text
-\end{tcolorbox}
 
 We want to axiomatize this conception in modal logic. The modal operator, $\Diamond$, 
 is to be interpreted so that $\Diamond \varphi$ means
@@ -182,113 +180,90 @@ for their creator, \O ystein Linnebo.
 We now turn to a discussion of the proof-theoretic relations between $\mathsf{L}$
 and ZFC. 
 \subsection{Key Results}
-There are three key results of interest. I will state them and indicate the methods of proof. 
+We will focus for now on two ``central results'': they show that the consistency 
+strength of $\mathsf{L}$ is exactly that of ZFC. I will state them and indicate the methods of proof. 
 Full proofs are provided in Appendix B. 
 
-TODO: YOU NEED TO REDO THIS SO BOTH THEORIES ARE SET IN 
-SECOND ORDER LOGIC. THEN YOU CAN BRING OUT THE DIFFERENCES IN 
-TERMS OF PLURAL COMPREHENSION AND MORE EASILY PROVE THE FIRST ORDER 
-EQUIVALENCE. YOU CAN ALSO DISCUSS STRATGIES FOR INTERPRETING 
-THE SECOND ORDER CASE ALONG THE LINES OF BUTTON, WHICH YOU REALLY 
-MUST READ AND UNDERSTAND.
 
-The {\bf first key result} is that there is a recursive mapping 
-$\varphi \mapsto \varphi^\exists$ from the potentialist 
-language to the language of first order set theory that preserves theoremhood 
-from $\mathsf{L}$ into ZFC.
+The first central result is that there is a translation $\varphi \mapsto \varphi^\Diamond$ 
+from the language of second order set theory 
+to the potentialist language $\mathcal{L}_0$ that preserves theoremhood 
+from ZFC into $\mathsf{L}$ \emph{on first order formulas}. 
 
-The {\bf second key result} is that there is a recursive mapping 
-$\varphi \mapsto \varphi^\diamond$ from the language of first 
-order set theory to the modal language that preserves theoremhood 
-from ZFC into $\mathsf{L}$.
+The key idea behind the translation, $\varphi \mapsto \varphi^\Diamond$,  
+is for the potentialist to interpret the actualists quantifiers as tacitly modalized:
+when the actualist says, for example, that `there is no set of all sets', the potentialist 
+will interpret them as saying, `it is not possible for there to be a set that, necessarily, contains all sets',
+which is a theorem from their point of view. Slightly more formally, 
+the idea for $t_\diamond$ is to put a $\Diamond$ in front of every existential quantifier 
+(and a $\Box$ in front of 
+every universal). The variables get mapped to themselves, and the translation 
+commutes with the connectives in the obvious way, so for example $t(\varphi \wedge \psi)$
+is $t(\varphi) \wedge t(\psi)$. 
 
-The {\bf third key result} is that the first order fragments of these theories 
-exhibit what Button (cite) has called a \emph{near-synonymy} relation.
+That the translation has the desired property is a theorem due to Linnebo. It makes 
+use of the following central fact, which will be appealed to repeatedly. 
 
-The latter takes a little unpacking. What does that mean? 
-The relation of \emph{full synonymy} or \emph{definitional equivalence} between 
-the first order fragments would require, in addition to the first two key results, 
-that ZFC should prove $\varphi \leftrightarrow (\varphi^\Diamond)^\exists$, 
-and that $\mathsf{L}$ should prove
-$\varphi \leftrightarrow (\varphi^\exists)^\Diamond$, where $\varphi$ in each case 
-is restricted to the first order fragment of the language (but where it may, if a 
-$\mathsf{L}$ formula, contain modal operators).
+\begin{fact}
+    Suppose all atomic predicates in a language $\mathcal{L}$ are rigid in some theory $T$,
+    and that $\Box$ 
+    is a modal operator of $\mathcal{L}$ with the axioms of S4.2 together with the 
+    converse Barcan formula according to $T$. Then we have 
+    $\Gamma \vdash \varphi$ iff $\Gamma^\Diamond \vdash_T \varphi^\Diamond$, where here 
+    $\vdash$ represents provability in classical logic. 
+\end{fact}
+Given the fact, the prove that the proposed translation works amounts to showing that 
+the modal translation of the first order axioms of ZFC hold in $\mathsf{L}$, which is a 
+routine exercise. 
 
-It would be nice if this were so. But unfortunately it cannot \emph{quite} be. 
-The translation $\varphi^\exists$ 
-involves interpreting unrestricted quantification in the modal language as 
-tacitly restricted 
-to sets (``possible worlds''), and catering for the extra parameters they 
-induce means that there
-are extra assumptions we need to make to ensure such an equivalence is 
-provable. For 
-instance, we have to assume that the thing the actualist calls 
-`the actual world' (for the potentialist)
-contains exactly all those things the potentialist recognizes. 
-Hence the maps 
-are only inverses if we throw in some extra assumptions on the parameters.  
-Thus we are 
-left only with what Button has called \emph{near synonymy} 
-rather than full definitional 
-equivalence.
+Why does the result only hold for first order formulas? Well, it is an equally easy 
+exercise to prove that the $\Diamond$ translation of second order comprehension 
+is inconsistent over the other axioms of $\mathsf{L}$. Thus, to the extent that 
+the vocabulary is the same, this translation does not extend to the whole language. 
+It is tempting to view this result as showing that, although there is a great amount 
+of agreement between $\mathsf{L}$ and theories like ZFC, nevertheless there are substantive 
+disagreements too. They are not `equivalent descriptions'.
 
-The difference between the two is not great. 
-Indeed to me it looks like a trivial book-keeping detail. 
-All the model-theoretic consequences one gets 
-from definitional equivalence, for example, carry over fairly straightforwardly to the form of 
-near-definitional equivalence we acquire. 
-Thus there is a very natural sense in which the first order 
-picture of the sets painted by ZFC is equivalent to the 
-first order modal account axiomatized by theories like L. 
-What more to make of this, and the relevance of the restriction to the 
-first order fragment, will be discussed below.
+The second central result is that there is a translation $\varphi \mapsto \varphi_\exists$ from the 
+potentialist language $\mathcal{L}_0$ to the language $\mathcal{L}$ of second order 
+set theory that preserves theoremhood from $\mathsf{L}$ to ZFC. Thus ZFC can 
+interpret the claims of $\mathsf{L}$. This time, agreement on the full language can be 
+attained, and the result is therefore a consistency proof for $\mathsf{L}$ relative to ZFC.
 
-Let me go into the methods of proof for these results. 
 
-First, let's discuss the translation $\varphi \mapsto \varphi^\exists$ from the first key result.
+Let's discuss the translation $\varphi \mapsto \varphi^\exists$.
 It has to translate the whole potentialist idiolect into the austere idiom of the 
-first order language. How is that to be done? An important part of the idea, as I said, is to introduce a
-notion of a possible world and take the potentialist to really be using quantifiers 
-restricted to such worlds. But the speaker of a first order language must also 
-find some interpretation for the potentialist's plural variables. To do that, 
-they will just interpret plural talk as unusual talk about sets (whose elements 
-are the `plurals'). 
+second order language. How is that to be done? 
 
-To implement this, we take all the 
-first order variables $x_k$ of the potentialist, and 
-map them to the even numbered variables $x_{2k} := (x_k)_\exists$ 
-in our first order langauge; 
-and we take the pural variables $X_k$ of the 
-potentialist and map them to the odd numbered variables $x_{2k+1} := (X_k)_\exists$ 
-of our first order logic. Clearly, this is a way of interpreting talk of 
-plurals as just talk of some special objects.
+The guiding idea is in many respects a natural dual to that of the previous translation.
+With the $\Diamond$ translation, the potentialist injected a modal element into 
+the talk of the actualist to make their claims come good. Here, with the $\exists$ translation,
+we will do the opposite: the actualist with remove the modal element and replace it 
+with quantificational claims over what might naturally be thought of as `possible worlds'.
+So, we define the notion of a possible world, and then interpret a potentialist assertion 
+like `necessarily, any things can be the elements of a set' as saying that, for any possible world 
+we choose, and any things contained in that world, there exists a more expansive possible 
+world that contains a set with those things as its elements. And with the right 
+definition of world, it turns out that in ZFC we can make all the assertions of 
+$\mathsf{L}$ come true. 
 
-Now that we have an intepretation for the potentialist's variables we can proceed to specify 
-the interpretation more generally. We set $x \in y^\exists$ and $Xx^\exists$ as $x_\exists \in y_\exists$ 
-and $x_\exists \in X_\exists$ respectively. The connectives commute with the translation. For the quantifiers,
-we interpret the potentialist's assertion that any thing(s) has(have) the property $P$ as saying 
-that any thing(s) \emph{in the domain} has(have) the property $P$ \emph{relative to that domain}. More explicitly, 
-the translation introduces a free (set) variable $d$ (to be thought of as ``the domain'') and sets:
-\[(\forall x \varphi)^\exists := \forall x \in d [\varphi^\exists(d)]\]
-Modal notions are defined in terms of quantification over extensions of the domain:
-\[ (\Diamond \varphi)^\exists := \exists e \supseteq d [\varphi^\exists(e)]\]
-It is now tedious but routine to prove that theoremhood is preserved 
-in the transition $\varphi \mapsto \varphi^\exists$ (as long as we require $d$ and $e$ 
-to range over \emph{transitive} sets).
+How should the actualist define the notion of a possible world? That will depend a 
+little bit on some details of the potentialist account we have left open. For example, 
+does the potentialist allow that, given it is possible there are some sets $X$, it is also 
+possible that the sets are exactly $X$ together with $\{X\}$? Or must 
+all the subsets of any given set be introduced together? Different answers on the 
+part of the potentialist will lead to different matching definitions of world on 
+the part of the actualist. For simplicity, we take a maximally liberal conception of 
+world: on this view, any transitive extension of the universe is a possible world 
+that is reachable. (Sets are introduced `one at a time'.) Thus, our intuitive idea 
+is to take possible worlds for the potentialist to be transitive sets; and 
+the actualist will therfore interpret the potentialist's modal operators 
+as really just quantifiers over transitive sets.
 
-The key idea behind the other translation, $\varphi \mapsto \varphi^\diamond$, 
-is to simply put a $\Diamond$ in front of every existential quantifier (and a $\Box$ in front of 
-every universal). For variables, we set $(x_{2k})_\diamond := x_k$, and $(x_{2k+1})_\Diamond = X_k$.
-It is easy to show theoremhood is preserved.
-
-The third key result is not hard, with the only tricky part being coming up with precisely 
-the right statement. Here it is:
-
-Part one. ZFC proves that for any transitive $d$, 
-$\varphi \equiv (\varphi^\Diamond)^\exists(d)$.
-
-Part two. $\mathsf{L}$ proves that if $d$ is a universal set,
-then $\varphi \equiv (\varphi^\exists d)^\Diamond$.
+In order to accomodate these ideas, the actualist's translation of potentialist claims 
+will need to be parameterized: given a formula $\varphi \in \mathcal{L}_0$, its 
+translation will be a claim in $\mathcal{L}$ with an additional free variable, $w$, 
+which stands for the world relative to which the claim is being evaluated. 
 
 
 \subsection{Discussion}
