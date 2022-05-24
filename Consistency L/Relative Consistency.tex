@@ -9,6 +9,8 @@
 \usepackage[T1]{fontenc}
 \usepackage{amsmath, amssymb}
 \usepackage{bussproofs}
+\usepackage{tcolorbox}
+\usepackage[]{multicol}
 
 \title{On the Consistency Strength of Axioms for Height and Width Potentialism}
 \author{Chris Scambler}
@@ -30,14 +32,13 @@
     
     
     It is well known that natural axiom systems for height potentialism 
-    exhibit tight forms of proof-theoretic equivalence with standard set theories 
-    associated with ZFC (and its extension by large cardinals). 
-    The recent literature has seen some discussion of 
-    height and width potentialism combined. But analogous results precisely correlating 
+    are equi-consistent with axiom systems related to ZFC. 
+    On the other hand, although recent literature has seen some discussion of 
+    height and width potentialism combined, analogous results precisely correlating 
     these axiom systems with familiar, purely quantificational theories do not yet exist.    
     
     This paper provides such results. I show that the axioms for height and width 
-    potentialism from Scambler CITE exhibit a tight form of equivalence with 
+    potentialism from Scambler CITE exhibit the same forms of equivalence with 
     second order arithmetic extended by topological regularity principles. 
     The results are significant because they 
     helps to round out the foundational 
@@ -45,21 +46,33 @@
     is from the standard ZFC-conception of set.
 }
 \section{Overview}
+The purpose of this paper is to present some new results on the consistency strength of 
+axiomatic systems for height and width potentialism combined, and to explain 
+what I take their significance to be. The results have a rather 
+technical flavor and involve elements of higher order modal logic, the theory of 
+forcing, and the topology of the real line. In order to maximize intuitiveness, and 
+to make the paper as accessible as possible, I have therefore decided to follow a policy 
+of `double elaboration': I will begin by explaining all the result of interest 
+and the methods used to attain them with a broad brush, one that won't be accurate 
+enough to pass contemporary standards of logical rigor but that will suffice to get
+the key ideas accross in sufficient detail to sustain some philosophical discussion. 
+I will then provide a rather compressed technical appendix that shows how to substanitate 
+the results cited. For the reader who has read the informal presentation, I hope, this 
+more compressed formal development should be sufficient.
+
 I will begin by discussing the sense in which axiom systems for height potentialism
 are equivalent to set theories related to ZFC, and the techniques used to attain 
-the equivalence theorems. I then present the relevant axioms fo height and width 
-potentialism, and prove they share the same form of equivalence with certain extensions 
-of second order arithmetic. Finally, I discuss the relevance of these results for our understanding 
+the equivalence theorems. I then turn to discussing the relevant axioms 
+for height and width 
+potentialism, and outline an argument that they share the same form of equivalence with certain extensions 
+of second order arithmetic. To close, I sketch some further results that apply in the 
+case of height potentialism/ZFC but fail, at least in any straightforward sense, 
+in the case of height+width potentialism/second order arithmetic. 
+To close the main body of the paper, I discuss the relevance of these results for our understanding 
 of the height/width potentialist point of view.
+Finally, a pair of appendices substantiate the technical results.
 \section{Warm Up: Height Potentialism}
-We begin with a review of some familiar territory. Though the correctness of 
-the results here will be 
-obvious to specialists, and though there are similar arguments on offer in the literature 
-(cf Button, Linnebo), I'll present some of the details here, partly because the 
-results have never been given for the precise set of axioms to be discussed, and 
-partly because seeing how the arguments go in the simpler case of plain height potentialism
-will help to give intuitions that will be handy for 
-the more complicated case of height and width potentialism.
+We begin by sketching template results regarding height potentialism. 
 \subsection{Axioms}
 We start with a discussion of the `natural' axiom systems for height potentialism 
 that are at issue.
@@ -69,6 +82,14 @@ intuitive conception. Imagine there is a being who is capable of taking things
 and {\bf collecting} them together into a set, and of repeatedly performing this act 
 as many times as is conceivable. Say that a \emph{set} is something that, given enough 
 executions of this basic act, could be produced by such a being. 
+
+In order to axiomatize this conception we will want to isolate a formal language 
+with the right components. The following will be taken to comprise the relevant 
+language $\mathcal{L}_0$.
+
+\begin{tcolorbox}
+    Here is some text
+\end{tcolorbox}
 
 We want to axiomatize this conception in modal logic. The modal operator, $\Diamond$, 
 is to be interpreted so that $\Diamond \varphi$ means
