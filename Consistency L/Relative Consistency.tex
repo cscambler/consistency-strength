@@ -85,7 +85,7 @@ that are at issue.
 
 The systems will be directed at axiomatizing the following 
 intuitive conception. Imagine there is a being who is capable of taking things 
-and {\bf collecting} them together into a set, and of repeatedly performing this act 
+and \emph{ collecting} them together into a set, and of repeatedly performing this act 
 as many times as is conceivable. Say that a \emph{set} is something that, given enough 
 executions of this basic act, could be produced by such a being. 
 
@@ -120,20 +120,20 @@ being:
     \item[HP] $\Box \forall X \Diamond \exists x [Set(x, X)]$
 \end{description}
 Here and throughout, $Set(x, X)$ is an abbreviation for 
-$\forall z[z \in x \equiv Xz]$; {\bf HP} thus says: \emph{necessarily, any 
+$\forall z[z \in x \equiv Xz]$; \emph{ HP} thus says: \emph{necessarily, any 
 things can be the elements of a set}. Under the given 
 intuitive interpretation, this corresponds to the idea that the being 
 can always collect together any given things into a set in any circumstances.  
 (Hence, in contrast to standard set theory, there are no 
 special things that somehow can't be made to form a set.)
 
-{\bf HP} allows us (given plural comprehension) to prove the possible existence 
+\emph{ HP} allows us (given plural comprehension) to prove the possible existence 
 of each specific hereditarily finite set. But it does not allow for a proof that 
 it is possible to produce any infinite sets. 
 
 In the spirit of transfinite 
 set theory, we will want to secure this possibility axiomatically. 
-One way to to this uses the following {\bf Completeability} principle. 
+One way to to this uses the following \emph{ Completeability} principle. 
 Let $\mathbb{N}(x)$ be the assertion that $x$ is a transitive set well-ordered 
 by $\in$ which, in addition, is Dedekind finite. Then we have the following 
 so-called completeability principle for the nautral numbers:
@@ -145,8 +145,8 @@ This says that it is possible, eventually, for the being to create \emph{all pos
 natural numbers. It can be used to prove the possibility 
 e.g. of $\omega$'s existence, given the other axioms.
 
-Indeed, in conjunction with {\bf Comp$_\mathbb{N}$}, 
-{\bf HP} proves the possible existence of infinitely many
+Indeed, in conjunction with \emph{ Comp$_\mathbb{N}$}, 
+\emph{ HP} proves the possible existence of infinitely many
 infinite sets. But there is no guarantee from the axioms stated up to now that 
 the modal analogue of the powerset axiom should old: that it should be possible, 
 given any set, infinite or no, eventually to produce \emph{all} its possible subsets. 
@@ -180,9 +180,8 @@ for their creator, \O ystein Linnebo.
 We now turn to a discussion of the proof-theoretic relations between $\mathsf{L}$
 and ZFC. 
 \subsection{Key Results}
-We will focus for now on two ``central results'': they show that the consistency 
-strength of $\mathsf{L}$ is exactly that of ZFC. I will state them and indicate the methods of proof. 
-Full proofs are provided in Appendix B. 
+We will focus for now on two ``central results''. They describe a pair of ways 
+to interpret the potentialist language in terms of the actualist one and vice versa.
 
 
 The first central result is that there is a translation $\varphi \mapsto \varphi^\Diamond$ 
@@ -224,6 +223,17 @@ It is tempting to view this result as showing that, although there is a great am
 of agreement between $\mathsf{L}$ and theories like ZFC, nevertheless there are substantive 
 disagreements too. They are not `equivalent descriptions'.
 
+Nevertheless, the translation \emph{does} have certain useful consequences. Saliently, 
+it means that to the extent that we are interested in first order ZFC as a foundation 
+for mathematics, $\mathsf{L}$ likewise has the `logical power' to serve as such a foundation.
+Relatedly, it also means that in enquiries involving $\mathsf{L}$ we can always `import'
+the modalized translations of theorems of standard set theory. Finally, I'd argue 
+that it also shows a sense in which the `pictures' of the set-theoretic universe
+offered by both theories are quite similar: they both agree, up to this translation, 
+that every set first `appears' at some rank of the cumulative hierarchy structure; 
+even if they disagree over the `modal profile' of said hierarchy, as well as on issues 
+like whether there is a plurality unbounded in the (possible) ordinals.
+
 The second central result is that there is a translation $\varphi \mapsto \varphi_\exists$ from the 
 potentialist language $\mathcal{L}_0$ to the language $\mathcal{L}$ of second order 
 set theory that preserves theoremhood from $\mathsf{L}$ to ZFC. Thus ZFC can 
@@ -231,19 +241,24 @@ interpret the claims of $\mathsf{L}$. This time, agreement on the full language 
 attained, and the result is therefore a consistency proof for $\mathsf{L}$ relative to ZFC.
 
 
-Let's discuss the translation $\varphi \mapsto \varphi^\exists$.
-It has to translate the whole potentialist idiolect into the austere idiom of the 
-second order language. How is that to be done? 
 
-The guiding idea is in many respects a natural dual to that of the previous translation.
+
+
+The guiding idea behind the translation  $\varphi \mapsto \varphi^\exists$ is 
+dual to that of the previous translation.
 With the $\Diamond$ translation, the potentialist injected a modal element into 
 the talk of the actualist to make their claims come good. Here, with the $\exists$ translation,
-we will do the opposite: the actualist with remove the modal element and replace it 
-with quantificational claims over what might naturally be thought of as `possible worlds'.
-So, we define the notion of a possible world, and then interpret a potentialist assertion 
-like `necessarily, any things can be the elements of a set' as saying that, for any possible world 
-we choose, and any things contained in that world, there exists a more expansive possible 
-world that contains a set with those things as its elements. And with the right 
+we will do the opposite: the actualist will remove the modal element from 
+the potentialist's talk and replace it 
+with quantificational talk about `possible worlds'.
+In a bit more detail,
+the actualist will define the notion of a possible world, 
+and then interpret a potentialist assertion 
+like `necessarily, any things can be the elements of a set' as saying that, 
+for any possible world 
+we choose, and any things contained in that world, 
+\emph{there exists} a more expansive ``possible 
+world'' that contains a set with those things as its elements. And with the right 
 definition of world, it turns out that in ZFC we can make all the assertions of 
 $\mathsf{L}$ come true. 
 
@@ -254,94 +269,178 @@ possible that the sets are exactly $X$ together with $\{X\}$? Or must
 all the subsets of any given set be introduced together? Different answers on the 
 part of the potentialist will lead to different matching definitions of world on 
 the part of the actualist. For simplicity, we take a maximally liberal conception of 
-world: on this view, any transitive extension of the universe is a possible world 
-that is reachable. (Sets are introduced `one at a time'.) Thus, our intuitive idea 
-is to take possible worlds for the potentialist to be transitive sets; and 
-the actualist will therfore interpret the potentialist's modal operators 
-as really just quantifiers over transitive sets.
+world: on this view, any transitive extension of the universe is a possibility for the 
+potentialist. (Given any sets $X$, and plurality $Z$ contained in $X$, it is possible 
+that $X$ and $\{Z\}$ are exactly the sets.\footnote{
+    In slogan form, sets are introduced `one at a time'.} On this conception, \emph{any}
+transitive set containing everything recgonized by the potentialist is a `possible world'
+in the actualist's translation.
 
 In order to accomodate these ideas, the actualist's translation of potentialist claims 
 will need to be parameterized: given a formula $\varphi \in \mathcal{L}_0$, its 
 translation will be a claim in $\mathcal{L}$ with an additional free variable, $w$, 
-which stands for the world relative to which the claim is being evaluated. 
+which stands for the world relative to which the claim is being evaluated. Quantifiers 
+in the translations of claims will then be bound by the free world variable; 
+modal operators will be interpreted as quantifying over the world variables. So for
+example the potentialists `there is an $x$ that $\varphi$s' will be interpreted as 
+`there is an $x \in w$ that $\varphi_\exists$s at $w$', where $\varphi_\exists$ing `at $w$' is recursively 
+defined by the other clauses. And `necessarily, $\varphi$' will be interpreted as meaning 
+that `for all transitive sets $u$ containing $w$, $\varphi_\exists$ holds at $u$'.
+
+Finally, one defines the translation $\varphi_\exists$ for a modal formula $\varphi$ 
+to say: ``if $w$ is a transitive set, then $\varphi_\exists(w)$''.
+One can then prove that if $\varphi$ holds in $\mathcal{L}$ implies that 
+$\varphi_\exists$ holds in second order set theory.
+
+What does this result show? Well crucially it shows that any inconsistency in 
+$L$ can be converted into an inconsistency in second order set theory, 
+so that's nice. And it combines with the previous result to show that the 
+\emph{first order} modal theory associated with L has exactly the power 
+of first order ZFC.
+
+There are ways in which these results can be strengthened toward the idea of a 
+`definitional equivalence' between the two theories. But we'll set this aside here.
 
 
-\subsection{Discussion}
-\section{Axioms}
-In this section I will give the system of axioms for height and width potentialism 
-that will be the subject of the rest of the paper.
 
-The system is directed at axiomatizing the following intuitive (if fanciful) conception.
-As before, we have a being who is able to take things and {\bf Collect} them together into a set.
+\section{Height and Width Potentialism}
+We now consider analogous results derivble for systems combining height potentialism 
+and width potentialism.
+
+\subsection{Axioms for the ``Simple Theory''}
+Ultimately I will present two axiomatic theories: 
+the \emph{simple} $\mathsf{T}_1$ and \emph{strong} $\mathsf{T}_2$.
+This subsection deals with axioms for the simple theory.
+
+Each system is directed at axiomatizing the following intuitive (if fanciful) conception.
+As before, we suppose we have a being who is able to take things and \emph{collect} 
+them together into a set, and to do so arbitrarily many times.
 But now, we will also take them to be able to perform another kind of basic act: namely, 
-that of taking some things, and {\bf Counting} them, that is, correlating them one-for-one
-with the natural numbers. Our new theory will concern the possibilities for arbitrary iterations 
-of {\bf Collect} and {\bf Count}. This time, we say that a \emph{set} is something that can be 
-gotten eventually by arbitrary iterations of these operations. {\bf Collect} is a height potentialist 
-principle, in that the set collected together has higher rank than the collected sets, 
-while {\bf Count} is naturally understood as a width potentialist principle, 
-as the introduction of an enumerating function for a given set may corresponds to the introduction 
-of new sets of the same or lower rank as the sets counted in many cases--
-indeed, up to isomorphism, it will correspond to introducing a subset of the naturals.
+that of taking some things, and \emph{counting} them, that is, 
+of correlating them one-for-one
+with the natural numbers. 
 
-There are many natural modal operators that one can read off from this conception. 
-There is for example a modal, which I will write $\du \varphi$, which corresponds to 
-possibility only taking acts of {\bf Collect} into consideration. Since this is the 
-height potentialist sense of possibility I shall often refer to this as {\bf vertical}
-possibility. There is also a natural modal, $\dl \varphi$, which corresponds to possibility 
-just by iterated enumeration. This might naturally be read as {\bf horizontal} possibility.
- And there is a general modal operator, $\Diamond \varphi$, which 
-corresponds to $\varphi$s being possible by some arbitrary number of iterations and alternations 
-of the two available operations. I will refer to this as {\bf general} possibility. There are 
-many others besides, for example that induced by $\du\dl$, but these will play little direct role.
-In fact, for our purposes, even $\dl$ will be superfluous. We will focus our attentions on 
-the two operators $\du$ and $\Diamond$, where the former corresponds to possibility just by 
-{\bf Collection}, and the latter to possibility by combinations of {\bf Collect} and {\bf Count}.
+The axioms to be presented
+will concern the possibilities for arbitrary iterations 
+of \emph{collect} and \emph{count}. We will think of a set as anything 
+you can get by indefinitely iterating these two basic acts in any order,
+and lay down axioms designed to capture this idea.
 
-So we take a multi-modal language with the two modal operators $\Diamond$ and $\du$. We still 
-want the capacity to talk about pluralities and so we keep the two types of variable. 
-And we want to talk about sets so we include the membership relation symbol $\in$. 
+\emph{Collect} is a height potentialist 
+principle, in that the set collected together has higher rank than the collected sets.
+Count on the other hand is naturally understood as a width-potentialist principle, 
+as the introduction of such enumerating functions in general implies the possible 
+existence of `new' sets of natural numbers over any given domain, so that there are necessarily 
+always width expansions of infinite ranks. 
 
-What axioms should we impose? Well, we want all the same plural and first order stuff.
-Both of the modal operators should have $\mathsf{S4.2}$, and
-we have $\du \varphi \rightarrow \Diamond \varphi$. We take over 
-all the axioms from $\mathsf{L}$ for the $\du$ modality: the idea being, nothing 
-has changed from before, and if we could get something without forcing/enumeration before 
-we can get it by ignoring forcing/enumeration now.
-\section{Key Results}
-\section{Discussion}
-\section{Stuff}
-Modal Set Theory:
-Absolutness of various kinds.
 
-Set Theory: 
-Pi 1-1 PSP equivalent to only countably many reals in L[r].
 
-Logic: 
-Define a formula to be \emph{pseudo typed} (PT) iff 
-odd numbered variables only ever occur
-to the right of $\in$. 
-Then in ZFC, any fomula $\varphi$ has a (weak) PT equivalent
-$PT(\varphi)$ with $ZFC \vdash PT(\varphi)$ iff $ZFC \vdash \varphi$, 
-and any sentence 
-$\varphi$ has a (strong) PT equivalent $PT(\varphi)$ with 
-$ZFC \vdash \varphi \leftrightarrow PT(\varphi)$.
+The language for the simple theory is just $\mathcal{L}_0$, and we
+take over all the basic logical axioms from $\mathsf{T}_0$.
+In addition, it contains the following two core principles:
+\begin{description} 
+    \item[HP] $\Box \forall X \Diamond \exists x [Set(x, X)]$
+    \item[WP] $\Box \forall X \Diamond \exists f[f : \mathbb{N} \twoheadrightarrow X]$
+\end{description}
+The first is taken over straightforwardly from the height potentialist theory $\mathsf{T}_0$.
+The second is an obvious implementation of the universal possibility of enumeration 
+alluded to a moment ago. 
 
-Proof. Let $n(\varphi)$ be a number greater than the indices of variables in 
-$\varphi$. For each $n$ let $E_n$ be an enumeration of 
-the evens greater than $n$, so e.g. $E_2(0)=3$. 
+As before, we will also endorse Comp$_\mathbb{N}$, so we can find infinite 
+sets to play with; similarly, so we do recursions and things, we will 
+take $Rep^\Diamond$, the translation of the replacement schema. Let the resulting theory 
+be $\mathsf{T}_1$.
 
-We define $PT(\varphi)$ recursively. Moving from left to right in the formula 
-keep looking until you find a variable out of place. Then check to see 
-if it is free or bound. If it is free, replace all other free occurrences of the 
-variable by $E_{n(\varphi)}(0)$; If 
-it is bound, do the same for all its occurrences in the scope 
-of the binding quantifier. In either case, a formula $PT_0(\varphi)$
-results. Then given $PT_n(\varphi)$, do the same thing to get $PT_{n+1}(\varphi)$.
-Whenever $PT_n(\varphi) = PT_{n+1}(\varphi)$, $PT_n(\varphi)$ is $PT$. We set 
-such $PT_n(\varphi) := PT(\varphi)$.
+Note that $\mathsf{T}_1$ does not contain Comp$_\subseteq$. In fact, it can 
+do this only on pain of triviality.
 
-$PT(\varphi)$ is provable iff $\varphi$ is. Induction on the number of out-of-place 
-variables. Suppose it holds for $n$. 
+\begin{lemma}
+$\mathsf{T}_1 \vdash \neg$ Comp$_\subseteq$.
+\end{lemma}
+\begin{proof}
+    It suffices to argue for the possibility of a set $x$ such that necessarily, 
+    for any plurality $X$ comprising only subsets of $x$, it is possible there is a 
+    subset $y$ of $x$ that is not one of the $X$. Let $x$ be $\omega$, which 
+    possibly exists by Comp$_\mathbb{N}$ and HP. Suppose that there are some $X$ such 
+    that the $X$ are necessarily all subsets of $\omega$. By WP, it is possible 
+    there is a function enumerating the $X$; by plural comprehension, there are 
+    some $C$ comprising all those $k$ for which $k \not \in f(k)$. By HP it is possible 
+    there is a set $c$ whose elements are $C$. But $c$ cannot be one of the $X$: 
+    otherwise, $f(k) = c$ for some $k$, so
+    $$k \in c \equiv k \in f(k) \equiv \neg Ck \equiv \neg k \in c$$
+    a contradiction. 
+\end{proof}
+Recall that Comp$_\subseteq$ was our `modal analogue' of the powerset axiom. There is thus 
+a prima facie incompatibility between height + width potentialism together and 
+the powerset axiom of standard set theory. 
+
+It is also worth mentioning that this form of width potentialism is closely related 
+to forcing potentialism in set theory. Let $\mathbb{P}(x)$ abbreviate the claim 
+that $x$ is a partial order, let $Den(D, x)$ abbreviate the assertion that the $D$s 
+are the dense subsets of $x$, and then finally let $Fmeets(x, X, y)$ abbreviate the 
+claim that $y$ is a filter in $x$ that meets all the $X$. Then the assertion
+\begin{description}
+    \item[WPf] $\Box \forall x \mathbb{P}(x) \wedge Den(D, x) \supset \Diamond \exists y (Fmeets(x, D, y))$
+\end{description}
+amounts to the assertion that every partial order can be forced over. Again, we have 
+the following:
+\begin{lemma}
+    Over $\mathsf{T}_1$ without WP, WP and WPf are equivalent.
+\end{lemma}
+So one can naturally think of the simple theory $\mathsf{T}_1$ as combining height 
+potentialism with forcing potentailism. 
+
+\subsection{Key Results on $\mathsf{T}_1$}
+We saw previously that $\mathsf{T}_0$ stood in a close interpretational relationship 
+with ZFC2. In this section we will make minor modifications to those arguments 
+to establish a similar connection between the simple height and width potentiailst 
+theory $\mathsf{T}_1$ and second order arithmetic.
+
+The central results considered here use the same translations as were used in 
+proving the key results about $\mathsf{T}_0$, and the proofs follow essentially the 
+same pattern. 
+
+The first central result is that the translation $\varphi \mapsto \varphi^\Diamond$ 
+again preserves theoremhood from a certain quantificational theory 
+to the (first order part of) $\mathsf{T}_1$: except this time, 
+rather than the quantificational theory 
+being ZFC, it is PA. 
+
+The proof is straightforward. PA is known to be definitionally equivalent to 
+ZFC without power + all sets are hereditarily countable. It is completely 
+routine to see that the $\Diamond$ translations of all these axioms are theorems 
+of $\mathsf{T}_1$. So Fact 1 implies the result. 
+
+The second central result now takes a predictable form: namely, that the 
+translation $\varphi \mapsto \varphi_\exists$ maps theorems of $\mathsf{T}_1$ 
+to theorems of PA2. Again, we use the definitionally equivalent form of the latter 
+stated in terms of $\in$. The translation once again invokes a notion of possible 
+world, defined as a transitive set, and uses the fact that PA2 proves every set is 
+contained in a transitive set, and proves every set is hereditarily countable. 
+The details are provided in one of the appendices.
+
+As before, these results admit partial strengthenings in the direction of a definitional
+equivalence; as before these are set to one side. As before, there are also 
+some modest gains to be made by observing the existence of these translations. 
+On the on hand we may help ourselves to translations of PA2 when reasoning in $\mathsf{T}_1$;
+on the other, we know that any contradictions in our simple height/width potentialist theory,
+or height/forcing potentialist theory, may be translated to contradictions in 
+second order arithmetic.
+
+\subsection{Axioms for the ``Strong Theory''}
+
+The simple theory $\mathsf{T}_1$ is mathematically weak compared to $\mathsf{T}_0$.
+The business of this section is to provide (and motivate) axioms for height and width 
+potentialism combined that are stronger. We will find some that are in fact 
+as strong as $\mathsf{T}_0$, and that admit a reasonable conceptual motivation.
+
+When we discussed the informal motivation for the simple theory we had recourse to 
+two operations: the operation of \emph{collecting} together some things into a set 
+and the operation of \emph{counting out} some things, that is, correlating them 
+one-for-one with the natural numbers.
+
+
+
+
 
 \end{document}
