@@ -439,42 +439,63 @@ two operations: the operation of \emph{collecting} together some things into a s
 the universe upward,
 as well as the operation of \emph{counting out} some things, that is, correlating them 
 one-for-one with the natural numbers, and expanding the unvierse outward.
+(One could also exchange the latter with the operation of \emph{forcing over a partial order}, 
+equivalently, given WPf.)
 We then axiomatized the conception using 
 the modal operator $\Diamond$, which was to reflect possibility by arbitrary 
-iterations of either. But a finer grain of description would be afforded if we 
-allowed ourselves the ability to talk about possibility \emph{by expansion in height}
-as well as possibility \emph{by expansion in width}.
+iterations of either. We found that WP meant we couldn't have Comp$_\subseteq$, 
+so we were left with a weak theory equivalent to set theory without powerset.
 
-The first idea behind the strong theory $\mathsf{T}_2$ is to expand the language in this 
-way, so that we have an operator $\du$ corresponding to height potentialism and an operator 
-$\dl$ corresponding to width potentialism. The second idea, which is what gets the extra 
-mathematical strength, is that the height potentialist modality should always yield 
-an interpretation for ZFC `in the limit': if we restrict our attention only to sets 
-that are possible-in-height, we will find the full panoply of standard `large cardinals'.
-Nevertheless, since $\mathsf{T}_2$ will still have WP, ultimately any such apparent large 
-cardinals will be mere countable pretenders. One can view this, roughly speaking, as 
-the assertion that the height potentialist modality always furnishes an `inner model' for ZFC, 
-even if ultimately all sets are countable. 
+The first move toward the strong theory is to reflect the fact that we have, 
+intuitively, \emph{two} ways of expanding the domain -- \emph{up} and \emph{out}, 
+or \emph{collect} and \emph{count} -- in the language, taking on a modal $\du$ for vertical 
+expansion of the domain and $\dl$ for horizontal. Thus, our formal language $\mathcal{L_2}$
+will have operators:
+\begin{itemize}
+    \item $\du \varphi$, meaning $\varphi$ can be made true by iterated height expansion
+    \item $\dl \varphi$, meaning $\varphi$ can be made true by iterated width expansion
+    \item $\Diamond \varphi$, meaning $\varphi$ can be made true by any means
+\end{itemize}
+What axioms should we impose? For the modal logic, we will 
+take S4.2 for each operator, and impose the natural constraint that $\du \varphi \supset \Diamond \varphi$ 
+(vertical-possibility implies possibility) and similarly for $\dl$. 
+We will assume essentially the same conditions on identity and existence for plurals and sets.
 
-This position can be understood as part of the project of understanding the significance of 
-the independence phenomenon and the widespread use of forcing in contemporary set theory in 
-the context of ZFC. Joel Hamkins has emphasized that there is something of a tension between 
-standard forcing practice and the ordinary `cumulative hiearchy' conception of set. The 
-issue is that forcing practice seems to make liberal use of the idea that any old partial order 
-admits a generic, while the cumulative hierarchy picture tells you that can't be so,
-because the powerset axiom is true, and there are absolutely uncountable sets. 
-Hamkins himself offers a `multiverse' view, wherein the various universes for which ZFC hold can all be 
-`transcended' to universes that contain generics for their partial orders. 
-The theory $\mathsf{T}_2$ is naturally understood as offering a formalization of a similar idea. 
-One imagines being able always to expand the universe in height so as to get any type of set 
-one could get in ZFC, and thus to develop a cumulative hierarchy structure -- or something like it 
--- from any starting point. In this sense the cumulative hierarchy conception is upheld. But nevertheless, 
-one also has WP and hence WPf. So the idea that forcing is always possible is also maintained.
+More substantially, the core axioms HP and WP are naturally modified:
+\begin{description} 
+    \item[HP$_\uparrow$] $\Box \forall X \du \exists x [Set(x, X)]$
+    \item[WP$_\leftarrow$] $\Box \forall X \dl \exists f[f : \mathbb{N} \twoheadrightarrow X]$
+\end{description}
+these are now the central tenets of each separate modality. 
 
-In a moment we will turn to a discussion of the mathematical strength of this account. But first 
-we must at least outline the central axioms.
+Many of the motivating thoughts behind axioms in $\mathsf{T}_0$
+carry over in a straightforward way to axioms for $\mathsf{T}_2$ that concern $\du$.
+For example in the case of the axiom of infinity, we thought that we could keep introducing 
+sets long enough that we would eventually get all the natural numbers; and in $\mathsf{T}_2$ we 
+should surely axiomatize this in terms of height expansion,
 
+\begin{description}
+    \item[Comp$_\mathbb{N}$]
+    $\du \exists X \Box \forall y[ Xy \leftrightarrow \mathbb{N}(x)]$
+\end{description}
+Of course, this implies the more general version that begins with $\Diamond$.
 
+The real strength of the strong theory 
+lies in the fact that, beacuse it separates the modalities out in this way, 
+strong axioms of possible set existence can be asserted \emph{relativized to one 
+or other of these}, even if the strong axioms do not hold in general. For example, 
+it is easy to modify the proof of theorem blank in $\mathsf{T}_1$ to a proof of the same result here:
+we have:
+\begin{theorem}
+    $\mathsf{T}_2 \vdash \neg \mathsf{Comp}_\subseteq$.
+\end{theorem}
+However, this is clearly consistent with the weaker prinicple
+\begin{description}
+    \item[Comp$_\subseteq^\uparrow$] $\Box \forall x \du \exists X \bu \forall y[Xy \equiv y \subseteq x]$
+\end{description}
+that is, it is consistent that \emph{by height expansion} one eventually gets all the subsets 
+of any given set that one can get \emph{by height expansion alone}, even if one can never get 
+\emph{absolutely all} subsets of any given set.
 
 
 
