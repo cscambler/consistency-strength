@@ -85,7 +85,7 @@ that are at issue.
 
 The systems will be directed at axiomatizing the following 
 intuitive conception. Imagine there is a being who is capable of taking things 
-and \emph{ collecting} them together into a set, and of repeatedly performing this act 
+and \emph{collecting} them together into a set, and of repeatedly performing this act 
 as many times as is conceivable. Say that a \emph{set} is something that, given enough 
 executions of this basic act, could be produced by such a being. 
 
@@ -120,20 +120,20 @@ being:
     \item[HP] $\Box \forall X \Diamond \exists x [Set(x, X)]$
 \end{description}
 Here and throughout, $Set(x, X)$ is an abbreviation for 
-$\forall z[z \in x \equiv Xz]$; \emph{ HP} thus says: \emph{necessarily, any 
+$\forall z[z \in x \equiv Xz]$; \emph{HP} thus says: \emph{necessarily, any 
 things can be the elements of a set}. Under the given 
 intuitive interpretation, this corresponds to the idea that the being 
 can always collect together any given things into a set in any circumstances.  
 (Hence, in contrast to standard set theory, there are no 
 special things that somehow can't be made to form a set.)
 
-\emph{ HP} allows us (given plural comprehension) to prove the possible existence 
+\emph{HP} allows us (given plural comprehension) to prove the possible existence 
 of each specific hereditarily finite set. But it does not allow for a proof that 
 it is possible to produce any infinite sets. 
 
 In the spirit of transfinite 
 set theory, we will want to secure this possibility axiomatically. 
-One way to to this uses the following \emph{ Completeability} principle. 
+One way to to this uses the following \emph{Completeability} principle. 
 Let $\mathbb{N}(x)$ be the assertion that $x$ is a transitive set well-ordered 
 by $\in$ which, in addition, is Dedekind finite. Then we have the following 
 so-called completeability principle for the nautral numbers:
@@ -145,8 +145,8 @@ This says that it is possible, eventually, for the being to create \emph{all pos
 natural numbers. It can be used to prove the possibility 
 e.g. of $\omega$'s existence, given the other axioms.
 
-Indeed, in conjunction with \emph{ Comp$_\mathbb{N}$}, 
-\emph{ HP} proves the possible existence of infinitely many
+Indeed, in conjunction with \emph{Comp$_\mathbb{N}$}, 
+\emph{HP} proves the possible existence of infinitely many
 infinite sets. But there is no guarantee from the axioms stated up to now that 
 the modal analogue of the powerset axiom should old: that it should be possible, 
 given any set, infinite or no, eventually to produce \emph{all} its possible subsets. 
@@ -272,7 +272,7 @@ the part of the actualist. For simplicity, we take a maximally liberal conceptio
 world: on this view, any transitive extension of the universe is a possibility for the 
 potentialist. (Given any sets $X$, and plurality $Z$ contained in $X$, it is possible 
 that $X$ and $\{Z\}$ are exactly the sets.\footnote{
-    In slogan form, sets are introduced `one at a time'.} On this conception, \emph{any}
+    In slogan form, sets are introduced `one at a time'.}) On this conception, \emph{any}
 transitive set containing everything recgonized by the potentialist is a `possible world'
 in the actualist's translation.
 
@@ -435,9 +435,49 @@ potentialism combined that are stronger. We will find some that are in fact
 as strong as $\mathsf{T}_0$, and that admit a reasonable conceptual motivation.
 
 When we discussed the informal motivation for the simple theory we had recourse to 
-two operations: the operation of \emph{collecting} together some things into a set 
-and the operation of \emph{counting out} some things, that is, correlating them 
-one-for-one with the natural numbers.
+two operations: the operation of \emph{collecting} together some things into a set and expanding 
+the universe upward,
+as well as the operation of \emph{counting out} some things, that is, correlating them 
+one-for-one with the natural numbers, and expanding the unvierse outward.
+We then axiomatized the conception using 
+the modal operator $\Diamond$, which was to reflect possibility by arbitrary 
+iterations of either. But a finer grain of description would be afforded if we 
+allowed ourselves the ability to talk about possibility \emph{by expansion in height}
+as well as possibility \emph{by expansion in width}.
+
+The first idea behind the strong theory $\mathsf{T}_2$ is to expand the language in this 
+way, so that we have an operator $\du$ corresponding to height potentialism and an operator 
+$\dl$ corresponding to width potentialism. The second idea, which is what gets the extra 
+mathematical strength, is that the height potentialist modality should always yield 
+an interpretation for ZFC `in the limit': if we restrict our attention only to sets 
+that are possible-in-height, we will find the full panoply of standard `large cardinals'.
+Nevertheless, since $\mathsf{T}_2$ will still have WP, ultimately any such apparent large 
+cardinals will be mere countable pretenders. One can view this, roughly speaking, as 
+the assertion that the height potentialist modality always furnishes an `inner model' for ZFC, 
+even if ultimately all sets are countable. 
+
+This position can be understood as part of the project of understanding the significance of 
+the independence phenomenon and the widespread use of forcing in contemporary set theory in 
+the context of ZFC. Joel Hamkins has emphasized that there is something of a tension between 
+standard forcing practice and the ordinary `cumulative hiearchy' conception of set. The 
+issue is that forcing practice seems to make liberal use of the idea that any old partial order 
+admits a generic, while the cumulative hierarchy picture tells you that can't be so,
+because the powerset axiom is true, and there are absolutely uncountable sets. 
+Hamkins himself offers a `multiverse' view, wherein the various universes for which ZFC hold can all be 
+`transcended' to universes that contain generics for their partial orders. 
+The theory $\mathsf{T}_2$ is naturally understood as offering a formalization of a similar idea. 
+One imagines being able always to expand the universe in height so as to get any type of set 
+one could get in ZFC, and thus to develop a cumulative hierarchy structure -- or something like it 
+-- from any starting point. In this sense the cumulative hierarchy conception is upheld. But nevertheless, 
+one also has WP and hence WPf. So the idea that forcing is always possible is also maintained.
+
+In a moment we will turn to a discussion of the mathematical strength of this account. But first 
+we must at least outline the central axioms.
+
+
+
+
+
 
 
 
