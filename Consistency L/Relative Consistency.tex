@@ -55,13 +55,11 @@
 The purpose of this paper is to present some new results on the consistency strength of 
 axiomatic systems for height and width potentialism combined, and to explain 
 what I take their significance to be. The results have a rather 
-technical flavor and involve elements of higher order modal logic, the theory of 
+technical flavor and involve elements of second order modal logic, the theory of 
 forcing, and the topology of the real line. In order to maximize intuitiveness, and 
 to make the paper as accessible as possible, I have therefore decided to follow a policy 
-of `double elaboration': I will begin by explaining all the result of interest 
-and the methods used to attain them with a broad brush, one that won't be accurate 
-enough to pass contemporary standards of logical rigor but that will suffice to get
-the key ideas accross in sufficient detail to sustain some philosophical discussion. 
+of `double elaboration'. I will begin by explaining the results of interest, 
+and the methods used to attain, at a general level in broad outline. 
 I will then provide a rather compressed technical appendix that shows how to substanitate 
 the results cited. For the reader who has read the informal presentation, I hope, this 
 more compressed formal development should be sufficient.
@@ -71,12 +69,7 @@ are equivalent to set theories related to ZFC, and the techniques used to attain
 the equivalence theorems. I then turn to discussing the relevant axioms 
 for height and width 
 potentialism, and outline an argument that they share the same form of equivalence with certain extensions 
-of second order arithmetic. To close, I sketch some further results that apply in the 
-case of height potentialism/ZFC but fail, at least in any straightforward sense, 
-in the case of height+width potentialism/second order arithmetic. 
-To close the main body of the paper, I discuss the relevance of these results for our understanding 
-of the height/width potentialist point of view.
-Finally, a pair of appendices substantiate the technical results.
+of second order arithmetic. ...
 \section{Warm Up: Height Potentialism}
 We begin by sketching template results regarding height potentialism. 
 \subsection{Axioms}
@@ -89,8 +82,9 @@ and \emph{collecting} them together into a set, and of repeatedly performing thi
 as many times as is conceivable. Say that a \emph{set} is something that, given enough 
 executions of this basic act, could be produced by such a being. 
 
-We want to axiomatize this conception in modal logic. The modal operator, $\Diamond$, 
-is to be interpreted so that $\Diamond \varphi$ means
+We want to axiomatize this conception of set in modal logic. 
+We therefore work in a language with a modal operator, $\Diamond$, 
+which is to be interpreted so that $\Diamond \varphi$ means
 `by repeated acts of collection, $\varphi$ can be made to hold'. The dual 
 operator, $\Box \varphi$, means `no matter how many acts of collection are performed, 
 $\varphi$ will hold'. The axioms governing this modal logic can be taken to be 
@@ -478,7 +472,8 @@ should surely axiomatize this in terms of height expansion,
     \item[Comp$_\mathbb{N}$]
     $\du \exists X \Box \forall y[ Xy \leftrightarrow \mathbb{N}(x)]$
 \end{description}
-Of course, this implies the more general version that begins with $\Diamond$.
+By the weakening principle, 
+this implies the more general version that begins with $\Diamond$.
 
 The real strength of the strong theory 
 lies in the fact that, beacuse it separates the modalities out in this way, 
@@ -495,7 +490,9 @@ However, this is clearly consistent with the weaker prinicple
 \end{description}
 that is, it is consistent that \emph{by height expansion} one eventually gets all the subsets 
 of any given set that one can get \emph{by height expansion alone}, even if one can never get 
-\emph{absolutely all} subsets of any given set.
+\emph{absolutely all} subsets of any given set. Adopting this axiom amounts to accepting 
+a restricted form of the powerset principle, roughly analogous (in ways to be explored) 
+to the assertion that the powerset axiom holds in an inner model. 
 
 If we add a certain translation of the replacement scheme to the axioms listed in this section, 
 we have what I call the strong theory $\mathsf{T}_2$. Exactly how strong it is is the topic 
