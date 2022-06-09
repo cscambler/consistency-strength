@@ -212,16 +212,12 @@ will go on to discuss.
     \item[Sets] The axiom of foundation, and an axiom 
       $\Box \forall x \exists X \Box \forall y[Xy \leftrightarrow y \in x]$ asserting the rigidity of set membership
 \end{description}
-The precise details of many of these won't be too relevant below, but they are cited 
-here for something like completeness' sake. More details can be found in CITE. The 
-odd one out, perhaps, is {\bf Inf}. It is included here for simplicity, since 
-many of the 
-phenomena we will be interested in occur only at the level of infinite sets.
+These axioms provide the basic prinicples of plural logic and set theory that will 
+support the exploration of various potentialist axioms of set existence. The axiom 
+of infinity is assumed in its standard (rather than potentialist) form just as a simplifying 
+measure; all the phenomena we are interested in occur at the level of infinite sets.
 
-The basic 
-idea behind the core axioms is to get a modal and plural logic, combined with fundamental 
-principles of set theory, to allow for the development of set theory based on potentialist 
-principles of set existence. Let us now turn to that development.
+We now turn to the development of potentialist axiom systems over the core logic.
 
 \subsection{Simple HWP}
 In this section I will present what seems to me to be the simplest formal combination 
@@ -274,40 +270,29 @@ Let us call the result of adding these HP and either WP or Count
  Simple Height and Width Potentialism, or SHWP.
 
 Turning now to questions of consistency, 
-it turns out that SHWP is 
-demonstrably consistent relative to Second Order Arithmetic (SOA). 
-In fact it turns out that SHWP exhibits a tight form of equivalence with SOA,
-something Tim Button has called `near synonymy' in the 
-recent literature. 
+one can prove that SHWP is 
+consistent relative to Second Order Arithmetic (SOA), and that 
+in fact SHWP itself interprets SOA back under a natural translation.
+The theories are (close to) `mutually interpretable', as the jargon goes.
 
 (Here and below, we understand SOA under the guise of 
 ZFC without power + all sets are countable. This is 
 definitionally equivalent to the more standard
 arithmetical formulations; see e.g. Simpson.)
 
-A detailed account of the relationship between SOA and SHWP would be overkill here.
-(Details can be found in CITE.) But certain features will be important 
-to our discussion of consistency below, and having some idea of how the interpretation 
-of the modal theory SHWP in the non-modal SOA goes will be very 
-helpful to us going forward. 
-So we will spend some time discussing certain aspects of the `tight equivalence'
-just mentioned.
-
 Let $\mathcal{L}_\in$ be the first order 
 language of set theory. Then:
 \begin{theorem}\label{SHWP1}
     There is a map $\cdot^\Diamond : \mathcal{L}_\in \to \mathcal{L}_0$ that preserves 
-    theoremhood from SOA to SHWP.
+    theoremhood from the first order fragment of SOA to SHWP.
 \end{theorem}
 \begin{theorem}\label{SHWP2}
     There is a map $\cdot^\exists : \mathcal{L}_0 \to \mathcal{L}_\in$ that preserves 
     theoremhood from SHWP to
     SOA.
 \end{theorem}
-Theorem \ref{SHWP1} says that SHWP interprets SOA; this 
-direction does not really concern us directly, since it does not 
-imply anything about the consistency of SHWP, but some 
-idea of how things go will be useful.
+Theorem \ref{SHWP1} says that SHWP interprets SOA on first order formulas; i.e.,
+it interprets PA. 
 The translation $\varphi \mapsto \varphi^\Diamond$ proceeds by prepending every 
 universal quantifier in $\varphi$ by a $\Box$ and every existential by a $\Diamond$.
 A result due to Linnebo says that for $\varphi \in \mathcal{L}_\in$, 
@@ -316,10 +301,12 @@ where $\Gamma^\Diamond$ has the obvious meaning of $\{\gamma^\Diamond : \gamma \
 It thus suffices to prove $\varphi^\Diamond$ for each axiom of SOA in SHWP, 
 which (using Proposition \ref{SHWP0}) is not difficult. 
 
-Theorem \ref{SHWP2} is directly on-topic. It says that SOA interprets SHWP and hence
-secures the consistency of the latter relative to the former. Full details of the 
-ideal proof are a little fiddly and would go beyond our needs here. But some idea, 
-again, of how things go down will be useful.
+Theorem \ref{SHWP2} is of more direct significance to us. 
+It says that SOA interprets SHWP and hence
+secures the consistency of the latter relative to the former. 
+Full details of the 
+ideal proof are a little fiddly and would go beyond our needs here. 
+But some idea of how things go down will be useful.
 
 The key idea behind the translation $\varphi \mapsto \varphi^\exists$ is to factor 
 out use of modal operators in favor of quantification over possible worlds. 
@@ -329,6 +316,22 @@ in SOA to be a transitive set. That means we interpret the language of SHWP so t
 quantifiers are always restricted to such worlds, and the modal operators induce 
 quantifiers over such worlds. 
 
+The introduction of talk of worlds raises some questions about the potentialist 
+view that are not settled by the axioms up to now, but that are settled under 
+translation, in various ways, depending on the choice of definition for `possible 
+world'. For example, supposing the $X$s are everything and the $Y$s are some arbitrary things, 
+is it possible that everything is either one of the $X$s or the set whose elements are the $Y$s?
+
+Various answers to this question and others like it might be entertained. One might, for example, 
+require that whenever some set is introduced, so too are all its subsets: a possible world 
+will then be a $V_\alpha$, and the above question will be answered negatively in general. Another, 
+more liberal option would be to answer in the affirmative in all cases. 
+
+However this question is answered by the potentialist, the actualist will introduce a corresponding 
+formula, $World(x)$, which picks out those sets that the potentialist thinks of as possible worlds, 
+as a way the sets could be. They then use that definition, along with quantification over such worlds,
+to emulate the potentialists claims of possibility and necessity. 
+
 Formally, this means our translation will have to 
 carry formulas $\varphi$ in the modal language (which may be sentences) to formulas 
 $\varphi^\exists(w)$ 
@@ -336,17 +339,14 @@ in the first order language with a free `world' variable $w$. Key clauses of the
 translation are things like
 \[ (\forall x \varphi)^\exists(w) := \forall x \in w \varphi^\exists(w) \]
 \[ (\forall X \varphi)^\exists(w) := \forall x \subseteq w \varphi^\exists(w) \]
-\[ (\Box \varphi)^\exists(w) := \forall u [Tran(u) \wedge w \subseteq u \rightarrow \varphi^\exists(u)]\]
-where $Tran(u)$ of course is the assertion that $u$ is transitive. (The case of 
-plural containment $Xx$ is a little fiddly, but can be made to work quite nicely.)
+\[ (\Box \varphi)^\exists(w) := \forall u [World(u) \wedge w \subseteq u \rightarrow \varphi^\exists(u)]\]
+where $World(u)$ is the definition of world at issue. 
 The potentialist axioms are then readily seen to be true, under the translation, 
 in SOA. For HP, this is because every set is an element of a transitive set. 
 For WP, this is because SOA proves all sets are countable. So for any 
 given partial order, we may move to a transitive set that witnesses its countability, 
 and then proceed to introduce a generic for it if need be.
 
-A final point is that these results can be strengthened to attain something 
-approximating definitional equivalence between the two theories.  ...
 \subsection{Strong HWP}
 The theory I have just cited combines height and width potentialism in a 
 straightforward way. The result is a theory that is (up to a near-synonymy) 
