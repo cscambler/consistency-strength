@@ -299,7 +299,16 @@ A result due to Linnebo says that for $\varphi \in \mathcal{L}_\in$,
 \[\Gamma \vdash \varphi \Leftrightarrow \Gamma^\Diamond \vdash_{Core} \varphi^\Diamond\]
 where $\Gamma^\Diamond$ has the obvious meaning of $\{\gamma^\Diamond : \gamma \in \Gamma\}$.
 It thus suffices to prove $\varphi^\Diamond$ for each axiom of SOA in SHWP, 
-which (using Proposition \ref{SHWP0}) is not difficult. 
+which (using Proposition \ref{SHWP0}) is not difficult. The translation fails for 
+the full second order language because the translation of comprehension in these terms is 
+incompatible with HP, as the reader can readily check.
+This incompatibility suggests that the equivalence 
+between these theories is not deep. Ultimately, they disagree on questions about 
+second order existence, 
+such as whether there can be a plurality of all (possible) sets. Nevertheless, 
+it is useful in that it means we can help ourselves to the modal translations 
+of arithmetic truths (and the corresponding truths of the fragment of set theory)
+when reasoning in height and width potentialist theories.
 
 Theorem \ref{SHWP2} is of more direct significance to us. 
 It says that SOA interprets SHWP and hence
@@ -310,11 +319,9 @@ But some idea of how things go down will be useful.
 
 The key idea behind the translation $\varphi \mapsto \varphi^\exists$ is to factor 
 out use of modal operators in favor of quantification over possible worlds. 
-
-In a bit more detail, the idea is that we define the notion of a possible world 
-in SOA to be a transitive set. That means we interpret the language of SHWP so that ordinary 
-quantifiers are always restricted to such worlds, and the modal operators induce 
-quantifiers over such worlds. 
+Ultimately what the actualist aims to do is to define a notion of a world, and of 
+a formula's holding at a world, in such a way that when the potentialist says 
+something is possible the actualist has a corresponding truth at a possible world.
 
 The introduction of talk of worlds raises some questions about the potentialist 
 view that are not settled by the axioms up to now, but that are settled under 
@@ -325,12 +332,15 @@ is it possible that everything is either one of the $X$s or the set whose elemen
 Various answers to this question and others like it might be entertained. One might, for example, 
 require that whenever some set is introduced, so too are all its subsets: a possible world 
 will then be a $V_\alpha$, and the above question will be answered negatively in general. Another, 
-more liberal option would be to answer in the affirmative in all cases. 
+more liberal option would be to answer in the affirmative in all cases. This 
+corresponds to allowing set introduction in a maximally `piecemeal' fashion: given 
+any things, you can introduce just the set of them and nothing else.
 
-However this question is answered by the potentialist, the actualist will introduce a corresponding 
-formula, $World(x)$, which picks out those sets that the potentialist thinks of as possible worlds, 
-as a way the sets could be. They then use that definition, along with quantification over such worlds,
-to emulate the potentialists claims of possibility and necessity. 
+However this question is answered by the potentialist, the actualist may introduce a corresponding 
+formula, $World(x)$, defined so as to pick out those sets that the potentialist thinks of as \emph{possible worlds},
+or in this context simply as sets that the potentialist might allow to be all the sets. 
+The actualist will then use that definition, along with quantification over such worlds,
+to interpret the potentialist's claims of possibility and necessity. 
 
 Formally, this means our translation will have to 
 carry formulas $\varphi$ in the modal language (which may be sentences) to formulas 
@@ -341,7 +351,12 @@ translation are things like
 \[ (\forall X \varphi)^\exists(w) := \forall x \subseteq w \varphi^\exists(w) \]
 \[ (\Box \varphi)^\exists(w) := \forall u [World(u) \wedge w \subseteq u \rightarrow \varphi^\exists(u)]\]
 where $World(u)$ is the definition of world at issue. 
-The potentialist axioms are then readily seen to be true, under the translation, 
+
+For the sake of concreteness, let us take a maximally liberal appraoch to set 
+formation where given any things one is allowed to introduce the set of those 
+things and nothing else. A `possible world' will then be any transitive set.
+The potentialist's axioms for SHWP are then readily seen to be true, 
+under the translation, 
 in SOA. For HP, this is because every set is an element of a transitive set. 
 For WP, this is because SOA proves all sets are countable. So for any 
 given partial order, we may move to a transitive set that witnesses its countability, 
@@ -349,8 +364,9 @@ and then proceed to introduce a generic for it if need be.
 
 \subsection{Strong HWP}
 The theory I have just cited combines height and width potentialism in a 
-straightforward way. The result is a theory that is (up to a near-synonymy) 
-second order arithmetic. This is a pretty weak theory, although as we know 
+straightforward way. The result is a theory that is (up to something like 
+mutual interpretability) 
+essentially just second order arithmetic. This is a pretty weak theory, although as we know 
 from the reverse mathematics literature it is plenty strong enough to develop 
 much of the mathematics needed in applications. Can the height and with potentialist 
 do better?
@@ -421,11 +437,11 @@ Let the extension of the core theory by the above principles (but not, of course
 be called HWP. The following facts come easily.
 \begin{theorem}\label{HWP0}
     There is a translation $\cdot^\circledbar : \mathcal{L}_\in \to \mathcal{L}_1$
-    that preserves theoremhood from ZFC to HWP.
+    that preserves theoremhood from (first order) ZFC to HWP.
 \end{theorem}
 \begin{theorem}\label{HWP1}
     There is a translation $\cdot^\Diamond : \mathcal{L}_\in \to \mathcal{L}_1$
-    that preserves theoremhood from SOA to HWP.
+    that preserves theoremhood from (first order) SOA to HWP.
 \end{theorem}
 In each case, the result follows much as it did in the previous case. In fact 
 Theorem \ref{HWP1} really just is Theorem \ref{SHWP1}. The first uses the same translation
@@ -433,7 +449,7 @@ but with $\circledbar$ in place of $\Diamond$ and $\boxbar$ in place of $\Box$
 everywhere. That the theorem goes through is a known theorem of Linnebo in a slightly 
 different key.
 
-The resulting theory has some intruiging features. If one restricts one's attention 
+The resulting theory has some intriguing features. If one restricts one's attention 
 to vertical possibility and necessity, one can construct objects that 
 satisfy anything you can get in ZFC, for example the existence of uncountable cardinals, 
 beth fixed points, and so on. But these large cardinals are always mirages: 
@@ -630,11 +646,16 @@ where $\varphi$ may include free variables. Then:
     HWP$^+$ is inconsistent.
 \end{theorem}
 \begin{proof}
-    It is easy to see that HWP implies
-    \begin{equation}
+    HWP can be used to derive\footnote{This is a little misleading, since the last line 
+    of the derivation is an application of existential instantiation. So the below is not 
+    a theorem, and neither (of course) is its universal generalization.}
+    \begin{equation}\label{prev}
         \Diamond \exists x[\Diamond (\exists y[ y \subseteq x \wedge y = z]) \wedge \boxbar(\neg \exists y[y = z])]
     \end{equation}
-    abbreviate this as $\Diamond \exists x \Psi(x, z)$. By 
+    by letting $x$ be any infinite set, and $y$ a possible enumeration of the 
+    set of $\circledbar$-possible subsets of $x$.
+
+    Abbreviate \eqref{prev} as $\Diamond \exists x \Psi(x, z)$. By 
     existential instantiation and the comprehension instance
     \begin{equation}\label{exa}
         \exists X \forall w[Xw \equiv \Diamond w \in z]
@@ -816,7 +837,7 @@ this `nothing over and above' conception and HWP cannot live together.
 We disagree, however, because Roberts believes the nothing over and above 
 conception is the only way (for a potentialist) to think about plurals.
 On the other hand I think something like the account sketched above is 
-just as good for potentialist purposes. Thus, in my view, 
+just as good (for potentialist purposes). Thus, in my view, 
 the message is that the proponent of HWP must reject the nothing over and 
 above conception, not that their account is inconsistent.
 
@@ -902,12 +923,8 @@ But discussion of P1 is really a red herring, since at least so far as the
 brands of height and width potentialism here go P2 is false:
 one can argue in (S)HWP that if it is possible that some generic 
 $g_1$ exists, and it is possible that some generic $g_2$ exists, then it is 
-possible that they exist together. One can see this most easily by using 
-the tight form of equivalences offered with extensions of SOA. 
-Such theories prove that
-any two generics for a partial order are both contained in a common transitive 
-set, for example a sufficiently large fragment of $L[r]$ with $r$ witnessing 
-the countability of all the relevant parties.
+possible that they exist together. (One can see this most easily by using 
+the $\Diamond$-translation and reasoning in SOA.) 
 Thus the modal logic of forcing, in this 
 setting, \emph{is} convergent. 
 
@@ -965,7 +982,7 @@ in the first form, but not the second.
 
 It is also true that the stronger form of the iterative concept of 
 set, as associated with ZFC, is at once standardly accepted as basic in 
-set theory (although by no means everywhere in foundational research!)
+set theory
 and rejected in HWP. As Bruaer emphasizes, there therefore remain significant questions 
 of about the extent to which this revisionary positions is defensible, 
 and questions about what the underlying motivation for the view is (in 
