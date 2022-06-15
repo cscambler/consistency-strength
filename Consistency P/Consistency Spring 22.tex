@@ -284,24 +284,32 @@ Let $\mathcal{L}_\in$ be the first order
 language of set theory. Then:
 \begin{theorem}\label{SHWP1}
     There is a map $\cdot^\Diamond : \mathcal{L}_\in \to \mathcal{L}_0$ that preserves 
-    theoremhood from the first order fragment of SOA to SHWP.
+    theoremhood from SOA to SHWP.
 \end{theorem}
 \begin{theorem}\label{SHWP2}
     There is a map $\cdot^\exists : \mathcal{L}_0 \to \mathcal{L}_\in$ that preserves 
     theoremhood from SHWP to
     SOA.
 \end{theorem}
-Theorem \ref{SHWP1} says that SHWP interprets SOA on first order formulas; i.e.,
-it interprets PA. 
+Theorem \ref{SHWP1} says that SHWP interprets SOA.
 The translation $\varphi \mapsto \varphi^\Diamond$ proceeds by prepending every 
 universal quantifier in $\varphi$ by a $\Box$ and every existential by a $\Diamond$.
 A result due to Linnebo says that for $\varphi \in \mathcal{L}_\in$, 
 \[\Gamma \vdash \varphi \Leftrightarrow \Gamma^\Diamond \vdash_{Core} \varphi^\Diamond\]
 where $\Gamma^\Diamond$ has the obvious meaning of $\{\gamma^\Diamond : \gamma \in \Gamma\}$.
 It thus suffices to prove $\varphi^\Diamond$ for each axiom of SOA in SHWP, 
-which (using Proposition \ref{SHWP0}) is not difficult. The translation fails for 
-the full second order language because the translation of comprehension in these terms is 
-incompatible with HP, as the reader can readily check.
+which (using Proposition \ref{SHWP0}) is not difficult. 
+
+It is worth emphasizing 
+that SOA is formulated here as a \emph{first order set theory}, somewhat confusingly; 
+and if we extend that first order set theory to a second order language in the usual way, 
+the result then fails to hold. The reason for this is that second order set set theories 
+will typically have comprehension axioms for the second order variables
+$$\exists X \forall y [Xy \equiv \varphi(y)] $$
+while the instance 
+$$ \Diamond \exists X \Box \forall y[Xy \equiv y = y]$$
+of the translation of this schema is demonstrably false in SHWP and its extensions.
+
 This incompatibility suggests that the equivalence 
 between these theories is not deep. Ultimately, they disagree on questions about 
 second order existence, 
@@ -437,11 +445,11 @@ Let the extension of the core theory by the above principles (but not, of course
 be called HWP. The following facts come easily.
 \begin{theorem}\label{HWP0}
     There is a translation $\cdot^\circledbar : \mathcal{L}_\in \to \mathcal{L}_1$
-    that preserves theoremhood from (first order) ZFC to HWP.
+    that preserves theoremhood from ZFC to HWP.
 \end{theorem}
 \begin{theorem}\label{HWP1}
     There is a translation $\cdot^\Diamond : \mathcal{L}_\in \to \mathcal{L}_1$
-    that preserves theoremhood from (first order) SOA to HWP.
+    that preserves theoremhood from SOA to HWP.
 \end{theorem}
 In each case, the result follows much as it did in the previous case. In fact 
 Theorem \ref{HWP1} really just is Theorem \ref{SHWP1}. The first uses the same translation
@@ -1006,11 +1014,15 @@ from usual in order to support HWP.
 But I do not think that in either case there 
 is anything that presents a severe impediment to the combination of height and width 
 potentialism, or to the combination of the iterative concept of set and forcing potentialism,
-in anything other than unreasonably restricted readings of these terms. With that said,
+in anything other than unreasonably restricted readings of these terms. 
+
+With that said,
 I understand that to some extent this is a terminological point: others may 
-feel differently about what is essential to `the iterative concept of set', for example.
-In any case I am not too worried about the terminology: what I hope \emph{is} clear 
-from this discussion is that there is 
+feel differently about what is essential to `the iterative concept of set', 
+or forcing potentialism, or whatever.
+But the terminological points are not important: what is important,
+and I hope clear 
+from this discussion, is that there is 
 at least a coherent 
 position that incorporates a lot of the traditional ideas in the 
 iterative conception, understood in height potentialist terms, but that amalgamates 
