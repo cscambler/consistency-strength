@@ -160,7 +160,7 @@ There are, in any event, clear analogies
 in the cases for height  and width  potentialism. 
 In each case one has a central inexistence result 
 in first order set theory (Russell's paradox, the 
-proof that some filters do not admit partial orders) 
+proof that some partial orders do not admit generic filters) 
 and one seeks to overcome it, after a fashion, by 
 implementing a modalized version -- any things can 
 form a set in the first case, any partial order can 
@@ -460,7 +460,7 @@ different key.
 The resulting theory has some intriguing features. If one restricts one's attention 
 to vertical possibility and necessity, one can construct objects that 
 satisfy anything you can get in ZFC, for example the existence of uncountable cardinals, 
-beth fixed points, and so on. But these large cardinals are always mirages: 
+beth fixed points, and so on. But these large cardinals (to describe them a little provocatively) are always mirages: 
 and the mirage can always be revealed 
 by appeal to $\circledbslash$-possibility. Anything that might in some possible world 
 satisfy the formula saying that it is (say) $\omega_1$ will also not satisfy that 
@@ -602,13 +602,8 @@ axioms to come good.)
 In fact, one can show that HWP has $\Pi_1^1$-PSP$^\Diamond$ as a theorem, and 
 prove the same kind of tight proof-theoretic equivalence obtains here 
 between HWP and SOA + $\Pi_1^1$-PSP as did between SHWP and SOA simpliciter. 
-These results can be pushed further: by increasing the strength of the regularity 
-assumed in the interpreting theory, 
-one can ratchet up the consistency strength of the corresponding modal HWP 
-theory, allowing for measurables and beyond to be `vertically' attainable.
-(We will return to this observation in more detail below.)
 
-In any case, that concludes the formal arguments 
+That concludes the formal arguments 
 in favor of the consistency of height and width potentialism.
 We have seen, in outline, that there are arguments for the consistency of 
 height and width potentialism in both a strong and a weak form, relative to 
@@ -629,24 +624,20 @@ of the sort described in the last section. But it is worth mentioning
 that a less grand form of height and width potentialism can still be viable,
 in the form of SHWP.
 
-The actual details of Roberts' argument are at present not entirely 
-clear to me. His paper is a work in progress, but in the most 
-recent version he argues that the addition of an actuality operator 
-to a theory related to HWP is incosistent, and that on that basis 
-we should think that the viewpoint enshrined in HWP is similarly inconsistent.
-In correspondence, I suggested that the use of an actuality operator 
-was a red-herring, and that in fact the argument turns (whether or not 
-we have an actuality operator in the picture) on whether we are allowed 
-comprehension only in the `closed' form cited above, or if instead 
-we accept instances of comprehension with free variables. I continue 
-to believe that the fundamentals of the argument Roberts presents turn 
-on issues surrounding comprehension, and that addition of an actuality 
-operator is a needless increase in complexity. So here I will discuss 
-what I take to be the simpler version of the argument, rather than 
-the last one I saw in a draft from Roberts. In an appendix, I will 
-explain why I think the addition of an actuality operator is unnecessary.
-
-Here then is the argument. Let HWP$^+$ be the 
+Here then is the argument.\footnote{
+    This is not exactly the argument I saw in the most recent draft of Roberts'
+    paper. Roberts gives a version of the argument that does not straightforwardly 
+    use the free variable version of comprehension that plays a starring role 
+    in this argument, but instead uses versions of the principles that are closed 
+    but in which all the modal operators are replaced by actualized counterparts -- 
+    Roberts adds an actuality opeartor $@$ to the language, and uses comprehension 
+    in the form $@\Box \forall \vec{x} @\Box \exists X \forall y[Xy \equiv \varphi(y, \vec{x})]$.
+    However, comprehension in this form is not derivable from the straightforward 
+    combination of an actuality operator to the language without using instances 
+    of free variable comprehension. Consequently even in that more complicated setting 
+    I think the issues turn on the question of which version of comperhension to accept,
+    and I have therefore opted to consider this simpler version of the argument.
+} Let HWP$^+$ be the 
 results of allowing all instances of comp, 
 \[ \exists X \forall x[Xx \equiv \varphi]\]
 where $\varphi$ may include free variables. Then:
@@ -676,11 +667,7 @@ where $\varphi$ may include free variables. Then:
     \begin{equation}\label{exc}
         \Diamond (Ex \wedge \Psi(x, z) \wedge \circledbar \exists u \forall w[w \in u \equiv \Diamond w \in z])
     \end{equation}
-    one can then instantiate on $u$ and prove $u = z$, using our (strong 
-    modal version of) extensionality.\footnote{$z \subseteq x$ is needed
-    to get $\Diamond w \in z \supset \Diamond w \in u$; without that, 
-    the other hypotheses imply the converse, but $z$ may have elements that 
-    don't exist at the initial world where $x$ exists implicit in \eqref{exc}.}
+    one can then instantiate on $u$ and prove $u = z$, using SetExt.
 
     But this is a contradiction.
 
@@ -907,7 +894,7 @@ and although there may be nothing in the simple process of forming sets
 from given things that prevents 
 re-convergence, nevertheless other things may do so. 
 
-For example, suppose I have a handle, a blade, some permanently 
+For example, suppose I have a handle, two blades, some permanently 
 binding superglue, and a universe of sets $V$. I can then form the knife $K_1$
 and form its singleton getting a universe of sets $V_1$. Or I can form 
 the knife $K_2$ and form \emph{its} singleton getting $V_2$. But these 
@@ -1041,8 +1028,6 @@ set theory, one of the big open problems in the area. As the considerations
 here attest, it is also logically and metaphysically subtle, 
 and conceptually revisionary. But let 
 us not discard it outright for that.
-
-
 
 
 
