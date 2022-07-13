@@ -1086,15 +1086,14 @@ has a perfect subset.
     and similarly that $\Box \forall x \psi \rightarrow \B \forall x \psi$.
     The result follows.
 \end{proof}
-\subsection{Theorems}
+\subsection*{Theorems}
 \begin{theorem} 
     There is an interpretation $\exists : \mathcal{L}_1 \to \mathcal{L}_\in$ that preserves 
     theoremhood from $H$ to SOA$^+$.
     \end{theorem}
     \begin{definition}[$\varphi_\exists$]
         The translation $\varphi \mapsto \varphi_\exists$ is defined by the following clauses.
-        In each case, $d_1, d_2$ are the least variables not occuring in $\varphi$ $\rho$ is the 
-        set-theoretic rank function; and $\leq$ is the relation of relative constructibility for 
+        In each case, $d_1, d_2$ are the least variables not occuring in $\varphi$, and $\leq$ is the relation of relative constructibility for 
         reals.
         \begin{itemize}
             \item $x \in y_\exists := x \in y \wedge \bigwedge_i d_i = d_i$
@@ -1105,7 +1104,7 @@ has a perfect subset.
             \item $(\exists X \varphi)_\exists := \exists X \subseteq d_1 \wedge X \in L[d_2] [ \varphi_\exists(d_1, d_2)]$
             \item $(\D \varphi)_\exists := \exists e[e \supseteq d_1 \wedge Tran(e) \wedge e \in L[d_2] \wedge \varphi_\exists(e, d_2)]$
             \item $(\Diamond \varphi)_\exists := \exists e_1, e_2[d_2 \leq e_2 \wedge d_1 \subseteq e_1 \in L[e_2] \wedge Tran(e_1) \wedge \varphi_\exists(e_1, e_2)]$
-            \item $(\circledbslash \varphi)_\exists := (\Diamond \varphi_\exists)$
+            \item $(\circledbslash \varphi)_\exists := (\Diamond \varphi)_\exists$
         \end{itemize}
         In these, $\varphi_\exists(e_1, e_2)$ represents the result of substituting $e_1, e_2$ for $d_1, d_2$ in
         $\varphi_\exists$.
@@ -1170,7 +1169,7 @@ then $s$ is in the range of $f$.
 
 The strategy for doing so is simple: we first show that, given any real $r$, 
 it is possible to produce the set of all possible reals constructible from $r$ in 
-HWP (in the sense of the modality $\Diamond$). Since HWP proves all sets are countable (with respect the $\Diamond$ translation)
+$H$ (in the sense of the modality $\Diamond$). Since $H$ proves all sets are countable (with respect the $\Diamond$ translation)
 this implies the desired result.
 
 In more detail,
