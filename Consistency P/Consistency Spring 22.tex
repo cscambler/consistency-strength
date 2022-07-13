@@ -1138,10 +1138,15 @@ has a perfect subset.
         $t:= e_1 \cup d$, and $r := e_2*e$. And it is not hard to see they 
         have the required features.
 
-        All the plural axioms are straightforward.
+        All the plural axioms are straightforward. For comprehension, we use 
+        separation in $L[r]$. Note that only the closed version is valid, 
+        since the open version might involve us with parameters from outside 
+        $L[r]$.
     
-        On to the set-theoretic axioms. The case of extensionality reduces to the claim 
-        that extensionality holds in transitive sets. Ele and Fun are equally straightforward.
+        On to the set-theoretic axioms. 
+        Extensionality is a straightforward consequence of extensionality for 
+        sets. The axiom of choice similarly is a consequence of choice in $SOA^+$.
+        The existence of an infinite set is also given.
         
         For HP: suppose given a transitive extension $e$ of $d_1$ in $L[d_2]$,
         and a subset $X$ of $e$ that is also an element of $L[d_2]$. Since $L[d_2]$
@@ -1155,7 +1160,8 @@ has a perfect subset.
         and $x \in d_3$. The needed result then follows from the powerset axiom in 
         $L[d_4]$.
 
-        Replacement follows from replacement, once in $L[r]$ and once just straight up.
+        The modal version of replacement is just the $\Diamond$ and $\circledbar$ 
+        translations of replacement; these follow again from replacement in the metatheory.
     \end{proof}
 
 \begin{theorem}
