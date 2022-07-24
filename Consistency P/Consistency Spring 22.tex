@@ -569,9 +569,8 @@ It is fairly easy to see that the fact has the following corollary.
 \begin{corollary}
     In  SOA + $\Pi_1^1$-PSP, $L[r]$ is a (class) model of ZFC for every real $r$.
 \end{corollary}
-I provide an argument sketch (that the corollary follows from the fact) in 
-a footnote.\footnote{
-    Do.
+The interested reader can find a short proof of this fact, by Dmytro Taranovsky, online.\footnote{
+    See https://web.mit.edu/dmytro/www/other/PerfectSubsetsAndZFC.htm.
 }
 
 This now gives us the tools we need to implement our parametrized possible worlds 
@@ -1134,7 +1133,7 @@ has a perfect subset.
         $d$ a superset of $d_1$ and an element of $L[e]$. We must find a real $r$ 
         with $e$ constructible from $r$, and transitive set $t$ a superset of $d$ and element 
         of $L[r]$ such that $\varphi_\exists(t, r)$. The obvious candidates are 
-        $t:= e_1 \cup d$, and $r := e_2*e$. (Here $*$ can be any relation taking a pair of 
+        $t:= e_1 \cup d$, and $r := e_2*e$. (Here $*$ can be any function taking a pair of 
         reals to a real they are both constructible from.) It is not hard to see they 
         have the required features.
 
@@ -1159,6 +1158,11 @@ has a perfect subset.
         For r-Pow, suppose given $d_4 \geq d_2$ and $d_3 \supseteq d_1$, $d_3 \in L[d_4]$,
         and $x \in d_3$. The needed result then follows from the powerset axiom in 
         $L[d_4]$.
+
+        As to WP, by propsition 1 it is enough to show that any set in any 
+        $L[r]$ is countable in some extension to $L[s]$ where $s$ is a real 
+        from which $r$ is constructible. This follows immediately by 
+        winding in a real enumerating the set in question to $r$.
 
         The modal version of replacement is just the $\Diamond$ and $\circledbar$ 
         translations of replacement; these follow again from replacement in the metatheory.
