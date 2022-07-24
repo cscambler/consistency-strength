@@ -1061,7 +1061,7 @@ has a perfect subset.
     The same is true for $\D$.
 \end{lemma}
 \begin{proof}
-    An induction on the complexity of $\phi$. See Lemma 12.2 of Linnebo.
+    An induction on the complexity of $\phi$. See Lemma 12.2 of \cite{OL2018}.
 \end{proof}
 \begin{lemma}[$\Delta_1$ Absoluteness]\label{DA}
     Let $\phi$ be a formula that is provably $\Delta_1$ over $ZFC$ without 
@@ -1069,7 +1069,7 @@ has a perfect subset.
     \[H\vdash \phi^{\Diamond} \leftrightarrow \phi^{\D}\]
 \end{lemma}
 \begin{proof}
-    By mirroring and Lemma REF, our assumption implies that there are $\Delta_0$ formulas $\psi, \theta$
+    Using the previous two lemmas, we see our assumption implies that there are $\Delta_0$ formulas $\psi, \theta$
     for which
     \[H\vdash \phi^\Diamond \leftrightarrow 
     \Box \forall x \psi^\Diamond \leftrightarrow 
@@ -1101,7 +1101,7 @@ has a perfect subset.
         reals.
         \begin{itemize}
             \item $x \in y_\exists := x \in y \wedge \bigwedge_i d_i = d_i$
-            \item $Xx_\exists := Xx \wedge \wedge \bigwedge_i d_i = d_i$
+            \item $Xx_\exists := Xx \wedge \bigwedge_i d_i = d_i$
             \item $(\neg \varphi)_\exists := \neg \varphi_\exists(d_1, d_2)$
             \item $(\varphi \vee \psi)_\exists := \varphi_\exists(d_1, d_2) \vee \psi_\exists(d_1, d_2)$
             \item $(\exists x \varphi)_\exists := \exists x \in d_1[ \varphi_\exists(d_1, d_2)]$
@@ -1125,14 +1125,14 @@ has a perfect subset.
         $(\Diamond \Box \varphi)_\exists$. Then there is a real $e_2$ with $d_2$ constructible from
         $e_2$, and transitive $e_1$ a superset of $d_1$ and element of $L[e_2]$,
         such that $ (\Box \varphi)_\exists(e_1, e_2)$.
-        That in turn means that for every real $e$ constructible from $e_2$, and 
+        That in turn means that for every real $e$ with $e_2$ constructible from $e$, and 
         every transitive 
         set $d$ containing $e_1$ and an element of $L[e]$, we have 
         $\varphi_\exists(d, e)$.
 
         So suppose given arbitrary $d, e$ with $d_2$ constructible from $e$, 
         $d$ a superset of $d_1$ and an element of $L[e]$. We must find a real $r$ 
-        constructible from $e$ and transitive set $t$ a superset of $d$ and element 
+        with $e$ constructible from $r$, and transitive set $t$ a superset of $d$ and element 
         of $L[r]$ such that $\varphi_\exists(t, r)$. The obvious candidates are 
         $t:= e_1 \cup d$, and $r := e_2*e$. (Here $*$ can be any relation taking a pair of 
         reals to a real they are both constructible from.) It is not hard to see they 
