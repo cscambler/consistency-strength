@@ -8,6 +8,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{amsmath, amssymb, amsthm, txfonts, stmaryrd}
 \usepackage{bussproofs}
+\usepackage{natbib}
 
 \newtheorem{theorem}{Theorem}
 \newtheorem{definition}[theorem]{Definition}
@@ -16,7 +17,8 @@
 \newtheorem{fact}[theorem]{Fact}
 \newtheorem{corollary}[theorem]{Corollary}
 
-\title{On the Consistency of Height and Width Potentialism}
+\title{On the Consistency of Height and Width Potentialism\footnote{
+This article is an early draft of a paper for The Palgrave Companion to the Philosophy of Set Theory.}}
 \author{Chris Scambler}
 \date{\today}
 \begin{document}
@@ -25,8 +27,8 @@
     Recent work in philosophy of set theory has furnished 
     some arguments that height and width potentialism 
     are inconsistent with one another. 
-    One such argument can be found in this volume (Brauer); 
-    the other is forthcoming (Roberts).
+    One such argument can be found in this volume \citep{EB2022}; 
+    the other is forthcoming \citep{SR2022}.
 
 	At the same time, others have suggested 
     there may be some merit in the combination of 
@@ -35,8 +37,8 @@
     the combination in a non-trivial way, and have 
     defended philosophical claims on their basis 
     (e.g. that all sets are ultimately countable 
-    -- cf Builes \& Wilson, Meadows, 
-    Scambler, Pruss).  
+    -- cf \citep{BW2022}, \citep{TM2015}, 
+    \citep{CS2021}, \citep{AP2020}).  
 
 	Clearly there is a tension here. 
     The business of this article is to explain 
@@ -51,29 +53,26 @@
 }
 \section{Overview}
 
-[TODO: Discuss how Brauer's points about width potentialism 
-`on its own' not being very interesting make it into 
-your model theory?]
 
 Recent work in philosophy of set theory has furnished 
-some arguments that height  and width  potentialism 
-are inconsistent with one another. 
-One such argument can be found in this volume (Brauer); 
-the other is forthcoming (Roberts).
+    some arguments that height and width potentialism 
+    are inconsistent with one another. 
+    One such argument can be found in this volume \citep{EB2022}; 
+    the other is forthcoming \citep{SR2022}.
 
-At the same time, others have suggested 
-there may be some merit in the combination of 
-height  and width  potentialism. Such authors 
-have presented views that appear to manifest 
-the combination in a non-trivial way, and have 
-defended philosophical claims on their basis 
-(e.g. that all sets are ultimately countable 
--- cf Builes \& Wilson, Meadows, 
-Scambler, Pruss).  
+	At the same time, others have suggested 
+    there may be some merit in the combination of 
+    height  and width  potentialism. Such authors 
+    have presented views that appear to manifest 
+    the combination in a non-trivial way, and have 
+    defended philosophical claims on their basis 
+    (e.g. that all sets are ultimately countable 
+    -- cf \citep{BW2022}, \citep{TM2015}, 
+    \citep{CS2021}, \citep{AP2020}).  
 
-Clearly there is a tension here. 
-The business of this article is to explain 
-(what I take to be) its solution. 
+	Clearly there is a tension here. 
+    The business of this article is to explain 
+    (what I take to be) its solution.  
 I will argue that height  and width  potentialism 
 are compatible, and hence that the programs 
 cited above are in good standing. 
@@ -271,7 +270,7 @@ is an abbreviation for the assertion that $f$ is a function on $\mathbb{N}$ with
     then Count is equivalent to WP over the core logic + HP.
 \end{proposition}
 \begin{proof}
-    See CATBC.
+    See \cite{CS2021}.
 \end{proof}
 Let us call the result of adding these HP and either WP or Count
  to the core logic 
@@ -1243,5 +1242,6 @@ reals constructible from $r$. Hence, by an application of mirroring, we conclude
 The result follows.
 
 \end{proof}
-
+\bibliographystyle{kluwer}
+\bibliography{cons.bib}
 \end{document}
